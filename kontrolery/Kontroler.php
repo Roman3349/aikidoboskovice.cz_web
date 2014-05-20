@@ -4,7 +4,7 @@ abstract class Kontroler {
 
     protected $data = array();
     protected $pohled = "";
-    protected $hlavicka = array('titulek' => '', 'klicova_slova' => '', 'popis' => '');
+    protected $hlavicka = array('titulek' => '', 'obsah' => '');
 
     private function osetri($x = null) {
         if (!isset($x)) {
@@ -56,7 +56,7 @@ abstract class Kontroler {
     public function overUzivatele($admin = false) {
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        if (!$uzivatel || ($admin && !$uzivatel['admin'])) {
+        if (!$uzivatel) {
             $this->pridejZpravu('Nedostatečná oprávnění.');
             $this->presmeruj('prihlaseni');
         }

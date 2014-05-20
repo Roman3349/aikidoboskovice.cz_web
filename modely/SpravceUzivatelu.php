@@ -2,19 +2,10 @@
 
 class SpravceUzivatelu {
 
-    public function vratOtisk($heslo) {
-        return hash('sha256', $heslo);
-    }
-
     public function prihlas($jmeno, $heslo) {
-        $result = MC::dotazJeden("SELECT password FROM authme WHERE username = '" . preg_replace('/\s+/', '', $_POST['nick']) . "'");
-        $row = $result->fetch_assoc();
-        $userPasswordField = explode('$', $row['password']);
-        $heslo = hash('sha256', preg_replace('/\s+/', '', $_POST['heslo']));
-        $heslo .= $userPasswordField[2];
-        $heslo = '$SHA$' . $userPasswordField[2] . '$' . hash('sha256', $heslo);
-        $heslicko = $heslo === $row['password'];
-        $uzivatel = MC::dotazJeden('SELECT id, jmeno, admin FROM uzivatele WHERE jmeno = ? AND heslo = ? ', array($jmeno, $this->vratOtisk($heslo)));
+        $salt = (string) mt_rand(10000000, 999999999) . (string) mt_rand(10000000, 999999999);
+        $pw = '$SHA$' . $salt . '$' . hash('sha256', hash('sha256', $heslo) . $salt);
+        $uzivatel = MC::dotazJeden('SELECT (username, password) FROM authme WHERE jmeno = ? AND password = ? ', array($jmeno, $pw));
         if (!$uzivatel) {
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
         }
@@ -26,8 +17,9 @@ class SpravceUzivatelu {
     }
 
     public function vratUzivatele() {
-        if (isset($_SESSION['uzivatel'])) {
-            return $_SESSION['uzivatel'];
+        $db = Db::dotazJeden('SELECT ' . $_SESSION['uzivatel'] . ' FROM admin');
+        if (isset($db)) {
+            return $db;
         }
         return null;
     }

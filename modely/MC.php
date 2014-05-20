@@ -28,8 +28,7 @@ class MC {
     }
 
     public static function dotazSamotny($dotaz, $parametry = array()) {
-        $vysledek = self::dotazJeden($dotaz, $parametry);
-        return $vysledek[0];
+        return self::dotazJeden($dotaz, $parametry)[0];
     }
 
     public static function dotaz($dotaz, $parametry = array()) {
@@ -39,8 +38,7 @@ class MC {
     }
 
     public static function vloz($tabulka, $parametry = array()) {
-        return self::dotaz("INSERT INTO `$tabulka` (`" .
-                        implode('`, `', array_keys($parametry)) . "`) VALUES (" . str_repeat('?,', sizeOf($parametry) - 1) . "?)", array_values($parametry));
+        return self::dotaz("INSERT INTO `$tabulka` (`" . implode('`, `', array_keys($parametry)) . "`) VALUES (" . str_repeat('?,', sizeOf($parametry) - 1) . "?)", array_values($parametry));
     }
 
     public static function zmen($tabulka, $podminka, $hodnoty = array(), $parametry = array()) {

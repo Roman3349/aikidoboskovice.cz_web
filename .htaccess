@@ -7,7 +7,3 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule !\.(css|js|icon|zip|rar|png|jpg|gif|pdf)$ index.php [L]
 
 AddType application/x-httpd-php .php .phtml
-
-log_errors = 1
-error_reporting = E_ALL & ~E_DEPRECATED
-error_log = /data/web/virtuals/56515/virtual/www/subdom/new/error.log

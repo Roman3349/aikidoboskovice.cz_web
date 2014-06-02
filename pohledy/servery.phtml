@@ -1,127 +1,83 @@
 <?php require './include/servery.php'; ?>
-<table style="width: 100%" class="center">
-    <tr>
-        <th>Název</th>
-        <th>IP</th>
-        <th>Status</th>
-        <th>Hráči</th>
-        <th>Verze</th>
-    </tr>
-    <tr>
-        <td>Lobby</td>
-        <td>play.funparba.eu</td>
-        <td><?php
-            if ($Lobby->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $Lobby->players . "/" . $Lobby->slots ?></td>
-        <td><?php echo $Lobby->version ?></td>
-    </tr>
-    <tr>
-        <td>Extreme #1</td>
-        <td>93.91.250.215</td>
-        <td><?php
-            if ($E1->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $E1->players . "/" . $E1->slots ?></td>
-        <td><?php echo $E1->version ?></td>
-    </tr>
-    <tr>
-        <td>Extreme #2</td>
-        <td>93.91.250.200</td>
-        <td><?php
-            if ($E2->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $E2->players . "/" . $E2->slots ?></td>
-        <td><?php echo $E2->version ?></td>
-    </tr>
-    <tr>
-        <td>SkyBlock</td>
-        <td>sky.funparba.eu</td>
-        <td><?php
-            if ($SB->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $SB->players . "/" . $SB->slots ?></td>
-        <td><?php echo $SB->version ?></td>
-    </tr>
-    <tr>
-        <td>Classic</td>
-        <td>93.91.250.140:27884</td>
-        <td><?php
-            if ($Classic->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $Classic->players . "/" . $Classic->slots ?></td>
-        <td><?php echo $Classic->version ?></td>
-    </tr>
-    <tr>
-        <td>Čarovný Minecraft</td>
-        <td>93.91.250.138:27052</td>
-        <td><?php
-            if ($CarMC->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $CarMC->players . "/" . $CarMC->slots ?></td>
-        <td><?php echo $CarMC->version ?></td>
-    </tr>
-    <tr>
-        <td>FutureCraft</td>
-        <td>93.91.250.103:27789</td>
-        <td><?php
-            if ($FC->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $FC->players . "/" . $FC->slots ?></td>
-        <td><?php echo $FC->version ?></td>
-    </tr>
-    <tr>
-        <td>Capture the Flag</td>
-        <td>93.91.250.143:27192</td>
-        <td><?php
-            if ($CtF->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $CtF->players . "/" . $CtF->slots ?></td>
-        <td><?php echo $CtF->version ?></td>
-    </tr>
-    <tr>
-        <td>Team Speak 3</td>
-        <td><a href="ts3server://81.0.217.180?port=7235">81.0.217.180:7235</a></td>
-        <td><?php
-            if ($TS3->status === 'Online') {
-                echo "Online";
-            } else {
-                echo "Offline";
-            }
-            ?></td>
-        <td><?php echo $TS3->players . "/" . $TS3->slots ?></td>
-        <td> </td>
-    </tr>
-</table>
+<h1>Servery</h1>
+<div>
+    <table style="width: 100%" class="center">
+        <tr>
+            <th>Název</th>
+            <th>IP</th>
+            <th>Status</th>
+            <th>Hráči</th>
+            <th>Verze</th>
+        </tr>
+        <tr>
+            <td>Lobby</td>
+            <td>play.funparba.eu</td>
+            <td><?= $Lobby->status; ?></td>
+            <td><?= $Lobby->players . "/" . $Lobby->slots ?></td>
+            <td><?= $Lobby->version ?></td>
+        </tr>
+        <tr>
+            <td>Extreme #1</td>
+            <td>93.91.250.215</td>
+            <td><?= $E1->status ?></td>
+            <td><?= $E1->players . "/" . $E1->slots ?></td>
+            <td><?= $E1->version ?></td>
+        </tr>
+        <tr>
+            <td>Extreme #2</td>
+            <td>93.91.250.200</td>
+            <td><?= $E2->status ?></td>
+            <td><?= $E2->players . "/" . $E2->slots ?></td>
+            <td><?= $E2->version ?></td>
+        </tr>
+        <tr>
+            <td>SkyBlock</td>
+            <td>sky.funparba.eu</td>
+            <td><?= $SB->status ?></td>
+            <td><?= $SB->players . "/" . $SB->slots ?></td>
+            <td><?= $SB->version ?></td>
+        </tr>
+        <tr>
+            <td>Classic</td>
+            <td>93.91.250.140:27884</td>
+            <td><?= $Classic->status ?></td>
+            <td><?= $Classic->players . "/" . $Classic->slots ?></td>
+            <td><?= $Classic->version ?></td>
+        </tr>
+        <tr>
+            <td>Creative</td>
+            <td>93.91.250.120:27639</td>
+            <td><?= $Creative->status ?></td>
+            <td><?= $Creative->players . "/" . $Classic->slots ?></td>
+            <td><?= $Creative->version ?></td>
+        </tr>
+        <tr>
+            <td>Capture the Flag</td>
+            <td>93.91.250.143:27192</td>
+            <td><?= $CtF->status ?></td>
+            <td><?= $CtF->players . "/" . $CtF->slots ?></td>
+            <td><?= $CtF->version ?></td>
+        </tr>
+        <tr>
+            <td>Team Fortress 2</td>
+            <td><a href="steam://connect/217.11.249.93:27554">217.11.249.93:27554</a></td>
+            <td><?= $TF2->status ?></td>
+            <td><?= $TF2->players . "/" . $TF2->slots ?></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Team Speak 3</td>
+            <td><a href="ts3server://ts3.funparba.eu">ts3.funparba.eu</a></td>
+            <td><?= $TS3->status ?></td>
+            <td><?= $TS3->players . "/" . $TS3->slots ?></td>
+            <td></td>
+        </tr>
+	<tr>
+            <td><strong>Celkem</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong><?= $Players . "/" . $Slots ?></strong></td>
+            <td></td>
+        </tr>
+    </table>
+</div>

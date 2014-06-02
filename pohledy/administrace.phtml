@@ -1,9 +1,11 @@
-<p>Vítejte v administraci, jste přihlášeni jako <?= $jmeno ?></p>
-<?php if (!$admin) : ?>
-	<p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
-<?php endif ?>
-<h2><a href="clankyEditor">Editor článků</a></h2>
-<h2><a href="clanek">Seznam článků</a></h2>
-<h2><a href="strankyEditor">Editor stránek</a></h2>
-<h2><a href="stranka">Seznam stránek</a></h2>
-<h2><a href="administrace/odhlasit">Odhlásit</a></h2>
+<h1>Vítejte v administraci, jste přihlášeni jako <?= $jmeno ?></h1>
+<div>
+    <?php if (!$admin) : ?>
+        <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
+    <?php endif ?>
+    <h2><a href="clankyEditor">Editor článků</a></h2>
+    <h2><a href="clanek">Seznam článků</a></h2>
+    <h2><a href="strankyEditor">Editor stránek</a></h2>
+    <h2><a href="stranka">Seznam stránek</a></h2>
+    <h2><a href="administrace/odhlasit">Odhlásit</a></h2>
+</div>

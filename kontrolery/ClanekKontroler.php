@@ -18,7 +18,6 @@ class ClanekKontroler extends Kontroler {
             if (!$clanek) {
                 $this->presmeruj('chyba');
             }
-
             $this->hlavicka = array('titulek' => $clanek['titulek'],);
             $this->data['titulek'] = $clanek['titulek'];
             $this->data['obsah'] = $clanek['obsah'];

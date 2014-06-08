@@ -23,8 +23,4 @@ CREATE TABLE IF NOT EXISTS komentare (
   obsah text,
   PRIMARY KEY (id)
 );
-CREATE TABLE IF NOT EXISTS admini (
-  jmeno varchar(255)
-);
 INSERT INTO  clanky (id, titulek, obsah, url, popisek, klicova_slova) VALUES ( NULL ,  'Úvod',  '<p>Vítejte na našem webu!</p><br><p>Tento web je postaven na <strong>jednoduchém MVC frameworku v PHP</strong>. Toto je úvodní článek, načtený z databáze.</p>', 'uvod',  'Úvodní článek na webu v MVC v PHP',  'úvod, mvc, web');
-INSERT INTO admini (jmeno) VALUES ('Roman3349');

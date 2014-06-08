@@ -23,7 +23,7 @@ class StrankyEditorKontroler extends Kontroler {
         }
 
         $this->data['stranka'] = $stranka;
-        $this->pohled = 'editor';
+        $this->pohled = 'seditor';
     }
 
 }

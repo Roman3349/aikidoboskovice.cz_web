@@ -23,7 +23,7 @@ class ClankyEditorKontroler extends Kontroler {
         }
 
         $this->data['clanek'] = $clanek;
-        $this->pohled = 'editor';
+        $this->pohled = 'ceditor';
     }
 
 }

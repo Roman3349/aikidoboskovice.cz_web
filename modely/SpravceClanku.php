@@ -15,7 +15,7 @@ class SpravceClanku {
     }
 
     public function vratClanky() {
-        return Db::dotazVsechny('SELECT `clanky_id`, `titulek`, `url` FROM `clanky` ORDER BY `clanky_id` DESC');
+        return Db::dotazVsechny('SELECT `clanky_id`, `titulek`, `obsah`, `url` FROM `clanky` ORDER BY `clanky_id` DESC');
     }
 
     public function odstranClanek($url) {

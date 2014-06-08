@@ -1,7 +1,7 @@
 <?php foreach ($clanky as $clanek) : ?>
     <h1><a href="clanek/<?= $clanek['url'] ?>"><?= $clanek['titulek'] ?></a></h1>
     <div>
-        <?= $clanek['obsah'] ?>
+        <?= $clanek['obsah']; ?>
         <?php if ($admin) : ?>
             <br>
             <a href="clankyEditor/<?= $clanek['url'] ?>">Editovat</a>

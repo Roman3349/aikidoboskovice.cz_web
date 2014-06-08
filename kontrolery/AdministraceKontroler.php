@@ -11,7 +11,7 @@ class AdministraceKontroler extends Kontroler {
             $this->presmeruj('prihlaseni');
         }
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        $this->data['jmeno'] = $uzivatel['jmeno'];
+        $this->data['jmeno'] = $uzivatel['username'];
         $this->data['admin'] = $uzivatel['admin'];
         $this->pohled = 'administrace';
     }

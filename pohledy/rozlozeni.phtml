@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',1); 
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 ?>
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ error_reporting(E_ALL);
         <link rel="shortcut icon" href="images/favicon.ico">        
         <link rel="stylesheet" type="text/css" href="css/styles.css">        
         <link rel="stylesheet" type="text/css" href="css/buttons.css">	         
-        <title>FunParba.eu</title>    
+        <title><?= $titulek ?> FunParba.eu</title>    
     </head>    
     <body>        
         <header>          
@@ -24,7 +24,7 @@ error_reporting(E_ALL);
                 <div id="mainmenu" style="margin:0 auto;">              
                     <ul>                
                         <li><a href="/">Novinky</a></li>
-			<li><a href="servery/">Servery</a></li>              
+                        <li><a href="servery/">Servery</a></li>              
                     </ul>            
                 </div>          
             </div>        
@@ -42,7 +42,7 @@ error_reporting(E_ALL);
             <div>        
                 <form action="http://czech-craft.eu/vote.php" method="get" target="_blank">        
                     <select name="id">          
-                        <option value="6978" selected>FutureCraft</option>        
+                        <option value="4666" selected>Capture the Flag</option>        
                     </select>        
                     <input type="text" name="user" placeholder="Sem zadej svůj nick" size="25">        
                     <button class="blue button" style="width:180px" type="submit">Hlasovat</button>      
@@ -50,7 +50,8 @@ error_reporting(E_ALL);
             </div>    
             <h1>Statistika</h1>    
             <div>           
-                <strong>Online hráči: </strong><?php echo $Players . '/' . $Slots; ?>    
+                <strong>Online hráči: </strong><?php echo $Players . '/' . $Slots; ?><br>
+                <strong>Zaplněno slotů: </strong><?php echo (integer) ($Players / $Slots * 100); ?> %     
             </div>    
             <h1>Sledujte nás</h1>    
             <div>        

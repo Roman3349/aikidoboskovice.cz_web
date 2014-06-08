@@ -11,7 +11,7 @@ class StrankaKontroler extends Kontroler {
             $this->overUzivatele(true);
             $spravceStranek->odstranStranku($parametry[0]);
             $this->pridejZpravu('Stránka byla úspěšně odstraněna');
-            $this->presmeruj('clanek');
+            $this->presmeruj('stranka');
         } else if (!empty($parametry[0])) {
             $stranka = $spravceStranek->vratStranku($parametry[0]);
             if (!$stranka) {
@@ -22,7 +22,9 @@ class StrankaKontroler extends Kontroler {
             $this->data['obsah'] = $stranka['obsah'];
             $this->pohled = 'stranka';
         } else {
-            
+            $stranky = $spravceStranek->vratStranky();
+            $this->data['stranky'] = $stranky;
+            $this->pohled = 'stranky';
         }
     }
 

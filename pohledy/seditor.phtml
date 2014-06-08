@@ -1,12 +1,12 @@
-<h1>Editor článků</h1>
+<h1>Editor stránek</h1>
 <div>
     <form method="post">
-        <input type="hidden" name="clanky_id" value="<?= $clanek['clanky_id'] ?>">
+        <input type="hidden" name="clanky_id" value="<?= $stranka['stranka_id'] ?>">
         <strong>Titulek</strong><br>
-        <input type="text" name="titulek" value="<?= $clanek['titulek'] ?>"><br>
+        <input type="text" name="titulek" value="<?= $stranka['titulek'] ?>"><br>
         <strong>URL</strong><br>
-        <input type="text" name="url" value="<?= $clanek['url'] ?>"><br>
-        <textarea name="obsah"><?= $clanek['obsah'] ?></textarea>
+        <input type="text" name="url" value="<?= $stranka['url'] ?>"><br>
+        <textarea name="obsah"><?= $stranka['obsah'] ?></textarea>
         <input type="submit" value="Uložit článek">
     </form>
     <script type="text/javascript" src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>

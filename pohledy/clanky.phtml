@@ -4,8 +4,7 @@
         <?= $clanek['obsah']; ?>
         <?php if ($admin) : ?>
             <br>
-            <a href="clankyEditor/<?= $clanek['url'] ?>">Editovat</a>
-            <a href="clanek/<?= $clanek['url'] ?>/odstranit">Odstranit</a>
+            <a href="clankyEditor/<?= $clanek['url'] ?>">Editovat</a> | <a href="clanek/<?= $clanek['url'] ?>/odstranit">Odstranit</a>
         <?php endif ?>
     </div>
 <?php endforeach ?>

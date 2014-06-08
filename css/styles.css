@@ -25,10 +25,9 @@ h4, h5, h6, form {
     margin: 0;
     padding: 0
 }
-p {
-    line-height: 16px;
-    border-bottom: 0px dashed black;
-    margin: 0
+div, p {
+    margin: 0;
+    padding: 0;
 }
 td {
     padding-top: 10px;

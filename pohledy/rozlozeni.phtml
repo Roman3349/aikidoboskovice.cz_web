@@ -50,8 +50,8 @@ error_reporting(E_ALL);
             </div>    
             <h1>Statistika</h1>    
             <div>           
-                <strong>Online hráči: </strong><?php echo $Players . '/' . $Slots; ?><br>
-                <strong>Zaplněno slotů: </strong><?php echo (integer) ($Players / $Slots * 100); ?> %     
+                <strong>Online hráči: </strong><?= $Players . '/' . $Slots; ?><br>
+                <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %
             </div>    
             <h1>Sledujte nás</h1>    
             <div>        

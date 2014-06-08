@@ -3,9 +3,35 @@
     <?php if (!$admin) : ?>
         <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
     <?php endif ?>
-    <h2><a href="clankyEditor">Editor článků</a></h2>
+    <!--<h2><a href="clankyEditor">Editor článků</a></h2>
     <h2><a href="clanek">Seznam článků</a></h2>
     <h2><a href="strankyEditor">Editor stránek</a></h2>
     <h2><a href="stranka">Seznam stránek</a></h2>
-    <h2><a href="administrace/odhlasit">Odhlásit</a></h2>
+    <h2><a href="administrace/odhlasit">Odhlásit</a></h2> -->
+    <table>
+        <tr>
+            <td><h2>Články</h2></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a class="green button" style="width:180px" href="clanek">Seznam</a></td>
+            <td><a class="red button" style="width:180px" href="clankyEditor">Editor</a></td>
+        </tr>
+        <tr>
+            <td><h2>Stránky</h2></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a class="green button" style="width:180px" href="stranka">Seznam</a></td>
+            <td><a class="red button" style="width:180px" href="strankyEditor">Editor</a></td>
+        </tr>
+        <tr>
+            <td><h2>Uživatelské nastavení</h2></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a class="red button" style="width:180px" href="administrace/odhlasit">Odhlásit se</a></td>
+            <td></td>
+        </tr>
+    </table>
 </div>

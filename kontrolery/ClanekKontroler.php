@@ -21,6 +21,9 @@ class ClanekKontroler extends Kontroler {
             $this->hlavicka = array('titulek' => $clanek['titulek'],);
             $this->data['titulek'] = $clanek['titulek'];
             $this->data['obsah'] = $clanek['obsah'];
+            $this->data['pridano'] = $clanek['pridano'];
+            $this->data['pridal'] = $clanek['pridal'];
+            $this->data['url'] = $clanek['url'];
             $this->pohled = 'clanek';
         } else {
             $clanky = $spravceClanku->vratClanky();

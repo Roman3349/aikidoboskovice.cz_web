@@ -1,32 +1,34 @@
 <h1>Vítejte v administraci, jste přihlášeni jako <?= $jmeno ?></h1>
 <div>
     <?php if (!$admin) : ?>
-        <p>Nemáte administrátorská oprávnění, požádejte administrátora webu, aby vám je přidělil.</p>
+        <p>Hráči do této sekce webu nemají přístup!</p>
     <?php endif ?>
     <table>
-        <tr>
-            <td><h2>Články</h2></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><a class="green button" style="width:180px" href="clanek">Seznam</a></td>
-            <td><a class="red button" style="width:180px" href="clankyEditor">Editor</a></td>
-        </tr>
-        <tr>
-            <td><h2>Stránky</h2></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><a class="green button" style="width:180px" href="stranka">Seznam</a></td>
-            <td><a class="red button" style="width:180px" href="strankyEditor">Editor</a></td>
-        </tr>
+        <?php if ($admin) : ?>
+            <tr>
+                <td><h2>Články</h2></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a class="green button" style="width:180px" href="clanek">Seznam</a></td>
+                <td><a class="red button" style="width:180px" href="clankyEditor">Editor</a></td>
+            </tr>
+            <tr>
+                <td><h2>Stránky</h2></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a class="green button" style="width:180px" href="stranka">Seznam</a></td>
+                <td><a class="red button" style="width:180px" href="strankyEditor">Editor</a></td>
+            </tr>
+        <?php endif ?>
         <tr>
             <td><h2>Uživatelské nastavení</h2></td>
             <td></td>
         </tr>
         <tr>
             <td><a class="red button" style="width:180px" href="administrace/odhlasit">Odhlásit se</a></td>
-            <td></td>
+            <td><?php if ($admin) : ?><a class="orange button" style="width:180px" href="stranka">Přidej administrátora</a><?php endif ?></td>
         </tr>
     </table>
 </div>

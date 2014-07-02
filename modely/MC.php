@@ -41,7 +41,7 @@ class MC {
         return self::dotaz("INSERT INTO `$tabulka` (`" . implode('`, `', array_keys($parametry)) . "`) VALUES (" . str_repeat('?,', sizeOf($parametry) - 1) . "?)", array_values($parametry));
     }
 
-    public static function zmen($tabulka, $podminka, $hodnoty = array(), $parametry = array()) {
+    public static function zmen($tabulka, $hodnoty = array(), $podminka, $parametry = array()) {
         return self::dotaz("UPDATE `$tabulka` SET `" . implode('` = ?, `', array_keys($hodnoty)) . "` = ? " . $podminka, array_merge(array_values($hodnoty), $parametry));
     }
 

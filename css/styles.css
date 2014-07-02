@@ -25,9 +25,9 @@ h4, h5, h6, form {
     margin: 0;
     padding: 0
 }
-div, p {
-    margin: 0;
-    padding: 0;
+p {
+    border-bottom: 0px dashed black;
+    margin: 0
 }
 td {
     padding-top: 10px;
@@ -39,49 +39,45 @@ table tr td {
 main {
     width: 971px;
     margin: 0 auto;
-    background: #eeeeee
+    background: #eeeeee;
 }
 main select {
     transition: box-shadow, border-left, border-top, border-right 0.2s ease;
-    cursor: pointer;
     border-radius: 3px;
-    width: 180px;
     padding: 6px;
     border: 1px solid #dadada;
     background-position: top
 }
-main select:focus {
-    cursor: default;
-    outline: none;
-    box-shadow: 0 0 10px #9ecaed;
-    border-color: #9ecaed;
-    border-radius: 3px 3px 0 0
-}
 main input {
     transition: box-shadow 0.2s ease;
     padding: 6px;
-    cursor: pointer;
     border: 1px solid #dadada;
     background-position: top;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px
 }
-main input:focus {
-    cursor: default;
+main select:focus, main input:focus {
     outline: none;
+    box-shadow: 0 0 10px #9ecaed;
     border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed
 }
 main .center {
     text-align: center
 }
-main a.fh {
-    opacity: 0.8;
-    text-align: center
-}
-main .article-img {
-    width: 658px
+main .zprava {
+    background-color: #9ecaed;
+    border: 0px ridge #8FC410;
+    width: auto;
+    height: 13pt;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 8px;
+    margin: 10px;
+    border: 1px solid #bbbbbb;
+    box-shadow: 0 0 8px #bbbbbb;
+    color: #444444;
+    font-weight: bold;
+    font-size: 11pt;
 }
 article {
     border: 0px ridge #99FFCC;
@@ -120,7 +116,7 @@ article div {
     -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     white-space: pre-line;
-    line-height: 16px;
+    line-height: 10pt;
 }
 article .comment {
     box-shadow: 0 0 8px #dddddd;
@@ -159,11 +155,9 @@ article .comment  .incomment {
 article .comment  .incomment .nick {
     float: left;
     font-weight: bold;
-    line-height: 15px;
     margin: 0 20px 0 0
 }
 article .comment  .incomment .time {
-    line-height: 15px;
     color: #555555
 }
 article .comment:hover  .incomment .time {
@@ -175,7 +169,6 @@ article .comment:hover  .incomment .time {
 }
 article .comment  .incomment .textcomment {
     width: auto;
-    white-space: pre-line;
     height: auto;
     margin: -15px 0 0 0
 }
@@ -186,7 +179,7 @@ aside {
     width: 270px;
     text-align: center
 }
-aside h1 {
+aside header {
     border: 0px ridge #8FC410;
     width: auto;
     height: 20px;
@@ -213,46 +206,23 @@ aside div {
     background-color: #fff;
     border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px
+    -moz-border-radius: 0 0 5px 5px;
+    line-height: 11pt;
 }
 footer {
-    border-top: 1px solid #2d64b3;
-    background: -webkit-gradient( linear,left top,left bottom,color-stop(0.05,#306ab9), color-stop(1,#1d4898) );
-    background: -moz-linear-gradient( center top,#1d4898 5%,#2f68f7 100% );
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#306ab9), color-stop(1,#1d4898));
+    background: -moz-linear-gradient(center top,#1d4898 5%,#2f68f7 100%);
+    background: linear-gradient(#1d4898 5%,#2f68f7 100%);
     color: #fff;
-    line-height: 25px;
-}
-footer .down {
     border-top: 1px solid #4896e3;
-    background: -webkit-gradient( linear,left top,left bottom,color-stop(0.05,#306ab9), color-stop(1,#1d4898) );
-    background: -moz-linear-gradient( center top,#1d4898 5%,#2f68f7 100% );
-    color: #fff;
-    line-height: 25px;
     height: 30px;
-    padding: 0 10px 0 10px;
+    width: 100%;
+    margin: 0 auto;
 }
-footer .down .sub {
+footer p {
     width: 971px;
     margin: 0 auto;
     padding: 8px 0 0 20px;
-}
-footer .down .sub p {
-    color: #fff;
-    cursor: default
-}
-footer h4 {
-    cursor: default
-}
-footer p {
-    color: #dddddd;
-    cursor: default;
-    width: 700px
-}
-footer a:hover {
-    color: #000
-}
-footer p:hover {
-    color: #fff
 }
 header {
     margin: 0;
@@ -380,27 +350,12 @@ header .logo {
 #mainmenu > ul > li > a {
     line-height: 38px
 }
-#mainmenu ul ul li:first-child > a {
-    color: #cccccc;
-}
-#mainmenu ul ul li:first-child:hover > a {
-    color: #fff;
-}
 #mainmenu ul ul li:hover > a {
     color: #fff;
 }
 #mainmenu ul ul li > a {
     color: #cccccc;
     transition: color 0.2s ease;
-}
-#mainmenu ul ul li:last-child > a {
-    border-radius: 0 0 0px 0px;
-    box-shadow: 0 0px 0 #000;
-    color: #cccccc;
-}
-#mainmenu ul ul li:last-child:hover > a {
-    border-radius: 0 0 0px 0px;
-    color: #fff
 }
 #mainmenu ul ul li.has-sub > a:after {
     color: #cccccc;

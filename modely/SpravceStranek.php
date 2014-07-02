@@ -10,7 +10,7 @@ class SpravceStranek {
         if (!$id) {
             Db::vloz('stranky', $stranka);
         } else {
-            Db::zmen('stranky', $stranka, 'WHERE stranky_id = ?', array($id));
+            Db::zmen('stranky', $stranka, 'WHERE `stranky_id` = ?', array($id));
         }
     }
 
@@ -19,7 +19,7 @@ class SpravceStranek {
     }
 
     public function odstranStranku($url) {
-        Db::dotaz('DELETE FROM stranky WHERE url = ?', array($url));
+        Db::dotaz('DELETE FROM `stranky` WHERE `url` = ?', array($url));
     }
 
 }

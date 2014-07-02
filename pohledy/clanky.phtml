@@ -1,10 +1,9 @@
 <?php foreach ($_clanky as $clanek) : ?>
     <h1><a href="clanek/<?= $clanek['url'] ?>"><?= $clanek['titulek'] ?></a></h1>
-    <div>
-        <?= $clanek['obsah']; ?>
+    <div><?= $clanek['obsah']; ?><br>
+        <strong>Napsal <?= $clanek['pridal'] ?> <?= date('j. n. Y, G:i:s', strtotime($clanek['pridano'])); ?></strong>
         <?php if ($admin) : ?>
-            <br>
-            <a href="clankyEditor/<?= $clanek['url'] ?>">Editovat</a> | <a href="clanek/<?= $clanek['url'] ?>/odstranit">Odstranit</a>
+            <br><a href="clankyEditor/<?= $clanek['url'] ?>">Editovat</a> | <a href="clanek/<?= $clanek['url'] ?>/odstranit">Odstranit</a>
         <?php endif ?>
     </div>
 <?php endforeach ?>

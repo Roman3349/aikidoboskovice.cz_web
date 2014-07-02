@@ -1,17 +1,27 @@
-<?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-?>
 <!DOCTYPE html>
 <html lang="cs">    
     <head>
         <base href="/">
         <meta charset="UTF-8">        
-        <meta name="author" content="Roman3349">        
+        <meta name="author" content="Roman Ondráček">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Web portálu Funparba.eu">
+        <meta name="keywords" content="funparba, funparba.eu, minecraft, team speak 3, ts3, servery, Roman Ondráček">
         <link rel="shortcut icon" href="images/favicon.ico">        
         <link rel="stylesheet" type="text/css" href="css/styles.css">        
         <link rel="stylesheet" type="text/css" href="css/buttons.css">	         
-        <title><?= $titulek ?> FunParba.eu</title>    
+        <title><?= $titulek ?> FunParba.eu</title>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/cs_CZ/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </head>    
     <body>        
         <header>          
@@ -24,7 +34,8 @@ error_reporting(E_ALL);
                 <div id="mainmenu" style="margin:0 auto;">              
                     <ul>                
                         <li><a href="/">Novinky</a></li>
-                        <li><a href="servery/">Servery</a></li>              
+                        <li><a href="servery/">Servery</a></li>
+                        <li><a href="stranka/kontakty/">Kontakty</a></li>
                     </ul>            
                 </div>          
             </div>        
@@ -33,43 +44,38 @@ error_reporting(E_ALL);
         <article>
             <?php foreach ($zpravy as $zprava) : ?>
                 <p class="zprava"><?= $zprava ?></p>
-            <?php endforeach ?>
+            <?php endforeach ?>    
             <?php $this->kontroler->vypisPohled(); ?>            
         </article>            
         <?php require './include/servery.php'; ?>
         <aside>    
-            <h1>Hlasování</h1>    
+            <header>Hlasování</header>    
             <div>        
                 <form action="http://czech-craft.eu/vote.php" method="get" target="_blank">        
-                    <select name="id">          
+                    <select name="id" style="width: 90%">          
                         <option value="4666" selected>Capture the Flag</option>        
-                    </select>        
-                    <input type="text" name="user" placeholder="Sem zadej svůj nick" size="25">        
-                    <button class="blue button" style="width:180px" type="submit">Hlasovat</button>      
+                    </select>
+                    <input type="text" name="user" placeholder="Sem zadej svůj nick" size="20" style="width: 85%">
+                    <button class="blue button" style="width: 90%" type="submit">Hlasovat</button>      
                 </form>    
             </div>    
-            <h1>Statistika</h1>    
-            <div>           
+            <header>Statistika</header>    
+            <div> 
                 <strong>Online hráči: </strong><?= $Players . '/' . $Slots; ?><br>
-                <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %
-            </div>    
-            <h1>Sledujte nás</h1>    
+                <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %<br>
+            </div>
+            <header>Facebook</header>    
+            <div><p class="fb-like-box" data-href="https://www.facebook.com/funparba.eu" data-width="220" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></p></div>
+            <header>Sledujte nás</header>    
             <div>        
-                <a href="https://facebook.com/funparba.eu"><img src="images/icons/facebook.png"></a>        
-                <a href="https://youtube.com/gondyk"><img src="images/icons/youtube.png"></a>   
+                <a href="https://facebook.com/funparba.eu"><img src="images/icons/facebook.png" alt="Facebook"></a>        
+                <a href="https://youtube.com/gondyk"><img src="images/icons/youtube.png" alt="YouTube"></a>   
             </div>    
-            <h1>Návštěvnost</h1>    
-            <div><img alt="TOPlist" src="http://toplist.cz/count.asp?id=1609563&logo=mc&start=0"></div>
         </aside>
         <br style="clear: both">        
     </main>        
-    <footer>	           
-        <div class="down">            
-            <div class="sub">              
-                <p>FunParba.Eu © 2012-2014 - Všechna práva vyhrazena.
-                </p>            
-            </div>          
-        </div>        
+    <footer>	                        
+        <p>FunParba.Eu © 2014 - Všechna práva vyhrazena.</p>                    
     </footer>    
 </body>
 </html>

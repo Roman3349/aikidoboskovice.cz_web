@@ -6,9 +6,9 @@ class ClankyEditorKontroler extends Kontroler {
         $this->overUzivatele(true);
         $this->hlavicka['titulek'] = 'Editor článků';
         $spravceClanku = new SpravceClanku();
-        $clanek = array('clanky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '');
+        $clanek = array('clanky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '','pridal' => '');
         if ($_POST) {
-            $klice = array('titulek', 'obsah', 'url');
+            $klice = array('titulek', 'obsah', 'url','pridal');
             $clanek = array_intersect_key($_POST, array_flip($klice));
             $spravceClanku->ulozClanek($_POST['clanky_id'], $clanek);
             $this->pridejZpravu('Článek byl úspěšně uložen.');

@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext);
 li {
     line-height: 16px;
-    border-bottom: 0px dashed black;
-    margin: 0
+    border-bottom: 0 dashed black;
+    margin: 0;
 }
 body {
     background: url(images/bgcko.jpg) no-repeat fixed;
@@ -16,7 +16,7 @@ a {
     color: #358adc;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.2s ease
+    transition: color 0.2s ease;
 }
 a:hover {
     color: #000
@@ -26,8 +26,8 @@ h4, h5, h6, form {
     padding: 0
 }
 p {
-    border-bottom: 0px dashed black;
-    margin: 0
+    border-bottom: 0 dashed black;
+    margin: 0;
 }
 td {
     padding-top: 10px;
@@ -65,7 +65,7 @@ main .center {
 }
 main .zprava {
     background-color: #9ecaed;
-    border: 0px ridge #8FC410;
+    border: 0 ridge #8FC410;
     width: auto;
     height: 13pt;
     border-radius: 5px;
@@ -80,19 +80,19 @@ main .zprava {
     font-size: 11pt;
 }
 article {
-    border: 0px ridge #99FFCC;
+    border: 0 ridge #99FFCC;
     text-align: left;
-    margin: 0px;
+    margin: 0;
     float: left;
-    width: 700px
+    width: 700px;
 }
 article h1 {
-    border: 0px ridge #8FC410;
+    border: 0 ridge #8FC410;
     width: auto;
     height: 20px;
     border-bottom: 6px solid #3ab308;
     background: #f1f1ed;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     padding: 8px 0 8px 8px;
@@ -107,7 +107,7 @@ article div {
     margin: 0 10px 10px 10px;
     box-shadow: 0 0 8px #bbbbbb;
     width: auto;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     border-left: 1px solid #bbbbbb;
     border-right: 1px solid #bbbbbb;
     border-bottom: 1px solid #bbbbbb;
@@ -118,82 +118,29 @@ article div {
     white-space: pre-line;
     line-height: 10pt;
 }
-article .comment {
-    box-shadow: 0 0 8px #dddddd;
-    min-height: 69px;
-    width: auto;
-    height: auto;
-    padding: 9px 5px 10px 10px;
-    border: 1.5px solid #bbbbbb;
-    background: #ebebeb;
-    background-position: top;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    margin: 10px 10px 0 10px
-}
-article .comment:hover {
-    background: #dddddd;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out
-}
-article .comment img {
-    box-shadow: 0 0 8px #111111;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    float: left
-}
-article .comment  .incomment {
-    padding: 0 0 0 80px;
-    width: auto;
-    height: auto;
-}
-article .comment  .incomment .nick {
-    float: left;
-    font-weight: bold;
-    margin: 0 20px 0 0
-}
-article .comment  .incomment .time {
-    color: #555555
-}
-article .comment:hover  .incomment .time {
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out
-}
-article .comment  .incomment .textcomment {
-    width: auto;
-    height: auto;
-    margin: -15px 0 0 0
-}
 aside {
-    border: 0px ridge #99FFCC;
+    border: 0 ridge #99FFCC;
     text-align: left;
     float: right;
     width: 270px;
-    text-align: center
+    text-align: center;
 }
 aside header {
-    border: 0px ridge #8FC410;
+    border: 0 ridge #8FC410;
     width: auto;
     height: 20px;
     border-bottom: 6px solid #3ab308;
     background: #f1f1ed;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
-    padding: 8px 0 8px 0;
+    padding: 8px 0;
     margin: 10px 10px 0 10px;
     border: 1px solid #bbbbbb;
     box-shadow: 0 0 8px #bbbbbb;
     color: #444444;
     font-size: 12pt;
+    line-height: inherit;
 }
 aside div {
     margin: 0 10px 10px 10px;
@@ -210,8 +157,8 @@ aside div {
     line-height: 11pt;
 }
 footer {
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0.05,#306ab9), color-stop(1,#1d4898));
-    background: -moz-linear-gradient(center top,#1d4898 5%,#2f68f7 100%);
+    background: -webkit-gradient(color-stop(0.05,#306ab9), color-stop(1,#1d4898));
+    background: -moz-linear-gradient(#1d4898 5%,#2f68f7 100%);
     background: linear-gradient(#1d4898 5%,#2f68f7 100%);
     color: #fff;
     border-top: 1px solid #4896e3;
@@ -229,7 +176,7 @@ header {
     background: url(images/header/header.png) repeat-x;
     height: 154px;
     color: #fff;
-    border: 0
+    border: 0;
 }
 header .logo {
     width: 951px;
@@ -241,7 +188,7 @@ header .logo {
 }
 #sub-header {
     width: 971px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     padding: 0 0 0 15px;
     line-height: 16px;
     color: #fff
@@ -252,62 +199,37 @@ header .logo {
     left: auto;
     right: auto;
     width: 966px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 #mainmenu li {
     position: relative;
     list-style: none;
     margin: 0 auto;
-    padding: 0
+    padding: 0;
 }
 #mainmenu ul, #mainmenu li {
     list-style: none;
     margin: 0 auto;
-    padding: 0 0 0 0
+    padding: 0;
 }
 #mainmenu ul {
     position: relative;
-    z-index: 597
+    z-index: 597;
 }
 #mainmenu ul li {
     float: left;
     min-height: 1px;
-    vertical-align: middle
+    vertical-align: middle;
 }
-#mainmenu ul li.hover, #mainmenu ul li:hover {
+#mainmenu ul li:hover {
     position: relative;
     z-index: 599;
-    cursor: default
-}
-#mainmenu ul ul {
-    visibility: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 598;
-    width: 100%
-}
-#mainmenu ul ul li {
-    float: none
-}
-#mainmenu ul ul ul {
-    top: 0;
-    left: auto;
-    right: -99.5%
-}
-#mainmenu ul li:hover > ul {
-    visibility: visible
-}
-#mainmenu ul ul {
-    bottom: 0;
-    left: 0
-}
-#mainmenu ul ul li {
+    cursor: default;
 }
 #mainmenu a {
     display: block;
     line-height: 1em;
-    text-decoration: none
+    text-decoration: none;
 }
 #mainmenu {
     border-radius: 5px 5px 0 0;
@@ -330,13 +252,13 @@ header .logo {
     text-transform: uppercase
 }
 #mainmenu ul ul {
-    border-top: 0px solid #8FC410;
+    border-top: 0 solid #8FC410;
     text-transform: none;
     min-width: 180px;
 }
 #mainmenu ul ul a {
     color: #FFF;
-    border: 0px solid #8FC410;
+    border: 0 solid #8FC410;
     border-top: 0 none;
     line-height: 10px;
     padding: 16px 15px;
@@ -348,7 +270,7 @@ header .logo {
     position: relative;
 }
 #mainmenu > ul > li > a {
-    line-height: 38px
+    line-height: 38px;
 }
 #mainmenu ul ul li:hover > a {
     color: #fff;
@@ -378,32 +300,32 @@ header .logo {
 }
 #mainmenu ul li.has-sub > a:after {
     content: '+';
-    margin-left: 0px
+    margin-left: 0
 }
 #mainmenu ul li.end_menu> a:after {
     content: '+';
     border-radius: 5px;
-    margin-left: 0px
+    margin-left: 0;
 }
 #mainmenu ul li.last ul {
     left: auto;
-    right: 0
+    right: 0;
 }
 #mainmenu ul li.last ul ul {
     left: auto;
-    right: 70%
+    right: 70%;
 }
 #mainmenu ul li:hover > a, #mainmenu ul li.active > a {
     color: #fff;
-    transition: color 0.2s ease
+    transition: color 0.2s ease;
 }
 #mainmenu ul li.has-sub > a:after {
     content: '+';
-    margin-left: 0px
+    margin-left: 0;
 }
 #mainmenu ul li.last ul {
     left: auto;
-    right: 0
+    right: 0;
 }
 #mainmenu ul li.last ul ul {
     left: auto;
@@ -416,12 +338,12 @@ header .logo {
 .menu-img {
     border-bottom: 1px solid #00357b;
     height: 40px;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#3b82c5), to(#0865b7));
-    background-image: -webkit-linear-gradient(top,#3b82c5,#0865b7);
-    background-image: -moz-linear-gradient(top,#3b82c5,#0865b7);
-    background-image: -ms-linear-gradient(top,#3b82c5,#0865b7);
-    background-image: -o-linear-gradient(top,#3b82c5,#0865b7);
-    background-image: linear-gradient(top,#3b82c5,#0865b7);
+    background-image: -webkit-gradient(#3b82c5,#0865b7);
+    background-image: -webkit-linear-gradient(#3b82c5,#0865b7);
+    background-image: -moz-linear-gradient(#3b82c5,#0865b7);
+    background-image: -ms-linear-gradient(#3b82c5,#0865b7);
+    background-image: -o-linear-gradient(#3b82c5,#0865b7);
+    background-image: linear-gradient(#3b82c5,#0865b7);
 }
 .menu-img .menu {
     width: 971px;

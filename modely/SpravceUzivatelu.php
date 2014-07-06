@@ -14,7 +14,15 @@ class SpravceUzivatelu {
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
         try {
-            Db::zmen('authme', $noveHeslo, 'WHERE username = ?', array($jmeno));
+            Db::zmen('authme', array('password' => $noveHeslo), 'WHERE username = ?', array($jmeno));
+        } catch (PDOException $e) {
+            throw new ChybaUzivatele('Nekde se stala chyba.');
+        }
+    }
+    
+    public function pridejAdmina($jmeno) {
+        try {
+            Db::zmen('authme',array('admin' => '1'), 'WHERE username = ?', array($jmeno));
         } catch (PDOException $e) {
             throw new ChybaUzivatele('Nekde se stala chyba.');
         }

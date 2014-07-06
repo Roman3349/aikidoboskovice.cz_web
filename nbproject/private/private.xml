@@ -5,14 +5,18 @@
         <group>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/modely/SpravceStranek.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/pohledy/administrace.phtml</file>
+            <file>file:/C:/Users/Roman/Documents/GitHub/CMS/kontrolery/HesloKontroler.php</file>
+            <file>file:/C:/Users/Roman/Documents/GitHub/CMS/kontrolery/AdministraceKontroler.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/kontrolery/ClanekKontroler.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/modely/SpravceUzivatelu.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/pohledy/rozlozeni.phtml</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/modely/Db.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/kontrolery/ClankyEditorKontroler.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/pohledy/clanek.phtml</file>
+            <file>file:/C:/Users/Roman/Documents/GitHub/CMS/pohledy/heslo.phtml</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/modely/MC.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/css/styles.css</file>
+            <file>file:/C:/Users/Roman/Documents/GitHub/CMS/index.php</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/pohledy/ceditor.phtml</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/pohledy/clanky.phtml</file>
             <file>file:/C:/Users/Roman/Documents/GitHub/CMS/modely/SpravceClanku.php</file>

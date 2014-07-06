@@ -25,6 +25,7 @@ class StrankaKontroler extends Kontroler {
             $stranky = $spravceStranek->vratStranky();
             $this->data['stranky'] = $stranky;
             $this->pohled = 'stranky';
+            $this->hlavicka['titulek'] = 'Stránky';
         }
     }
 

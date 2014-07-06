@@ -17,18 +17,11 @@
             <td><?= $Lobby->version ?></td>
         </tr>
         <tr>
-            <td>Extreme #1</td>
+            <td>Extreme</td>
             <td>93.91.250.215</td>
-            <td><?= $E1->status ?></td>
-            <td><?= $E1->players . "/" . $E1->slots ?></td>
-            <td><?= $E1->version ?></td>
-        </tr>
-        <tr>
-            <td>Extreme #2</td>
-            <td>93.91.250.200</td>
-            <td><?= $E2->status ?></td>
-            <td><?= $E2->players . "/" . $E2->slots ?></td>
-            <td><?= $E2->version ?></td>
+            <td><?= $E->status ?></td>
+            <td><?= $E->players . "/" . $E->slots ?></td>
+            <td><?= $E->version ?></td>
         </tr>
         <tr>
             <td>SkyBlock</td>
@@ -38,18 +31,18 @@
             <td><?= $SB->version ?></td>
         </tr>
         <tr>
-            <td>Classic</td>
-            <td>93.91.250.140:27884</td>
-            <td><?= $Classic->status ?></td>
-            <td><?= $Classic->players . "/" . $Classic->slots ?></td>
-            <td><?= $Classic->version ?></td>
-        </tr>
-        <tr>
             <td>Creative</td>
             <td>93.91.250.120:27639</td>
             <td><?= $Creative->status ?></td>
-            <td><?= $Creative->players . "/" . $Classic->slots ?></td>
+            <td><?= $Creative->players . "/" . $Creative->slots ?></td>
             <td><?= $Creative->version ?></td>
+        </tr>
+        <tr>
+            <td>PVP</td>
+            <td>play.armycraft.eu</td>
+            <td><?= $PVP->status ?></td>
+            <td><?= $PVP->players . "/" . $PVP->slots ?></td>
+            <td><?= $PVP->version ?></td>
         </tr>
         <tr>
             <td>Capture the Flag</td>
@@ -57,6 +50,13 @@
             <td><?= $CtF->status ?></td>
             <td><?= $CtF->players . "/" . $CtF->slots ?></td>
             <td><?= $CtF->version ?></td>
+        </tr>
+        <tr>
+            <td>FutureCraft</td>
+            <td>Server je v přípravě</td>
+            <td><?= $FC->status ?></td>
+            <td><?= $FC->players . "/" . $FC->slots ?></td>
+            <td><?= $FC->version ?></td>
         </tr>
         <tr>
             <td>Team Fortress 2</td>

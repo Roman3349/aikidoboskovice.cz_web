@@ -13,7 +13,6 @@ class AdministraceKontroler extends Kontroler {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         $this->data['jmeno'] = $uzivatel['username'];
         $this->data['admin'] = $uzivatel['admin'];
-        $this->data['lastlogin'] = $uzivatel['lastlogin'];
         $this->pohled = 'administrace';
     }
 

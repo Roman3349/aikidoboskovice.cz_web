@@ -29,6 +29,7 @@ class ClanekKontroler extends Kontroler {
             $clanky = $spravceClanku->vratClanky();
             $this->data['clanky'] = $clanky;
             $this->pohled = 'clanky';
+            $this->hlavicka['titulek'] = 'Aktuality';
         }
     }
 

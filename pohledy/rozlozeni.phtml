@@ -49,6 +49,7 @@
         </article>            
         <?php require './include/servery.php'; ?>
         <aside>    
+            <!--
             <header>Hlasování</header>    
             <div>        
                 <form action="http://czech-craft.eu/vote.php" method="get" target="_blank">        
@@ -58,7 +59,13 @@
                     <input type="text" name="user" placeholder="Sem zadej svůj nick" size="20" style="width: 85%">
                     <button class="blue button" style="width: 90%" type="submit">Hlasovat</button>      
                 </form>    
-            </div>    
+            </div>
+            -->
+            <header>Profil</header>    
+            <div> 
+                <a href="prihlaseni">Přihlásit se</a><br>
+                <a href="administrace">Administrace</a>
+            </div>
             <header>Statistika</header>    
             <div> 
                 <strong>Online hráči: </strong><?= $Players . '/' . $Slots; ?><br>

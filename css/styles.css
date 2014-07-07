@@ -19,11 +19,11 @@ a {
     transition: color 0.2s ease;
 }
 a:hover {
-    color: #000
+    color: #000;
 }
 h4, h5, h6, form {
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 p {
     border-bottom: 0 dashed black;
@@ -31,10 +31,10 @@ p {
 }
 td {
     padding-top: 10px;
-    color: #333333
+    color: #333;
 }
 table tr td {
-    padding: 5px
+    padding: 5px;
 }
 main {
     width: 971px;
@@ -46,7 +46,7 @@ main select {
     border-radius: 3px;
     padding: 6px;
     border: 1px solid #dadada;
-    background-position: top
+    background-position: top;
 }
 main input {
     transition: box-shadow 0.2s ease;
@@ -61,7 +61,7 @@ main select:focus, main input:focus {
     border-color: #9ecaed;
 }
 main .center {
-    text-align: center
+    text-align: center;
 }
 main .zprava {
     background-color: #9ecaed;
@@ -75,7 +75,7 @@ main .zprava {
     margin: 10px;
     border: 1px solid #bbbbbb;
     box-shadow: 0 0 8px #bbbbbb;
-    color: #444444;
+    color: #444;
     font-weight: bold;
     font-size: 11pt;
 }
@@ -136,9 +136,9 @@ aside header {
     -moz-border-radius: 5px 5px 0 0;
     padding: 8px 0;
     margin: 10px 10px 0 10px;
-    border: 1px solid #bbbbbb;
-    box-shadow: 0 0 8px #bbbbbb;
-    color: #444444;
+    border: 1px solid #bbb;
+    box-shadow: 0 0 8px #bbb;
+    color: #444;
     font-size: 12pt;
     font-weight: bold;
 }
@@ -146,10 +146,10 @@ aside div {
     margin: 0 10px 10px 10px;
     box-shadow: 0 0 8px #bbbbbb;
     width: auto;
-    padding: 10px 10px 10px 10px;
-    border-left: 1px solid #bbbbbb;
-    border-right: 1px solid #bbbbbb;
-    border-bottom: 1px solid #bbbbbb;
+    padding: 10px;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
     background-color: #fff;
     border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
@@ -184,14 +184,14 @@ header .logo {
     position: absolute;
     top: 49px;
     background-image: url(images/header/logo.png);
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
 }
 #sub-header {
     width: 971px;
     margin: 0 auto;
     padding: 0 0 0 15px;
     line-height: 16px;
-    color: #fff
+    color: #fff;
 }
 #mainmenu {
     text-shadow: 1px 1px #0035b7;
@@ -286,7 +286,7 @@ header .logo {
     top: 50%;
     right: 15px;
     margin-top: -8px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 #mainmenu ul ul li.end_menu > a:after {
     color: #cccccc;
@@ -296,11 +296,11 @@ header .logo {
     top: 50%;
     right: 15px;
     margin-top: -8px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 #mainmenu ul li.has-sub > a:after {
     content: '+';
-    margin-left: 0
+    margin-left: 0;
 }
 #mainmenu ul li.end_menu> a:after {
     content: '+';
@@ -329,7 +329,7 @@ header .logo {
 }
 #mainmenu ul li.last ul ul {
     left: auto;
-    right: 70%
+    right: 70%;
 }
 .menu-border {
     height: 6px;

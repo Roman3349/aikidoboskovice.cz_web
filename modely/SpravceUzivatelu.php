@@ -7,14 +7,14 @@ class SpravceUzivatelu {
     }
 
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
-        if ($this->vratOtisk($heslo) != Db::dotazJeden('SELECT password FROM authme WHERE username = ?', $jmeno)) {
+        if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', $jmeno)) {
             throw new ChybaUzivatele('Chybně vyplněné součastné heslo.');
         }
         if ($noveHeslo != $noveHesloZnovu) {
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
         try {
-            Db::zmen('authme', array('password' => $noveHeslo), 'WHERE username = ?', array($jmeno));
+            MC::zmen('authme', array('password' => $noveHeslo), 'WHERE username = ?', array($jmeno));
         } catch (PDOException $e) {
             throw new ChybaUzivatele('Nekde se stala chyba.');
         }
@@ -22,7 +22,7 @@ class SpravceUzivatelu {
     
     public function pridejAdmina($jmeno) {
         try {
-            Db::zmen('authme',array('admin' => '1'), 'WHERE username = ?', array($jmeno));
+            MC::zmen('authme',array('admin' => '1'), 'WHERE username = ?', array($jmeno));
         } catch (PDOException $e) {
             throw new ChybaUzivatele('Nekde se stala chyba.');
         }

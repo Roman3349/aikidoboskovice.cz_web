@@ -172,11 +172,14 @@ footer p {
     padding: 8px 0 0 20px;
 }
 header {
-    margin: 0;
     background: url(images/header/header.png) repeat-x;
     height: 154px;
     color: #fff;
     border: 0;
+    width: 971px;
+    margin: 0 auto;
+    padding: 0 0 0 15px;
+    line-height: 16px;
 }
 header .logo {
     width: 951px;
@@ -186,14 +189,7 @@ header .logo {
     background-image: url(images/header/logo.png);
     background-repeat: no-repeat;
 }
-#sub-header {
-    width: 971px;
-    margin: 0 auto;
-    padding: 0 0 0 15px;
-    line-height: 16px;
-    color: #fff;
-}
-#mainmenu {
+nav {
     text-shadow: 1px 1px #0035b7;
     font-weight: bold;
     left: auto;
@@ -201,85 +197,85 @@ header .logo {
     width: 966px;
     margin: 0 auto;
 }
-#mainmenu li {
+nav li {
     position: relative;
     list-style: none;
     margin: 0 auto;
     padding: 0;
 }
-#mainmenu ul, #mainmenu li {
+nav ul, nav li {
     list-style: none;
     margin: 0 auto;
     padding: 0;
 }
-#mainmenu ul {
+nav ul {
     position: relative;
     z-index: 597;
 }
-#mainmenu ul li {
+nav ul li {
     float: left;
     min-height: 1px;
     vertical-align: middle;
 }
-#mainmenu ul li:hover {
+nav ul li:hover {
     position: relative;
     z-index: 599;
     cursor: default;
 }
-#mainmenu a {
+nav a {
     display: block;
     line-height: 1em;
     text-decoration: none;
 }
-#mainmenu {
+nav {
     border-radius: 5px 5px 0 0;
     padding: 0 0 0 5px;
     font-size: 10.5pt;
 }
-#mainmenu > ul {
+nav > ul {
     display: inline-block
 }
-#mainmenu:after, #mainmenu ul:after {
+nav:after, nav ul:after {
     content: '';
     display: block;
     clear: both
 }
-#mainmenu a {
+nav a {
     color: #dddddd;
     padding: 0 10px
 }
-#mainmenu ul {
+nav ul {
     text-transform: uppercase
 }
-#mainmenu ul ul {
+nav ul ul {
     border-top: 0 solid #8FC410;
     text-transform: none;
     min-width: 180px;
 }
-#mainmenu ul ul a {
+nav ul ul a {
     color: #FFF;
     border: 0 solid #8FC410;
     border-top: 0 none;
     line-height: 10px;
     padding: 16px 15px;
 }
-#mainmenu ul ul ul {
+nav ul ul ul {
     border-top: 0 none
 }
-#mainmenu ul ul li {
+nav ul ul li {
     position: relative;
 }
-#mainmenu > ul > li > a {
+nav > ul > li > a {
     line-height: 38px;
 }
-#mainmenu ul ul li:hover > a {
+nav ul ul li:hover > a {
     color: #fff;
 }
-#mainmenu ul ul li > a {
+nav ul ul li > a {
     color: #cccccc;
     transition: color 0.2s ease;
 }
-#mainmenu ul ul li.has-sub > a:after {
+nav ul ul li.has-sub > a:after {
     color: #cccccc;
     content: '+';
     position: absolute;
@@ -288,7 +284,7 @@ header .logo {
     margin-top: -8px;
     margin: 0 auto;
 }
-#mainmenu ul ul li.end_menu > a:after {
+nav ul ul li.end_menu > a:after {
     color: #cccccc;
     border-radius: 5px;
     content: '+';
@@ -298,36 +294,36 @@ header .logo {
     margin-top: -8px;
     margin: 0 auto;
 }
-#mainmenu ul li.has-sub > a:after {
+nav ul li.has-sub > a:after {
     content: '+';
     margin-left: 0;
 }
-#mainmenu ul li.end_menu> a:after {
+nav ul li.end_menu> a:after {
     content: '+';
     border-radius: 5px;
     margin-left: 0;
 }
-#mainmenu ul li.last ul {
+nav ul li.last ul {
     left: auto;
     right: 0;
 }
-#mainmenu ul li.last ul ul {
+nav ul li.last ul ul {
     left: auto;
     right: 70%;
 }
-#mainmenu ul li:hover > a, #mainmenu ul li.active > a {
+nav ul li:hover > a, nav ul li.active > a {
     color: #fff;
     transition: color 0.2s ease;
 }
-#mainmenu ul li.has-sub > a:after {
+nav ul li.has-sub > a:after {
     content: '+';
     margin-left: 0;
 }
-#mainmenu ul li.last ul {
+nav ul li.last ul {
     left: auto;
     right: 0;
 }
-#mainmenu ul li.last ul ul {
+nav ul li.last ul ul {
     left: auto;
     right: 70%;
 }

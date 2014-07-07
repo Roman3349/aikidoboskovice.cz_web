@@ -140,7 +140,7 @@ aside header {
     box-shadow: 0 0 8px #bbbbbb;
     color: #444444;
     font-size: 12pt;
-    line-height: inherit;
+    font-weight: bold;
 }
 aside div {
     margin: 0 10px 10px 10px;

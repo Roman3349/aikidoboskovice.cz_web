@@ -8,7 +8,7 @@ class HesloKontroler extends Kontroler {
         if ($_POST) {
             $spravceUzivatelu = new SpravceUzivatelu();
             $uzivatel = $spravceUzivatelu->vratUzivatele();
-            $spravceUzivatelu->zmenHeslo($uzivatel['username'],$_POST['heslo'], $_POST['move_heslo'], $_POST['nove_heslo_znovu']);
+            $spravceUzivatelu->zmenHeslo($uzivatel['username'],$_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
         }
     }
 

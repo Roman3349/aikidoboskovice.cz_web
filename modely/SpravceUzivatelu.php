@@ -7,7 +7,7 @@ class SpravceUzivatelu {
     }
 
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
-        if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', $jmeno)) {
+        if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', array($jmeno))) {
             throw new ChybaUzivatele('Chybně vyplněné součastné heslo.');
         }
         if ($noveHeslo != $noveHesloZnovu) {

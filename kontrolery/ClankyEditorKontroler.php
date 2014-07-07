@@ -1,18 +1,28 @@
 <?php
 
+// Kontroler pro editaci článků
+
 class ClankyEditorKontroler extends Kontroler {
 
     public function zpracuj($parametry) {
+        // Nastavení přístupu pouze pro administrátory
         $this->overUzivatele(true);
+        // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Editor článků';
+        // Vytvoření instance modelu
         $spravceClanku = new SpravceClanku();
-        $clanek = array('clanky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '','pridal' => '');
+        // Příprava prázdného článku
+        $clanek = array('clanky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => '');
+        // Je odeslán formulář
         if ($_POST) {
-            $klice = array('titulek', 'obsah', 'url','pridal');
+            // Získání klíčů z formuláře
+            $klice = array('titulek', 'obsah', 'url', 'pridal');
             $clanek = array_intersect_key($_POST, array_flip($klice));
+            // Uložení článku do DB
             $spravceClanku->ulozClanek($_POST['clanky_id'], $clanek);
             $this->pridejZpravu('Článek byl úspěšně uložen.');
             $this->presmeruj('clanek/' . $clanek['url']);
+            // Je zadaná URL článku k editaci
         } else if (!empty($parametry[0])) {
             $nactenyClanek = $spravceClanku->vratClanek($parametry[0]);
             if ($nactenyClanek) {
@@ -21,8 +31,9 @@ class ClankyEditorKontroler extends Kontroler {
                 $this->pridejZpravu('Článek nebyl nalezen');
             }
         }
-
+        // Naplnění proměnn0 pro šablonu
         $this->data['clanek'] = $clanek;
+        // Nastavení šablony
         $this->pohled = 'ceditor';
     }
 

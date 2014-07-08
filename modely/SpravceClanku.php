@@ -29,4 +29,5 @@ class SpravceClanku {
     public function odstranClanek($url) {
         Db::dotaz('DELETE FROM clanky WHERE url = ?', array($url));
     }
+
 }

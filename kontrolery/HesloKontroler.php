@@ -16,7 +16,7 @@ class HesloKontroler extends Kontroler {
             // Vytvoření instance modelu, který nám umožní pracovat s uživateli
             $spravceUzivatelu = new SpravceUzivatelu();
             // Změna hesla
-            $spravceUzivatelu->zmenHeslo($spravceUzivatelu->vratUzivatele()['username'],$_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+            $spravceUzivatelu->zmenHeslo($spravceUzivatelu->vratUzivatele()['username'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
         }
     }
 

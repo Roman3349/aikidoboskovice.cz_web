@@ -29,11 +29,11 @@ class SpravceUzivatelu {
             throw new ChybaUzivatele('Nekde se stala chyba.');
         }
     }
-    
+
     // Přidíní administrátora
     public function pridejAdmina($jmeno) {
         try {
-            MC::zmen('authme',array('admin' => '1'), 'WHERE username = ?', array($jmeno));
+            MC::zmen('authme', array('admin' => '1'), 'WHERE username = ?', array($jmeno));
         } catch (PDOException $e) {
             // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Nekde se stala chyba.');

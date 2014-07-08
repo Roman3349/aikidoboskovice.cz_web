@@ -13,7 +13,6 @@ class SpravceUzivatelu {
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
         // Souhlasí stávající heslo
         if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', array($jmeno))) {
-            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -24,9 +23,9 @@ class SpravceUzivatelu {
         try {
             // Změní heslo v databázi AuthMe
             MC::zmen('authme', array('password' => $noveHeslo), 'WHERE username = ?', array($jmeno));
-        } catch (PDOException $e) {
-            // Vypíše chybovou správu uživateli
-            throw new ChybaUzivatele('Nekde se stala chyba.');
+        } catch (ChybaUzivatele $chyba) {
+            // Vypíše chybovou zprávu uživateli
+            $this->pridejZpravu($chyba->getMessage());
         }
     }
 
@@ -34,9 +33,9 @@ class SpravceUzivatelu {
     public function pridejAdmina($jmeno) {
         try {
             MC::zmen('authme', array('admin' => '1'), 'WHERE username = ?', array($jmeno));
-        } catch (PDOException $e) {
-            // Vypíše chybovou správu uživateli
-            throw new ChybaUzivatele('Nekde se stala chyba.');
+        } catch (ChybaUzivatele $chyba) {
+            // Vypíše chybovou zprávu uživateli
+            $this->pridejZpravu($chyba->getMessage());
         }
     }
 

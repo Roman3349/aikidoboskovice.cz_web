@@ -16,7 +16,6 @@
             <td><?= $Lobby->status; ?></td>
             <td><?= $Lobby->players . "/" . $Lobby->slots ?></td>
             <td><?= $Lobby->version ?></td>
-            <td></td>
             <td><?= (integer) ($Lobby->players / $Lobby->slots * 100); ?> %</td>
         </tr>
         <tr>
@@ -81,7 +80,7 @@
             <td></td>
             <td><strong><?= $Players . "/" . $Slots ?></strong></td>
             <td></td>
-            <td><?= (integer) ($Players / $Slots * 100); ?> %</td>
+            <td><strong><?= (integer) ($Players / $Slots * 100); ?> %</strong></td>
         </tr>
     </table>
 </div>

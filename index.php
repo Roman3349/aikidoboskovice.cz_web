@@ -15,6 +15,7 @@ function autoloadFunkce($trida) {
         require("modely/" . $trida . ".php");
     }
 }
+
 // Registrace callbacku
 spl_autoload_register("autoloadFunkce");
 

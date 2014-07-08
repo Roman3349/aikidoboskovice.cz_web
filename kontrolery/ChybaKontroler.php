@@ -1,6 +1,6 @@
 <?php
 
-// Kontroler pro zracování chyby 404
+// Kontroler pro zpracování chyby 404
 
 class ChybaKontroler extends Kontroler {
 

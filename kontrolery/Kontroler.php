@@ -1,11 +1,17 @@
 <?php
 
+// Výchozí kontroler pro redakční systém
+
 abstract class Kontroler {
 
+    // Pole, jehož indexy jsou poté viditelné v šabloně jako běžné proměnné
     protected $data = array();
+    // Název šablony bez přípony
     protected $pohled = "";
-    protected $hlavicka = array('titulek' => '', 'obsah' => '');
+    // Hlavička HTML stránky
+    protected $hlavicka = array('titulek' => '');
 
+    // Ošetří proměnnou pro výpis do HTML stránky
     private function osetri($x = null) {
         if (!isset($x)) {
             return null;
@@ -21,6 +27,7 @@ abstract class Kontroler {
         }
     }
 
+    // Vyrenderuje pohled
     public function vypisPohled() {
         if ($this->pohled) {
             extract($this->osetri($this->data));
@@ -29,6 +36,7 @@ abstract class Kontroler {
         }
     }
 
+    // Přidá zprávu pro uživatele
     public function pridejZpravu($zprava) {
         if (isset($_SESSION['zpravy'])) {
             $_SESSION['zpravy'][] = $zprava;
@@ -37,6 +45,7 @@ abstract class Kontroler {
         }
     }
 
+    // Vrátí zprávy pro uživatele
     public static function vratZpravy() {
         if (isset($_SESSION['zpravy'])) {
             $zpravy = $_SESSION['zpravy'];
@@ -47,12 +56,14 @@ abstract class Kontroler {
         }
     }
 
+    // Přesměruje uživatele na danou URL adresu
     public function presmeruj($url) {
         header("Location: /$url");
         header("Connection: close");
         exit;
     }
 
+    // Ověří, zda je přihlášený uživatel, případně přesměruje na login
     public function overUzivatele($admin = false) {
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
@@ -62,5 +73,6 @@ abstract class Kontroler {
         }
     }
 
+    // Hlavní metoda controlleru
     abstract function zpracuj($parametry);
 }

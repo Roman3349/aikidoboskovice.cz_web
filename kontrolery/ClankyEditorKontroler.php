@@ -15,12 +15,13 @@ class ClankyEditorKontroler extends Kontroler {
         $clanek = array('clanky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => '');
         // Je odeslán formulář
         if ($_POST) {
-            // Získání klíčů z formuláře
+            // Získání dat z formuláře
             $klice = array('titulek', 'obsah', 'url', 'pridal');
             $clanek = array_intersect_key($_POST, array_flip($klice));
-            // Uložení článku do DB
+            // Uložení článku do databáze
             $spravceClanku->ulozClanek($_POST['clanky_id'], $clanek);
             $this->pridejZpravu('Článek byl úspěšně uložen.');
+            // Přesměruj na vytvořený článek
             $this->presmeruj('clanek/' . $clanek['url']);
             // Je zadaná URL článku k editaci
         } else if (!empty($parametry[0])) {
@@ -31,7 +32,7 @@ class ClankyEditorKontroler extends Kontroler {
                 $this->pridejZpravu('Článek nebyl nalezen');
             }
         }
-        // Naplnění proměnn0 pro šablonu
+        // Naplnění proměnné pro šablonu
         $this->data['clanek'] = $clanek;
         // Nastavení šablony
         $this->pohled = 'ceditor';

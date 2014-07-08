@@ -17,11 +17,11 @@ class ClanekKontroler extends Kontroler {
             $spravceClanku->odstranClanek($parametry[0]);
             $this->pridejZpravu('Článek byl úspěšně odstraněn');
             $this->presmeruj('clanek');
-            // Je zadáno URL článku k zobrazení
+            // Je zadána URL článku k zobrazení
         } else if (!empty($parametry[0])) {
             // Získání článku pomocí URL
             $clanek = $spravceClanku->vratClanek($parametry[0]);
-            // Pokud nebyl článek s danou URL nalezen ZOBRAZÍ SE CHYBA
+            // Pokud nebyl článek s danou URL nalezen zobrazí se chyba 404
             if (!$clanek) {
                 $this->presmeruj('chyba');
             }

@@ -65,10 +65,12 @@ abstract class Kontroler {
 
     // Ověří, zda je přihlášený uživatel, případně přesměruje na login
     public function overUzivatele($admin = false) {
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if (!$uzivatel) {
             $this->pridejZpravu('Nedostatečná oprávnění.');
+            // Přesměrování na přihlašovací stránku
             $this->presmeruj('prihlaseni');
         }
     }

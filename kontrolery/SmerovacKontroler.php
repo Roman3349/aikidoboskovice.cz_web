@@ -30,6 +30,7 @@ class SmerovacKontroler extends Kontroler {
     public function zpracuj($parametry) {
         $naparsovanaURL = $this->parsujURL($parametry[0]);
         if (empty($naparsovanaURL[0])) {
+            // Přesměruje uživatele na výpis článků
             $this->presmeruj('clanek');
         }
         // Kontroler je 1. parametr URL
@@ -37,10 +38,12 @@ class SmerovacKontroler extends Kontroler {
         if (file_exists('kontrolery/' . $tridaKontroleru . '.php')) {
             $this->kontroler = new $tridaKontroleru;
         } else {
+            // Přesměrování na chybu
             $this->presmeruj('chyba');
         }
         // Volání kontroleru
         $this->kontroler->zpracuj($naparsovanaURL);
+        // Naplnění proměnných pro šablonu	
         $this->data['titulek'] = $this->kontroler->hlavicka['titulek'];
         $this->data['zpravy'] = $this->vratZpravy();
         // Nastavení hlavní šablonu

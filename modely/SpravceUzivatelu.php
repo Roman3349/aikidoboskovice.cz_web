@@ -11,15 +11,21 @@ class SpravceUzivatelu {
 
     // Změna hesla uživatele
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
+        // Souhlasí stávající heslo
         if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', array($jmeno))) {
+            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Chybně vyplněné součastné heslo.');
         }
+        // Souhlasí nové hesla
         if ($noveHeslo != $noveHesloZnovu) {
+            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
         try {
+            // Změní heslo v databázi AuthMe
             MC::zmen('authme', array('password' => $noveHeslo), 'WHERE username = ?', array($jmeno));
         } catch (PDOException $e) {
+            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Nekde se stala chyba.');
         }
     }
@@ -29,6 +35,7 @@ class SpravceUzivatelu {
         try {
             MC::zmen('authme',array('admin' => '1'), 'WHERE username = ?', array($jmeno));
         } catch (PDOException $e) {
+            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Nekde se stala chyba.');
         }
     }
@@ -37,6 +44,7 @@ class SpravceUzivatelu {
     public function prihlas($jmeno, $heslo) {
         $uzivatel = MC::dotazJeden('SELECT id, username, admin FROM authme WHERE username = ? AND password = ?', array($jmeno, $this->vratOtisk($heslo)));
         if (!$uzivatel) {
+            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
         }
         $_SESSION['uzivatel'] = $uzivatel;

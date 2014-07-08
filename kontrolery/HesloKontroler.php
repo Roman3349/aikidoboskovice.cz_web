@@ -13,9 +13,10 @@ class HesloKontroler extends Kontroler {
         $this->hlavicka['titulek'] = 'Změna hesla';
         // Je odeslán formulář
         if ($_POST) {
+            // Vytvoření instance modelu, který nám umožní pracovat s uživateli
             $spravceUzivatelu = new SpravceUzivatelu();
-            $uzivatel = $spravceUzivatelu->vratUzivatele();
-            $spravceUzivatelu->zmenHeslo($uzivatel['username'],$_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+            // Změna hesla
+            $spravceUzivatelu->zmenHeslo($spravceUzivatelu->vratUzivatele()['username'],$_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
         }
     }
 

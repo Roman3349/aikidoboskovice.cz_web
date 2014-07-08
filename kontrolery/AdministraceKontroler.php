@@ -9,13 +9,16 @@ class AdministraceKontroler extends Kontroler {
         $this->overUzivatele();
         // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Administrace';
-        // Získání dat o přihlášeném uživateli
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         if (!empty($parametry[0]) && $parametry[0] == 'odhlasit') {
+            // Odhlaš uživatele
             $spravceUzivatelu->odhlas();
+            // Přesměruj na přihlašovací stránku
             $this->presmeruj('prihlaseni');
         }
         $uzivatel = $spravceUzivatelu->vratUzivatele();
+        // Naplnění proměnných pro šablonu	
         $this->data['jmeno'] = $uzivatel['username'];
         $this->data['admin'] = $uzivatel['admin'];
         // Nastavení šablony

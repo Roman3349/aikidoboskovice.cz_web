@@ -7,14 +7,18 @@ class StrankaKontroler extends Kontroler {
     public function zpracuj($parametry) {
         // Vytvoření instance modelu, který nám umožní pracovat se stránkami
         $spravceStranek = new SpravceStranek();
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         $this->data['admin'] = $uzivatel && $uzivatel['admin'];
         // Je zadána URL stránky ke smazání
         if (!empty($parametry[1]) && $parametry[1] == 'odstranit') {
+            // Nastavení přístupu pouze pro administrátory
             $this->overUzivatele(true);
+            // Odstranění stránky
             $spravceStranek->odstranStranku($parametry[0]);
             $this->pridejZpravu('Stránka byla úspěšně odstraněna');
+            // Přesměrování na výpis stránek
             $this->presmeruj('stranka');
             // Je zadána URL stránky k zobrazení
         } else if (!empty($parametry[0])) {

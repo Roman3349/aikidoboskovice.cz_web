@@ -12,8 +12,10 @@ class SpravceStranek {
     // Uloží stránku do systému. Pokud je ID false, vloží novou, jinak provede editaci.
     public function ulozStranku($id, $stranka) {
         if (!$id) {
+            // Vloží data nové stránky do databáze
             Db::vloz('stranky', $stranka);
         } else {
+            // Upraví data stránky v databázi
             Db::zmen('stranky', $stranka, 'WHERE `stranky_id` = ?', array($id));
         }
     }

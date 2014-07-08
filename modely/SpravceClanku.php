@@ -12,8 +12,10 @@ class SpravceClanku {
     // Uloží článek do systému. Pokud je ID false, vloží nový, jinak provede editaci.
     public function ulozClanek($id, $clanek) {
         if (!$id) {
+            // Vloží nový článek do databáze
             Db::vloz('clanky', $clanek);
         } else {
+            // Upraví data článku v databázi
             Db::zmen('clanky', $clanek, 'WHERE clanky_id = ?', array($id));
         }
     }

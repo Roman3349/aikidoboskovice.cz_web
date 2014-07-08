@@ -13,7 +13,9 @@ class PridejAdminaKontroler extends Kontroler {
         $this->hlavicka['titulek'] = 'Přidání administrátora webu';
         // Je odeslán formulář
         if ($_POST) {
+            // Vytvoření instance modelu, který nám umožní pracovat s uživateli
             $spravceUzivatelu = new SpravceUzivatelu();
+            // Přidání administrátora
             $spravceUzivatelu->pridejAdmina($_POST['jmeno']);
         }
     }

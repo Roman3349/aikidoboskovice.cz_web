@@ -7,15 +7,20 @@ class ClanekKontroler extends Kontroler {
     public function zpracuj($parametry) {
         // Vytvoření instance modelu, který nám umožní pracovat s články
         $spravceClanku = new SpravceClanku();
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
+        // Je uživatel přihlášen
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         $this->data['admin'] = $uzivatel && $uzivatel['admin'];
 
         // Je zadána URL článku ke smazání
         if (!empty($parametry[1]) && $parametry[1] == 'odstranit') {
+            // Nastavení přístupu pouze pro administrátory
             $this->overUzivatele(true);
+            // Odstranění článku
             $spravceClanku->odstranClanek($parametry[0]);
             $this->pridejZpravu('Článek byl úspěšně odstraněn');
+            // Přesměrování na výpis článků
             $this->presmeruj('clanek');
             // Je zadána URL článku k zobrazení
         } else if (!empty($parametry[0])) {
@@ -23,6 +28,7 @@ class ClanekKontroler extends Kontroler {
             $clanek = $spravceClanku->vratClanek($parametry[0]);
             // Pokud nebyl článek s danou URL nalezen zobrazí se chyba 404
             if (!$clanek) {
+                // Přesměrování na chybu
                 $this->presmeruj('chyba');
             }
             // Hlavička stránky

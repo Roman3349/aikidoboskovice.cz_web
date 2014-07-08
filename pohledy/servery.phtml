@@ -8,6 +8,7 @@
             <th>Status</th>
             <th>Hráči</th>
             <th>Verze</th>
+            <th>Využito</th>
         </tr>
         <tr>
             <td>Lobby</td>
@@ -15,6 +16,8 @@
             <td><?= $Lobby->status; ?></td>
             <td><?= $Lobby->players . "/" . $Lobby->slots ?></td>
             <td><?= $Lobby->version ?></td>
+            <td></td>
+            <td><?= (integer) ($Lobby->players / $Lobby->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>Extreme</td>
@@ -22,6 +25,7 @@
             <td><?= $E->status ?></td>
             <td><?= $E->players . "/" . $E->slots ?></td>
             <td><?= $E->version ?></td>
+            <td><?= (integer) ($E->players / $E->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>SkyBlock</td>
@@ -29,6 +33,7 @@
             <td><?= $SB->status ?></td>
             <td><?= $SB->players . "/" . $SB->slots ?></td>
             <td><?= $SB->version ?></td>
+            <td><?= (integer) ($SB->players / $SB->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>Creative</td>
@@ -36,6 +41,7 @@
             <td><?= $Creative->status ?></td>
             <td><?= $Creative->players . "/" . $Creative->slots ?></td>
             <td><?= $Creative->version ?></td>
+            <td><?= (integer) ($Creative->players / $Creative->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>PVP</td>
@@ -43,6 +49,7 @@
             <td><?= $PVP->status ?></td>
             <td><?= $PVP->players . "/" . $PVP->slots ?></td>
             <td><?= $PVP->version ?></td>
+            <td><?= (integer) ($PVP->players / $PVP->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>FutureCraft</td>
@@ -50,6 +57,7 @@
             <td><?= $FC->status ?></td>
             <td><?= $FC->players . "/" . $FC->slots ?></td>
             <td><?= $FC->version ?></td>
+            <td><?= (integer) ($FC->players / $FC->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>Team Fortress 2</td>
@@ -57,6 +65,7 @@
             <td><?= $TF2->status ?></td>
             <td><?= $TF2->players . "/" . $TF2->slots ?></td>
             <td></td>
+            <td><?= (integer) ($TF2->players / $TF2->slots * 100); ?> %</td>
         </tr>
         <tr>
             <td>Team Speak 3</td>
@@ -64,6 +73,7 @@
             <td><?= $TS3->status ?></td>
             <td><?= $TS3->players . "/" . $TS3->slots ?></td>
             <td></td>
+            <td><?= (integer) ($TS3->players / $TS3->slots * 100); ?> %</td>
         </tr>
 	<tr>
             <td><strong>Celkem</strong></td>
@@ -71,6 +81,7 @@
             <td></td>
             <td><strong><?= $Players . "/" . $Slots ?></strong></td>
             <td></td>
+            <td><?= (integer) ($Players / $Slots * 100); ?> %</td>
         </tr>
     </table>
 </div>

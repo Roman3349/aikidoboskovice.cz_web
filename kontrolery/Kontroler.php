@@ -69,6 +69,7 @@ abstract class Kontroler {
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if (!$uzivatel) {
+            // Vypíše uživateli chybovou zprávu
             $this->pridejZpravu('Nedostatečná oprávnění.');
             // Přesměrování na přihlašovací stránku
             $this->presmeruj('prihlaseni');

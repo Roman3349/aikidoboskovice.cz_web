@@ -14,7 +14,7 @@ class SpravceUzivatelu {
         // Souhlasí stávající heslo
         if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', array($jmeno))) {
             // Vypíše chybovou správu uživateli
-            throw new ChybaUzivatele('Chybně vyplněné součastné heslo.');
+            throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
         if ($noveHeslo != $noveHesloZnovu) {

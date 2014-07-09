@@ -9,8 +9,9 @@ body {
     background-position: top center;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
-    margin: 0;
     font-size: 10pt;
+    width: 85%;
+    margin: 0 auto;
 }
 a {
     color: #358adc;
@@ -36,12 +37,11 @@ td {
 table tr td {
     padding: 5px;
 }
-header {
-    height: 154px;
-    text-align: center;
-}
 header img {
-    margin: 30px;
+    margin: 10pt auto;
+    display: block;
+    text-align: center;
+    width: 50%;
 }
 nav {
     border-bottom: 1px solid #00357b;
@@ -52,13 +52,15 @@ nav {
     background-image: -ms-linear-gradient(#3b82c5,#0865b7);
     background-image: -o-linear-gradient(#3b82c5,#0865b7);
     background-image: linear-gradient(#3b82c5,#0865b7);
-    width: 966px;
+    width: 100%;
     margin: 0 auto;
     border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     text-shadow: 1px 1px #0035b7;
     font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    font-size: 10.5pt;
 }
 nav li {
     position: relative;
@@ -90,11 +92,6 @@ nav a {
     line-height: 1em;
     text-decoration: none;
 }
-nav {
-    border-radius: 5px 5px 0 0;
-    padding: 0 0 0 5px;
-    font-size: 10.5pt;
-}
 nav > ul {
     display: inline-block
 }
@@ -122,9 +119,9 @@ nav ul li.has-sub > a:after {
     margin-left: 0;
 }
 main {
-    width: 971px;
+    width: 100%;
     margin: 0 auto;
-    background: #eeeeee;
+    background: #eee;
 }
 main select {
     transition: box-shadow, border-left, border-top, border-right 0.2s ease;
@@ -158,8 +155,8 @@ main .zprava {
     -moz-border-radius: 5px;
     padding: 8px;
     margin: 10px;
-    border: 1px solid #bbbbbb;
-    box-shadow: 0 0 8px #bbbbbb;
+    border: 1px solid #bbb;
+    box-shadow: 0 0 8px #bbb;
     color: #444;
     font-weight: bold;
     font-size: 11pt;
@@ -169,7 +166,7 @@ article {
     text-align: left;
     margin: 0;
     float: left;
-    width: 700px;
+    width: 75%
 }
 article h1 {
     border: 0 ridge #8FC410;
@@ -182,20 +179,20 @@ article h1 {
     -moz-border-radius: 5px 5px 0 0;
     padding: 8px 0 8px 8px;
     margin: 10px 10px 0 10px;
-    border: 1px solid #bbbbbb;
-    box-shadow: 0 0 8px #bbbbbb;
-    color: #444444;
+    border: 1px solid #bbb;
+    box-shadow: 0 0 8px #bbb;
+    color: #358adc;
     font-weight: bold;
     font-size: 12pt;
 }
 article div {
     margin: 0 10px 10px 10px;
-    box-shadow: 0 0 8px #bbbbbb;
+    box-shadow: 0 0 8px #bbb;
     width: auto;
     padding: 10px;
-    border-left: 1px solid #bbbbbb;
-    border-right: 1px solid #bbbbbb;
-    border-bottom: 1px solid #bbbbbb;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
     background-color: #fff;
     border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
@@ -207,7 +204,7 @@ aside {
     border: 0 ridge #99FFCC;
     text-align: left;
     float: right;
-    width: 270px;
+    width: 25%;
     text-align: center;
 }
 aside header {
@@ -223,13 +220,13 @@ aside header {
     margin: 10px 10px 0 10px;
     border: 1px solid #bbb;
     box-shadow: 0 0 8px #bbb;
-    color: #444;
+    color: #358adc;
     font-size: 12pt;
     font-weight: bold;
 }
 aside div {
     margin: 0 10px 10px 10px;
-    box-shadow: 0 0 8px #bbbbbb;
+    box-shadow: 0 0 8px #bbb;
     width: auto;
     padding: 10px;
     border-left: 1px solid #bbb;
@@ -241,23 +238,23 @@ aside div {
     -moz-border-radius: 0 0 5px 5px;
     line-height: 11pt;
 }
+aside img {
+    max-width: 85%;
+}
 footer {
-    background: -webkit-gradient(color-stop(0.05,#306ab9), color-stop(1,#1d4898));
-    background: -moz-linear-gradient(#1d4898 5%,#2f68f7 100%);
-    background: linear-gradient(#1d4898 5%,#2f68f7 100%);
+    background: -webkit-gradient(#1d4898,#2f68f7);
+    background: -moz-linear-gradient(#1d4898,#2f68f7);
+    background: linear-gradient(#1d4898,#2f68f7);
     color: #fff;
     border-top: 1px solid #4896e3;
     height: 30px;
-    width: 971px;
+    width: 100%;
     margin: 0 auto;
     border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
-}
-footer p {
-    width: 971px;
-    margin: 0 auto;
-    padding: 8px 0 0 20px;
+    text-align: center;
+    padding: 8px 0 0 0;
 }
 .center tr td {
     text-align: center;

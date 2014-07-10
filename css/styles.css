@@ -5,12 +5,12 @@ li {
     margin: 0;
 }
 body {
-    background: url(images/backgroung.png) no-repeat fixed;
+    background: url(images/background.png) no-repeat fixed;
     background-position: top center;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
     font-size: 10pt;
-    width: 85%;
+    width: 75%;
     margin: 0 auto;
 }
 a {
@@ -26,7 +26,7 @@ h4, h5, h6, form {
     margin: 0;
     padding: 0;
 }
-p {
+p, strong {
     border-bottom: 0 dashed black;
     margin: 0;
 }
@@ -41,7 +41,7 @@ header img {
     margin: 10pt auto;
     display: block;
     text-align: center;
-    width: 50%;
+    width: 75%;
 }
 nav {
     border-bottom: 1px solid #00357b;
@@ -113,10 +113,6 @@ nav > ul > li > a {
 nav ul li:hover > a, nav ul li.active > a {
     color: #fff;
     transition: color 0.2s ease;
-}
-nav ul li.has-sub > a:after {
-    content: '+';
-    margin-left: 0;
 }
 section {
     width: 100%;
@@ -247,7 +243,7 @@ footer {
     background: linear-gradient(#1d4898,#2f68f7);
     color: #fff;
     border-top: 1px solid #4896e3;
-    height: 30px;
+    min-height: 30px;
     width: 100%;
     margin: 0 auto;
     border-radius: 0 0 5px 5px;
@@ -261,10 +257,13 @@ footer {
 }
 #back-top {
     position: fixed;
-    bottom: 10%;
-    margin-left: 88%;
-    font-size: 20pt;
-    font-weight: bold; 
+    bottom: 10pt;
+    right: 10pt;
+    font-size: 10pt;
+    font-weight: bold;
+    border-radius: 10pt;
+    background-color: white;
+    padding: 5pt;
 }
 #back-top a {
     display: block;

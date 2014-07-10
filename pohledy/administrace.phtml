@@ -6,32 +6,31 @@
     <table>
         <?php if ($admin) : ?>
             <tr>
-                <td><h2>Články</h2></td>
+                <td colspan="4"><h2>Články</h2></td>
+            </tr>
+            <tr>
+                <td><a href="clanek">Seznam</a></td>
+                <td><a href="clankyEditor">Editor</a></td>
+                <td></td>
                 <td></td>
             </tr>
             <tr>
-                <td><a class="green button" style="width:180px" href="clanek">Seznam</a></td>
-                <td><a class="red button" style="width:180px" href="clankyEditor">Editor</a></td>
+                <td colspan="4"><h2>Stránky</h2></td>
             </tr>
             <tr>
-                <td><h2>Stránky</h2></td>
+                <td><a href="stranka">Seznam</a></td>
+                <td><a href="strankyEditor">Editor</a></td>
                 <td></td>
-            </tr>
-            <tr>
-                <td><a class="green button" style="width:180px" href="stranka">Seznam</a></td>
-                <td><a class="red button" style="width:180px" href="strankyEditor">Editor</a></td>
+                <td></td>
             </tr>
         <?php endif ?>
         <tr>
-            <td><h2>Uživatelské nastavení</h2></td>
-            <td></td>
+            <td colspan="4"><h2>Uživatelské nastavení</h2></td>
         </tr>
         <tr>
-            <td><a class="green button" style="width:180px" href="heslo">Změna hesla</a></td>
-            <td><a class="red button" style="width:180px" href="administrace/odhlasit">Odhlásit se</a></td>
-        </tr>
-        <tr>
-            <td><?php if ($admin) : ?><a class="orange button" style="width:180px" href="pridejAdmina">Přidej administrátora</a><?php endif ?></td>
+            <td><a href="heslo">Změna hesla</a></td>
+            <td><a href="administrace/odhlasit">Odhlásit se</a></td>
+            <td><?php if ($admin) : ?><a href="pridejAdmina">Přidej administrátora</a><?php endif ?></td>
             <td></td>
         </tr>
     </table>

@@ -45,7 +45,7 @@ header img {
 }
 nav {
     border-bottom: 1px solid #00357b;
-    height: 40px;
+    min-height: 40px;
     background-image: -webkit-gradient(#3b82c5,#0865b7);
     background-image: -webkit-linear-gradient(#3b82c5,#0865b7);
     background-image: -moz-linear-gradient(#3b82c5,#0865b7);
@@ -118,34 +118,34 @@ nav ul li.has-sub > a:after {
     content: '+';
     margin-left: 0;
 }
-main {
+section {
     width: 100%;
     margin: 0 auto;
     background: #eee;
 }
-main select {
+section select {
     transition: box-shadow, border-left, border-top, border-right 0.2s ease;
     border-radius: 3px;
     padding: 6px;
     border: 1px solid #dadada;
     background-position: top;
 }
-main input {
+section input {
     transition: box-shadow 0.2s ease;
     padding: 6px;
     border: 1px solid #dadada;
     background-position: top;
     border-radius: 3px;
 }
-main select:focus, main input:focus {
+section select:focus, section input:focus {
     outline: none;
     box-shadow: 0 0 10px #9ecaed;
     border-color: #9ecaed;
 }
-main .center {
+section .center {
     text-align: center;
 }
-main .zprava {
+section .zprava {
     background-color: #9ecaed;
     border: 0 ridge #8FC410;
     width: auto;
@@ -239,7 +239,7 @@ aside div {
     line-height: 11pt;
 }
 aside img {
-    max-width: 85%;
+    max-width: 95%;
 }
 footer {
     background: -webkit-gradient(#1d4898,#2f68f7);
@@ -258,4 +258,15 @@ footer {
 }
 .center tr td {
     text-align: center;
+}
+@media (max-width: 768px) {
+    article {
+        width: 100%;
+    }
+    aside {
+        width: 100%;
+    }
+    .hidden {
+        display: none;
+    }
 }

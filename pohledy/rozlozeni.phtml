@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="cs">    
+<html lang="cs">
     <head>
         <base href="/">
-        <meta charset="UTF-8">        
+        <meta charset="UTF-8">
         <meta name="author" content="Roman Ondráček">
         <meta name="robots" content="index, follow">
         <meta name="description" content="Web portálu Funparba.eu">
         <meta name="keywords" content="funparba, funparba.eu, minecraft, team speak 3, ts3, servery, Roman Ondráček">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">        
-        <link rel="stylesheet" type="text/css" href="css/styles.css">        
-        <link rel="stylesheet" type="text/css" href="css/buttons.css">	         
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
         <title><?= $titulek ?> FunParba.eu</title>
     </head>    
     <body>        
         <header>          
             <a href="/"><img src="images/logo.png" alt="Funparba.eu"></a>		         
-        </header>                              
-        <nav>              
-            <ul>                
+        </header>              
+        <nav>
+            <ul>
                 <li><a href="/">Novinky</a></li>
                 <li><a href="servery/">Servery</a></li>
                 <li><a href="stranka/kontakty/">Kontakty</a></li>
             </ul>            
-        </nav>                       
+        </nav>       
         <section>           
             <article>
                 <?php foreach ($zpravy as $zprava) : ?>
@@ -61,12 +60,14 @@
                     <a href="https://youtube.com/gondyk"><img src="images/icons/youtube.png" alt="YouTube"></a>   
                 </div>
                 <header class="hidden">Servery poskytuje</header>
-                <div class="hidden"><img src="http://www.fakaheda.eu/logo/blue_transparent.png" alt="FakaHeda.eu" title="FakaHeda.eu" style="width: 220px;"></div>
+                <div class="hidden">
+                    <img src="http://www.fakaheda.eu/logo/blue_transparent.png" alt="FakaHeda.eu" title="FakaHeda.eu" style="width: 220px;">
+                </div>
             </aside>
-            <br style="clear: both">        
-        </section>        
-        <footer>	                        
-            <p>FunParba.Eu © 2014 - Všechna práva vyhrazena.</p>                    
+            <br style="clear: both">
+        </section>
+        <footer>      
+            <p>FunParba.Eu © 2014 - Všechna práva vyhrazena.</p>    
         </footer>    
     </body>
 </html>

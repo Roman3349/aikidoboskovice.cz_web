@@ -14,15 +14,15 @@ class HesloKontroler extends Kontroler {
         // Je odeslán formulář
         if ($_POST) {
             try {
-            // Vytvoření instance modelu, který nám umožní pracovat s uživateli
-            $spravceUzivatelu = new SpravceUzivatelu();
-            // Změna hesla
-            $spravceUzivatelu->zmenHeslo($spravceUzivatelu->vratUzivatele()['username'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
-            $this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');
-            } catch(ChybaUzivatele $chyba) {
-            // Vypíše uživateli chybovou zprávu
+                // Vytvoření instance modelu, který nám umožní pracovat s uživateli
+                $spravceUzivatelu = new SpravceUzivatelu();
+                // Změna hesla
+                $spravceUzivatelu->zmenHeslo($spravceUzivatelu->vratUzivatele()['username'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+                $this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');
+            } catch (ChybaUzivatele $chyba) {
+                // Vypíše uživateli chybovou zprávu
                 $this->pridejZpravu($chyba->getMessage());
-        }
+            }
         }
     }
 

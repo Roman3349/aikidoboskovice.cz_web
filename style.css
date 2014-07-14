@@ -1,11 +1,16 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext);
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ubuntu'), url(fonts/Ubuntu.woff) format('woff');
+}
 li {
     line-height: 16px;
     border-bottom: 0 dashed black;
     margin: 0;
 }
 body {
-    background: url(images/background.png) no-repeat fixed;
+    background: url(images/background.webp) no-repeat fixed;
     background-position: top center;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;

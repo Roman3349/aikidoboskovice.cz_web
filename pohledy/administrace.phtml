@@ -1,22 +1,16 @@
 <h1>Vítejte v administraci, jste přihlášeni jako <?= $jmeno ?></h1>
 <div>
-    <?php if (!$admin) : ?>
-        <p>Hráči do této sekce webu nemají přístup!</p>
-    <?php endif ?>
+    <?php if (!$admin) : ?><p>Hráči do této sekce webu nemají přístup!</p><?php endif ?>
     <table>
         <?php if ($admin) : ?>
-            <tr>
-                <td colspan="4"><h2>Články</h2></td>
-            </tr>
+            <tr><td colspan="4"><h2>Články</h2></td></tr>
             <tr>
                 <td><a href="clanek">Seznam</a></td>
                 <td><a href="clankyEditor">Editor</a></td>
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
-                <td colspan="4"><h2>Stránky</h2></td>
-            </tr>
+            <tr><td colspan="4"><h2>Stránky</h2></td></tr>
             <tr>
                 <td><a href="stranka">Seznam</a></td>
                 <td><a href="strankyEditor">Editor</a></td>

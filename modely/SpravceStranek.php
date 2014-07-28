@@ -16,7 +16,7 @@ class SpravceStranek {
             Db::vloz('stranky', $stranka);
         } else {
             // Upraví data stránky v databázi
-            Db::zmen('stranky', $stranka, 'WHERE `stranky_id` = ?', array($id));
+            Db::zmen('stranky', $stranka, 'WHERE stranky_id = ?', array($id));
         }
     }
 

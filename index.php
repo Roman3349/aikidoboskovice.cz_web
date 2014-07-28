@@ -4,7 +4,7 @@
 
 session_start();
 
-//Nastavení interního kódování
+// Nastavení interního kódování
 mb_internal_encoding("UTF-8");
 
 // Callback pro automatické načítání tříd controllerů a modelů
@@ -31,5 +31,5 @@ MC::pripoj("93.91.240.147", "151812_mysql_db", "fdsdfghgfdsfg", "151812_mysql_db
 // Vytvoření routeru a zpracování URL uživatele
 $smerovac = new SmerovacKontroler();
 $smerovac->zpracuj(array($_SERVER['REQUEST_URI']));
-//renderování šablony
+// Vyrenderování šablony
 $smerovac->vypisPohled();

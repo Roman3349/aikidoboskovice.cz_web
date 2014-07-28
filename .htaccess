@@ -8,7 +8,7 @@ RewriteRule !\.(css|js|icon|zip|rar|png|jpg|gif|pdf)$ index.php [L]
 
 AddType application/x-httpd-php .php .phtml
 
-<FilesMatch "\.(htm|html|php)$">
+<FilesMatch "\.(htm|html|php|phtml)$">
     <IfModule mod_headers.c>
         BrowserMatch MSIE ie
         Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie

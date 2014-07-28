@@ -29,7 +29,7 @@ class SpravceUzivatelu {
         }
     }
 
-    // Přidíní administrátora
+    // Přidání administrátora
     public function pridejAdmina($jmeno) {
         try {
             MC::zmen('authme', array('admin' => '1'), 'WHERE username = ?', array($jmeno));

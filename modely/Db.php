@@ -1,6 +1,6 @@
 <?php
 
-// Wrapper pro snadnější práci s databází s použitím PDO a automatickýmail
+// Wrapper pro snadnější práci s databází s použitím PDO a automatickým
 // zabezpečením parametrů (proměnných) v dotazech.
 
 class Db {

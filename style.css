@@ -106,7 +106,7 @@ nav:after, nav ul:after {
     clear: both;
 }
 nav a {
-    color: #dddddd;
+    color: #ddd;
     padding: 0 10px;
 }
 nav ul {
@@ -163,7 +163,7 @@ section .zprava {
     font-size: 11pt;
 }
 article {
-    border: 0 ridge #99FFCC;
+    border: 0 ridge #99ffcc;
     text-align: left;
     margin: 0;
     float: left;

@@ -11,8 +11,11 @@ class SpravceUzivatelu {
 
     // Změna hesla uživatele
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
+        $spravceUzivatelu = new SpravceUzivatelu();
+        $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Souhlasí stávající heslo
-        if ($this->vratOtisk($heslo) != MC::dotazJeden('SELECT password FROM authme WHERE username = ?', array($jmeno))) {
+        if ($this->vratOtisk($heslo) != $uzivatel['password']) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -41,7 +44,7 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $uzivatel = MC::dotazJeden('SELECT id, username, admin FROM authme WHERE username = ? AND password = ?', array($jmeno, $this->vratOtisk($heslo)));
+        $uzivatel = MC::dotazJeden('SELECT id, username, password, admin FROM authme WHERE username = ? AND password = ?', array($jmeno, $this->vratOtisk($heslo)));
         if (!$uzivatel) {
             // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');

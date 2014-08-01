@@ -7,7 +7,7 @@ class HesloKontroler extends Kontroler {
     public function zpracuj($parametry) {
         // Přístup mají jen přihlášení uživatelé
         $this->overUzivatele();
-        // Nastavení šablonz
+        // Nastavení šablony
         $this->pohled = 'heslo';
         // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Změna hesla';
@@ -16,8 +16,9 @@ class HesloKontroler extends Kontroler {
             try {
                 // Vytvoření instance modelu, který nám umožní pracovat s uživateli
                 $spravceUzivatelu = new SpravceUzivatelu();
+                $uzivatel = $spravceUzivatelu->vratUzivatele();
                 // Změna hesla
-                $spravceUzivatelu->zmenHeslo($spravceUzivatelu->vratUzivatele()['username'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+                $spravceUzivatelu->zmenHeslo($uzivatel['username'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
                 $this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');
             } catch (ChybaUzivatele $chyba) {
                 // Vypíše uživateli chybovou zprávu

@@ -10,7 +10,7 @@ li {
     margin: 0;
 }
 body {
-    background: url(images/background.webp) no-repeat fixed;
+    background: url(images/background.jpg) no-repeat fixed;
     background-position: top center;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;

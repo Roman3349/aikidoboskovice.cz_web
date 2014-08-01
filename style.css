@@ -284,6 +284,9 @@ footer {
     transition: 1s;
 }
 @media (max-width: 768px) {
+    body {
+        width: 90%;
+    }
     article {
         width: 100%;
     }
@@ -291,6 +294,9 @@ footer {
         width: 100%;
     }
     .hidden {
+        display: none;
+    }
+    #back-top {
         display: none;
     }
 }

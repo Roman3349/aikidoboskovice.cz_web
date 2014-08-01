@@ -19,6 +19,8 @@ class HesloKontroler extends Kontroler {
                 $uzivatel = $spravceUzivatelu->vratUzivatele();
                 // Změna hesla
                 $spravceUzivatelu->zmenHeslo($uzivatel['username'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+                // Přesměruje uživatele do administrace
+                $this->presmeruj('administrace');
                 $this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');
             } catch (ChybaUzivatele $chyba) {
                 // Vypíše uživateli chybovou zprávu

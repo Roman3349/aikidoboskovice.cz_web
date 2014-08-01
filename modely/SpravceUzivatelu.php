@@ -25,7 +25,7 @@ class SpravceUzivatelu {
         }
         try {
             // Změní heslo v databázi AuthMe
-            MC::zmen('authme', array('password' => $noveHeslo), 'WHERE username = ?', array($jmeno));
+            MC::zmen('authme', array('password' => $this->vratOtisk($noveHeslo)), 'WHERE username = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());

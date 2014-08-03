@@ -265,24 +265,6 @@ footer {
 .center tr td {
     text-align: center;
 }
-#back-top {
-    position: fixed;
-    bottom: 10pt;
-    right: 10pt;
-    font-size: 10pt;
-    font-weight: bold;
-    border-radius: 10pt;
-    background-color: white;
-    padding: 5pt;
-}
-#back-top a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    transition: 1s;
-}
 @media (max-width: 768px) {
     body {
         width: 90%;
@@ -294,9 +276,6 @@ footer {
         width: 100%;
     }
     .hidden {
-        display: none;
-    }
-    #back-top {
         display: none;
     }
 }

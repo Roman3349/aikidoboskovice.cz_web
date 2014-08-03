@@ -27,7 +27,7 @@ a {
 a:hover {
     color: #000;
 }
-h4, h5, h6, form {
+h1, h2, h3, h4, h5, h6, form {
     margin: 0;
     padding: 0;
 }
@@ -51,21 +51,16 @@ header img {
 nav {
     border-bottom: 1px solid #00357b;
     min-height: 40px;
-    background-image: -webkit-gradient(#3b82c5,#0865b7);
     background-image: -webkit-linear-gradient(#3b82c5,#0865b7);
     background-image: -moz-linear-gradient(#3b82c5,#0865b7);
-    background-image: -ms-linear-gradient(#3b82c5,#0865b7);
     background-image: -o-linear-gradient(#3b82c5,#0865b7);
     background-image: linear-gradient(#3b82c5,#0865b7);
     background-color: #3b82c5;
     width: 100%;
     margin: 0 auto;
     border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
     text-shadow: 1px 1px #0035b7;
     font-weight: bold;
-    border-radius: 5px 5px 0 0;
     font-size: 10.5pt;
 }
 nav li {
@@ -153,8 +148,6 @@ section .zprava {
     width: auto;
     height: 13pt;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     padding: 8px;
     margin: 10px;
     border: 1px solid #bbb;
@@ -177,8 +170,6 @@ article h1 {
     border-bottom: 6px solid #3ab308;
     background: #f1f1ed;
     border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
     padding: 8px 0 8px 8px;
     margin: 10px 10px 0 10px;
     border: 1px solid #bbb;
@@ -197,8 +188,6 @@ article div {
     border-bottom: 1px solid #bbb;
     background-color: #fff;
     border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
     white-space: pre-line;
     line-height: 10pt;
 }
@@ -216,8 +205,6 @@ aside header {
     border-bottom: 6px solid #3ab308;
     background: #f1f1ed;
     border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
     padding: 8px 0;
     margin: 10px 10px 0 10px;
     border: 1px solid #bbb;
@@ -236,18 +223,14 @@ aside div {
     border-bottom: 1px solid #bbb;
     background-color: #fff;
     border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
     line-height: 11pt;
 }
 aside img {
     max-width: 95%;
 }
 footer {
-    background-image: -webkit-gradient(#1d4898,#2f68f7);
     background-image: -webkit-linear-gradient(#1d4898,#2f68f7);
     background-image: -moz-linear-gradient(#1d4898,#2f68f7);
-    background-image: -ms-linear-gradient(#1d4898,#2f68f7);
     background-image: -o-linear-gradient(#1d4898,#2f68f7);
     background-image: linear-gradient(#1d4898,#2f68f7);
     background-color: #2f68f7;
@@ -257,8 +240,6 @@ footer {
     width: 100%;
     margin: 0 auto;
     border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    -moz-border-radius: 0 0 5px 5px;
     text-align: center;
     padding: 8px 0 0 0;
 }

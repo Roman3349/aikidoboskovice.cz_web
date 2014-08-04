@@ -33,8 +33,12 @@ class ClankyEditorKontroler extends Kontroler {
                 $this->pridejZpravu('Článek nebyl nalezen');
             }
         }
-        // Naplnění proměnné pro šablonu
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
+        $spravceUzivatelu = new SpravceUzivatelu();
+        $uzivatel = $spravceUzivatelu->vratUzivatele();
+        // Naplnění proměnných pro šablonu
         $this->data['clanek'] = $clanek;
+        $this->data['jmeno'] = $uzivatel['username'];
         // Nastavení šablony
         $this->pohled = 'ceditor';
     }

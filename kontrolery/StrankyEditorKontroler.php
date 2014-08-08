@@ -12,11 +12,11 @@ class StrankyEditorKontroler extends Kontroler {
         // Vytvoření instance modelu
         $spravceStranek = new SpravceStranek();
         // Příprava prázdné stránky
-        $stranka = array('stranky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '',);
+        $stranka = array('stranky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => '');
         // Je odeslán formulář
         if ($_POST) {
             // Získání dat z formuláře
-            $klice = array('titulek', 'obsah', 'url',);
+            $klice = array('titulek', 'obsah', 'url', 'pridal');
             $stranka = array_intersect_key($_POST, array_flip($klice));
             // Uložení stránky do databáze
             $spravceStranek->ulozStranku($_POST['stranky_id'], $stranka);
@@ -32,8 +32,12 @@ class StrankyEditorKontroler extends Kontroler {
                 $this->pridejZpravu('Stránka nebyla nalezena');
             }
         }
-        // Naplnění proměnné pro šablonu
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
+        $spravceUzivatelu = new SpravceUzivatelu();
+        $uzivatel = $spravceUzivatelu->vratUzivatele();
+        // Naplnění proměnných pro šablonu
         $this->data['stranka'] = $stranka;
+        $this->data['jmeno'] = $uzivatel['username'];
         // Nastavení šablony
         $this->pohled = 'seditor';
     }

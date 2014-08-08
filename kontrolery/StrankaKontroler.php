@@ -33,6 +33,9 @@ class StrankaKontroler extends Kontroler {
             // Naplnění proměnných pro šablonu	
             $this->data['titulek'] = $stranka['titulek'];
             $this->data['obsah'] = $stranka['obsah'];
+            $this->data['pridano'] = $stranka['pridano'];
+            $this->data['pridal'] = $stranka['pridal'];
+            $this->data['url'] = $stranka['url'];
             // Nastavení šablony
             $this->pohled = 'stranka';
             // Není zadáno URL článku, vypíšeme všechny

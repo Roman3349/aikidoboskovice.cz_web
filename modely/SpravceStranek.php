@@ -6,7 +6,7 @@ class SpravceStranek {
 
     // Vrátí stránku z databáze podle její URL
     public function vratStranku($url) {
-        return Db::dotazJeden('SELECT `stranky_id`, `titulek`, `obsah`, `url` FROM `stranky` WHERE `url` = ?', array($url));
+        return Db::dotazJeden('SELECT `stranky_id`, `titulek`, `obsah`, `url`, `pridal`, `pridano` FROM `stranky` WHERE `url` = ?', array($url));
     }
 
     // Uloží stránku do systému. Pokud je ID false, vloží novou, jinak provede editaci.
@@ -22,7 +22,7 @@ class SpravceStranek {
 
     // Vrátí seznam stránek v databázi
     public function vratStranky() {
-        return Db::dotazVsechny('SELECT `stranky_id`, `titulek`, `url` FROM `stranky` ORDER BY `stranky_id` DESC');
+        return Db::dotazVsechny('SELECT `stranky_id`, `titulek`, `url`, `pridal`, `pridano` FROM `stranky` ORDER BY `stranky_id` DESC');
     }
 
     // Odstraní stránku

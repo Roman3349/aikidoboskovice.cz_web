@@ -1,12 +1,12 @@
 <h1>Editor článků</h1>
-<div>
-    <form method="post">
+<div><form method="post">
         <input type="hidden" name="clanky_id" value="<?= $clanek['clanky_id'] ?>">
-        <input type="hidden" name="pridal" value="<?= $jmeno ?>">
         <strong>Titulek</strong><br>
         <input type="text" name="titulek" value="<?= $clanek['titulek'] ?>"><br>
         <strong>URL</strong><br>
         <input type="text" name="url" value="<?= $clanek['url'] ?>"><br>
+        <strong>Autor</strong><br>
+        <input type="text" name="pridal" value="<?= $clanek['pridal'] ?>"><br>
         <textarea name="obsah"><?= $clanek['obsah'] ?></textarea>
         <input type="submit" value="Uložit článek">
     </form>

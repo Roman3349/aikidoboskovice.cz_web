@@ -9,7 +9,7 @@ class StrankyEditorKontroler extends Kontroler {
         $this->overUzivatele(true);
         // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Editor stránek';
-        // Vytvoření instance modelu
+        // Vytvoření instance modelu, který nám umožní pracovat s stránkami
         $spravceStranek = new SpravceStranek();
         // Příprava prázdné stránky
         $stranka = array('stranky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => '');
@@ -35,9 +35,8 @@ class StrankyEditorKontroler extends Kontroler {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        // Naplnění proměnných pro šablonu
+        // Naplnění proměnné pro šablonu
         $this->data['stranka'] = $stranka;
-        $this->data['jmeno'] = $uzivatel['username'];
         // Nastavení šablony
         $this->pohled = 'seditor';
     }

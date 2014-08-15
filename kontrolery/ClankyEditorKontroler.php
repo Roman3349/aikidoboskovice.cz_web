@@ -9,7 +9,7 @@ class ClankyEditorKontroler extends Kontroler {
         $this->overUzivatele(true);
         // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Editor článků';
-        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
+        // Vytvoření instance modelu, který nám umožní pracovat s články
         $spravceClanku = new SpravceClanku();
         // Příprava prázdného článku
         $clanek = array('clanky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => '');
@@ -36,9 +36,8 @@ class ClankyEditorKontroler extends Kontroler {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        // Naplnění proměnných pro šablonu
+        // Naplnění proměnné pro šablonu
         $this->data['clanek'] = $clanek;
-        $this->data['jmeno'] = $uzivatel['username'];
         // Nastavení šablony
         $this->pohled = 'ceditor';
     }

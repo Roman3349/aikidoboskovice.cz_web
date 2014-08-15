@@ -42,6 +42,16 @@ class SpravceUzivatelu {
         }
     }
 
+    // Odebrání administrátora
+    public function odeberAdmina($jmeno) {
+        try {
+            MC::zmen('authme', array('admin' => '0'), 'WHERE username = ?', array($jmeno));
+        } catch (ChybaUzivatele $chyba) {
+            // Vypíše chybovou zprávu uživateli
+            $this->pridejZpravu($chyba->getMessage());
+        }
+    }
+    
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
         $uzivatel = MC::dotazJeden('SELECT id, username, password, lastlogin, admin FROM authme WHERE username = ? AND password = ?', array($jmeno, $this->vratOtisk($heslo)));

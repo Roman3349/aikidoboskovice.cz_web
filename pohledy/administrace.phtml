@@ -3,27 +3,26 @@
     <?php if (!$admin) : ?><p>Hráči do této sekce webu nemají přístup!</p><?php endif ?>
     <table>
         <?php if ($admin) : ?>
-            <tr><td colspan="4"><h2>Články</h2></td></tr>
+            <tr><td colspan="2"><h2>Články</h2></td></tr>
             <tr>
                 <td><a href="clanek">Seznam</a></td>
                 <td><a href="clankyEditor">Editor</a></td>
-                <td></td>
-                <td></td>
             </tr>
-            <tr><td colspan="4"><h2>Stránky</h2></td></tr>
+            <tr><td colspan="2"><h2>Stránky</h2></td></tr>
             <tr>
                 <td><a href="stranka">Seznam</a></td>
                 <td><a href="strankyEditor">Editor</a></td>
-                <td></td>
-                <td></td>
+            </tr>
+            <tr><td colspan="2"><h2>Administrátoři</h2></td></tr>
+            <tr>
+                <td><a href="pridejAdmina">Přidej administrátora</a></td>
+                <td><a href="odeberAdmina">Odeber administrátora</a></td>
             </tr>
         <?php endif ?>
-        <tr><td colspan="4"><h2>Uživatelské nastavení</h2></td></tr>
+        <tr><td colspan="2"><h2>Uživatelské nastavení</h2></td></tr>
         <tr>
             <td><a href="heslo">Změna hesla</a></td>
             <td><a href="administrace/odhlasit">Odhlásit se</a></td>
-            <td><?php if ($admin) : ?><a href="pridejAdmina">Přidej administrátora</a><?php endif ?></td>
-            <td></td>
         </tr>
     </table>
 </div>

@@ -40,8 +40,8 @@
             <article>
                 <?php foreach ($zpravy as $zprava) : ?>
                     <p class="zprava"><?= $zprava ?></p>
-                <?php endforeach ?>    
-                <?php $this->kontroler->vypisPohled(); ?>            
+                <?php endforeach;
+                $this->kontroler->vypisPohled(); ?>            
             </article>            
             <?php require './include/servery.php'; ?>
             <aside>    
@@ -70,7 +70,7 @@
                 <header>Sledujte nás</header>    
                 <div>        
                     <a href="https://facebook.com/funparba.eu"><img src="images/icons/facebook.png" alt="Facebook"></a>        
-                    <a href="https://youtube.com/gondyk"><img src="images/icons/youtube.png" alt="YouTube"></a>   
+                    <a href="https://youtube.com/kiipcze"><img src="images/icons/youtube.png" alt="YouTube"></a>   
                 </div>
             </aside>
             <br style="clear: both">

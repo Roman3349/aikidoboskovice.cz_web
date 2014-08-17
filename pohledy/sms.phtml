@@ -1,0 +1,33 @@
+<h1>Seznam SMS plateb</h1>
+<div>
+    <table style="width: 100%" class="center">
+        <tr>
+            <th>Pořadí</th>
+            <th>ID</th>
+            <th>Tvar SMS</th>
+            <th>Číslo</th>
+            <th>Země</th>
+            <th>Operátor</th>
+            <th>Datum</th>
+            <th>Stav</th>
+        </tr>
+        <?php foreach ($platby as $platba) : ?>
+            <tr>
+                <td><?= $poradi++ ?>.</td>
+                <td><?= $platba['id_mp'] ?></td>
+                <td><?= $platba['tvar_sms'] ?></td>
+                <td><?= $platba['cislo'] ?></td>
+                <td><?= $platba['zeme'] ?></td>
+                <td><?= $platba['operator'] ?></td>
+                <td><?= date('j. n. Y G:i', strtotime($platba['datum'])); ?></td>
+                <td><?php
+                    if ($platba['stav'] == "") {
+                        echo "<img title='Doručeno' style='cursor:help;' src='http://banlist.mysty.cz/images/success.png' alt='Doručeno'>";
+                    } else {
+                        echo "<img title='Nedoručeno' style='cursor:help;' src='http://banlist.mysty.cz/images/error.png' alt='Nedoručeno'>";
+                    }
+                    ?></td>
+            </tr>
+        <?php endforeach ?>
+    </table>
+</div>

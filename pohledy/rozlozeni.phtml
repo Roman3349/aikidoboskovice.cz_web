@@ -65,7 +65,11 @@
                 <header>Statistika</header>    
                 <div> 
                     <strong>Online hráči: </strong><?= $Players . '/' . $Slots; ?><br>
-                    <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %
+                    <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %<br>
+                    <strong>Uživatelů: </strong><?= MC::vratRadky('authme') ?><br>
+                    <strong>Článků: </strong><?= Db::vratRadky('clanky') ?><br>
+                    <strong>Stránek: </strong><?= Db::vratRadky('stranky') ?><br>
+                    <strong>SMS plateb: </strong><?= SMS::vratRadky('mp_vypis') ?>
                 </div>
                 <header>Sledujte nás</header>    
                 <div>        

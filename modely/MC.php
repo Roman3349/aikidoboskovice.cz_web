@@ -62,4 +62,11 @@ class MC {
         return self::$spojeni->lastInsertId();
     }
 
+    // Vrátí počet řádků v tabulce
+    public static function vratRadky($tabulka) {
+        $navrat = self::$spojeni->prepare("SELECT COUNT(*) FROM $tabulka");
+        $navrat->execute();
+        return $navrat->fetchColumn();
+    }
+
 }

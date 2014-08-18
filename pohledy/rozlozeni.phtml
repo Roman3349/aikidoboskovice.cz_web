@@ -40,10 +40,12 @@
             <article>
                 <?php foreach ($zpravy as $zprava) : ?>
                     <p class="zprava"><?= $zprava ?></p>
-                <?php endforeach;
-                $this->kontroler->vypisPohled(); ?>            
+                <?php
+                endforeach;
+                $this->kontroler->vypisPohled();
+                ?>            
             </article>            
-            <?php require './include/servery.php'; ?>
+<?php require './include/servery.php'; ?>
             <aside>    
                 <!--
                 <header>Hlasování</header>    

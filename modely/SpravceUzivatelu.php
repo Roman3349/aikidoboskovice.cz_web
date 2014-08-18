@@ -51,7 +51,7 @@ class SpravceUzivatelu {
             $this->pridejZpravu($chyba->getMessage());
         }
     }
-    
+
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
         $uzivatel = MC::dotazJeden('SELECT id, username, password, lastlogin, admin FROM authme WHERE username = ? AND password = ?', array($jmeno, $this->vratOtisk($heslo)));

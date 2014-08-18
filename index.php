@@ -1,7 +1,5 @@
 <?php
 
-// Tento soubor musí být v rootu webhostingu! Jinak web nebude fungovat !!
-
 session_start();
 
 // Nastavení interního kódování

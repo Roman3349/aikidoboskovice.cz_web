@@ -2,7 +2,7 @@
 
 // Kontroler pro výpis SMS plateb
 class SmsKontroler extends Kontroler {
-    
+
     public function zpracuj($parametry) {
         // Nastavení přístupu pouze pro administrátory
         $this->overUzivatele(true);
@@ -17,4 +17,5 @@ class SmsKontroler extends Kontroler {
         $this->data['platby'] = $SMS;
         $this->data['poradi'] = 1;
     }
+
 }

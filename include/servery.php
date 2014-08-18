@@ -9,5 +9,5 @@ $TF2 = json_decode(file_get_contents("http://query.fakaheda.eu/217.11.249.93:275
 $FC = json_decode(file_get_contents("http://query.fakaheda.eu/93.91.250.128:27308.feed"));
 $PVP = json_decode(file_get_contents("http://query.fakaheda.eu/93.91.250.122:27368.feed"));
 
-$Players = $E->players + $SB->players + $TS3->players + $Creative->players + $TF2->players + $FC->players + $PVP->players;
-$Slots = $E->slots + $SB->slots + $TS3->slots + $Creative->slots + $TF2->slots + $FC->slots + $PVP->slots;
+$Players = $E->players + $SB->players + $TS3->players + $Lobby->players + $Creative->players + $TF2->players + $FC->players + $PVP->players;
+$Slots = $E->slots + $SB->slots + $TS3->slots + $Lobby->slots + $Creative->slots + $TF2->slots + $FC->slots + $PVP->slots;

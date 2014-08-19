@@ -1,6 +1,6 @@
 <?php
 
-// Kontroler pro přidání administrátora
+// Kontroler pro odebrání administrátora
 
 class OdeberAdminaKontroler extends Kontroler {
 

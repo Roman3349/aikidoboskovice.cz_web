@@ -90,7 +90,7 @@ class SpravceUzivatelu {
             return false;
         }
     }
-    
+
     // Vrátí údaje uživatele
     public function vratUdaje($jmeno) {
         return MC::dotazJeden('SELECT `username`, `lastlogin`, `admin` FROM `authme` WHERE `username` = ?', array($jmeno));

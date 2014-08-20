@@ -12,7 +12,8 @@ class ClanekKontroler extends Kontroler {
         // Je uživatel přihlášen
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
-        $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);;
+        $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);
+        ;
 
         // Je zadána URL článku ke smazání
         if ($parametry[1] == 'odstranit') {

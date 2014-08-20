@@ -29,5 +29,11 @@ class SpravceClanku {
     public function odstranClanek($url) {
         Db::dotaz('DELETE FROM clanky WHERE url = ?', array($url));
     }
+    
+    //Vrať komentáře ke článku
+    public function vratKomentare($id) {
+        Db::dotazVsechny('SELECT `komantar_id`, `clanky_id`, `obsah`, `url`, `pridal`, `pridano` FROM `clanky_komentare` WHERE `clanky_id` = ?', array($id));
+        
+    }
 
 }

@@ -6,7 +6,7 @@ class OdeberAdminaKontroler extends Kontroler {
 
     public function zpracuj($parametry) {
         // Nastavení přístupu pouze pro administrátory
-        $this->overUzivatele(true);
+        $this->jeAdmin();
         // Nastavení šablony
         $this->pohled = 'odeberadmina';
         // Nastavení hlavičky

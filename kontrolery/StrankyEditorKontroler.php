@@ -6,7 +6,7 @@ class StrankyEditorKontroler extends Kontroler {
 
     public function zpracuj($parametry) {
         // Nastavení přístupu pouze pro administrátory
-        $this->overUzivatele(true);
+        $this->jeAdmin();
         // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Editor stránek';
         // Vytvoření instance modelu, který nám umožní pracovat s stránkami

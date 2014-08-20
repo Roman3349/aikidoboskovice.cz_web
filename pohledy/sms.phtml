@@ -2,7 +2,6 @@
 <div>
     <table style="width: 100%" class="center">
         <tr>
-            <th>Pořadí</th>
             <th>ID</th>
             <th>Tvar SMS</th>
             <th>Číslo</th>
@@ -13,7 +12,6 @@
         </tr>
         <?php foreach ($platby as $platba) : ?>
             <tr>
-                <td><?= $poradi++ ?>.</td>
                 <td><?= $platba['id_mp'] ?></td>
                 <td><?= $platba['tvar_sms'] ?></td>
                 <td><?= $platba['cislo'] ?></td>

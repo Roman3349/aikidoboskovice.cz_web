@@ -70,9 +70,22 @@ abstract class Kontroler {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if (!$uzivatel) {
             // Vypíše uživateli chybovou zprávu
-            $this->pridejZpravu('Nedostatečná oprávnění.');
+            $this->pridejZpravu('Nejste přihlášen.');
             // Přesměrování na přihlašovací stránku
             $this->presmeruj('prihlaseni');
+        }
+    }
+
+    // Ověří zda je uživatel administrátor
+    public function jeAdmin() {
+        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
+        $spravceUzivatelu = new SpravceUzivatelu();
+        $uzivatel = $spravceUzivatelu->vratUzivatele();
+        if ($uzivatel['admin'] != 1) {
+           // Vypíše uživateli chybovou zprávu
+            $this->pridejZpravu('Nemáte oprávnění do této sekce webu.');
+            // Přesměrování na přihlašovací stránku
+            $this->presmeruj('administrace'); 
         }
     }
 

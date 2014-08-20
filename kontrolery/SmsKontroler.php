@@ -5,7 +5,7 @@ class SmsKontroler extends Kontroler {
 
     public function zpracuj($parametry) {
         // Nastavení přístupu pouze pro administrátory
-        $this->overUzivatele(true);
+        $this->jeAdmin();
         // Nastavení hlavičky
         $this->hlavicka['titulek'] = 'Seznam SMS plateb';
         // Nastavení šablony
@@ -15,7 +15,6 @@ class SmsKontroler extends Kontroler {
         $SMS = $spravceSMS->vratSMS();
         // Naplnění proměnných pro šablonu
         $this->data['platby'] = $SMS;
-        $this->data['poradi'] = 1;
     }
 
 }

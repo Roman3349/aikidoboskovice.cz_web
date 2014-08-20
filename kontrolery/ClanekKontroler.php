@@ -15,9 +15,9 @@ class ClanekKontroler extends Kontroler {
         $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);;
 
         // Je zadána URL článku ke smazání
-        if (!empty($parametry[1]) && $parametry[1] == 'odstranit') {
+        if ($parametry[1] == 'odstranit') {
             // Nastavení přístupu pouze pro administrátory
-            $this->overUzivatele(true);
+            $this->jeAdmin();
             // Odstranění článku
             $spravceClanku->odstranClanek($parametry[0]);
             $this->pridejZpravu('Článek byl úspěšně odstraněn');

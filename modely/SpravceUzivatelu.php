@@ -90,12 +90,10 @@ class SpravceUzivatelu {
             return false;
         }
     }
-
-    // Zjístí, kdy se uživatel naposledy přihlásil
-    public function vratLastLogin($jmeno) {
-        $dotaz = MC::dotazJeden('SELECT `lastlogin` FROM `authme` WHERE `username` = ?', array($jmeno));
-        $unix_time = $dotaz['lastlogin'] / 1000;
-        return $unix_time;
+    
+    // Vrátí údaje uživatele
+    public function vratUdaje($jmeno) {
+        return MC::dotazJeden('SELECT `username`, `lastlogin`, `admin` FROM `authme` WHERE `username` = ?', array($jmeno));
     }
 
 }

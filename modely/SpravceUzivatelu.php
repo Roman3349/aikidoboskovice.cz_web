@@ -15,7 +15,7 @@ class SpravceUzivatelu {
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Souhlasí stávající heslo
-        if ($this->vratOtisk($heslo) != $uzivatel['password']) {
+        if ($this->vratOtisk($heslo) != $this->vratHash($jmeno)) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -54,7 +54,7 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $uzivatel = MC::dotazJeden('SELECT id, username, password, lastlogin, admin FROM authme WHERE username = ? AND password = ?', array($jmeno, $this->vratOtisk($heslo)));
+        $uzivatel = MC::dotazJeden('SELECT `username` FROM `authme` WHERE `username` = ? AND `password` = ?', array($jmeno, $this->vratOtisk($heslo)));
         if (!$uzivatel) {
             // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
@@ -73,6 +73,29 @@ class SpravceUzivatelu {
             return $_SESSION['uzivatel'];
         }
         return null;
+    }
+
+    // Vrátí hash hesla z databáze
+    public function vratHash($jmeno) {
+        $dotaz = MC::dotazJeden('SELECT `password` FROM `authme` WHERE `username` = ?', array($jmeno));
+        return $dotaz['password'];
+    }
+
+    // Zjístí, zda je uživatel administrátorem
+    public function vratAdmina($jmeno) {
+        $dotaz = MC::dotazJeden('SELECT `admin` FROM `authme` WHERE `username` = ?', array($jmeno));
+        if ($dotaz['admin'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Zjístí, kdy se uživatel naposledy přihlásil
+    public function vratLastLogin($jmeno) {
+        $dotaz = MC::dotazJeden('SELECT `lastlogin` FROM `authme` WHERE `username` = ?', array($jmeno));
+        $unix_time = $dotaz['lastlogin'] / 1000;
+        return $unix_time;
     }
 
 }

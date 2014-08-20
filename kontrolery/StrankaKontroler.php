@@ -10,7 +10,8 @@ class StrankaKontroler extends Kontroler {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        $this->data['admin'] = $uzivatel && $uzivatel['admin'];
+        // Naplnění proměnné pro šablonu
+        $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);;
         // Je zadána URL stránky ke smazání
         if (!empty($parametry[1]) && $parametry[1] == 'odstranit') {
             // Nastavení přístupu pouze pro administrátory

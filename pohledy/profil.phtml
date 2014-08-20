@@ -1,6 +1,11 @@
 <h1>Profil hráče <?= $jmeno ?></h1>
 <div>
-    <strong>Jméno: </strong><?= $jmeno ?><br>
-    <strong>Poslední přihlášení: </strong><?= $lastlogin ?><br>
-    <strong>Je admin: </strong><?php if ($admin == 1): ?>Ano<?php else : ?>Ne<?php endif; ?><br>
+    <table>
+        <tr>
+            <td rowspan="3"><img src="http://mc-heads.net/avatar/<?= $jmeno ?>/100.png"></td>
+            <td><strong>Jméno: </strong><?= $jmeno ?></td>
+        </tr>
+        <tr><td><strong>Poslední přihlášení: </strong><?= $lastlogin ?></td></tr>
+        <tr><td><strong>Je admin: </strong><?php if ($admin == 1): ?>Ano<?php else : ?>Ne<?php endif; ?></td></tr>
+    </table>
 </div>

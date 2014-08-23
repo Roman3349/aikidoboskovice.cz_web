@@ -12,7 +12,6 @@ class StrankaKontroler extends Kontroler {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
         $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);
-        ;
         // Je zadána URL stránky ke smazání
         if ($parametry[1] == 'odstranit') {
             // Nastavení přístupu pouze pro administrátory

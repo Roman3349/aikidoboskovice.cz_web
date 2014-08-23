@@ -2,21 +2,23 @@
 <div>
     <table style="width: 100%" class="center">
         <tr>
-            <th>ID</th>
+            <th>Pořadí</th>
+            <th class="hidden">ID</th>
             <th>Tvar SMS</th>
             <th>Číslo</th>
-            <th>Země</th>
-            <th>Operátor</th>
+            <th class="hidden">Země</th>
+            <th class="hidden">Operátor</th>
             <th>Datum</th>
             <th>Stav</th>
         </tr>
         <?php foreach ($platby as $platba) : ?>
             <tr>
-                <td><?= $platba['id_mp'] ?></td>
+                <td><?= $poradi++ ?></td>
+                <td class="hidden"><?= $platba['id_mp'] ?></td>
                 <td><?= $platba['tvar_sms'] ?></td>
                 <td><?= $platba['cislo'] ?></td>
-                <td><?= $platba['zeme'] ?></td>
-                <td><?= $platba['operator'] ?></td>
+                <td class="hidden"><?= $platba['zeme'] ?></td>
+                <td class="hidden"><?= $platba['operator'] ?></td>
                 <td><?= date('j. n. Y G:i', strtotime($platba['datum'])); ?></td>
                 <td><?php
                     if ($platba['stav'] == "") {

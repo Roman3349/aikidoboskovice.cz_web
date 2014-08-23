@@ -13,7 +13,6 @@ class ClanekKontroler extends Kontroler {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
         $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);
-        ;
 
         // Je zadána URL článku ke smazání
         if ($parametry[1] == 'odstranit') {
@@ -34,7 +33,7 @@ class ClanekKontroler extends Kontroler {
                 $this->presmeruj('chyba');
             }
             // Hlavička stránky
-            $this->hlavicka = array('titulek' => $clanek['titulek'],);
+            $this->hlavicka = array('titulek' => $clanek['titulek']);
             // Naplnění proměnných pro šablonu	
             $this->data['titulek'] = $clanek['titulek'];
             $this->data['obsah'] = $clanek['obsah'];

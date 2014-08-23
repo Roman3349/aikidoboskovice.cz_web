@@ -32,9 +32,6 @@ class StrankyEditorKontroler extends Kontroler {
                 $this->pridejZpravu('Stránka nebyla nalezena');
             }
         }
-        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
-        $spravceUzivatelu = new SpravceUzivatelu();
-        $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
         $this->data['stranka'] = $stranka;
         // Nastavení šablony

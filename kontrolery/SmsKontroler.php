@@ -15,6 +15,7 @@ class SmsKontroler extends Kontroler {
         $SMS = $spravceSMS->vratSMS();
         // Naplnění proměnných pro šablonu
         $this->data['platby'] = $SMS;
+        $this->data['poradi'] = 1;
     }
 
 }

@@ -33,9 +33,6 @@ class ClankyEditorKontroler extends Kontroler {
                 $this->pridejZpravu('Článek nebyl nalezen');
             }
         }
-        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
-        $spravceUzivatelu = new SpravceUzivatelu();
-        $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
         $this->data['clanek'] = $clanek;
         // Nastavení šablony

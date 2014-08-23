@@ -5,7 +5,7 @@
             <th>Pořadí</th>
             <th class="hidden">ID</th>
             <th>Tvar SMS</th>
-            <th>Číslo</th>
+            <th class="hidden">Číslo</th>
             <th class="hidden">Země</th>
             <th class="hidden">Operátor</th>
             <th>Datum</th>
@@ -13,10 +13,10 @@
         </tr>
         <?php foreach ($platby as $platba) : ?>
             <tr>
-                <td><?= $poradi++ ?></td>
+                <td><?= $poradi++ ?>.</td>
                 <td class="hidden"><?= $platba['id_mp'] ?></td>
                 <td><?= $platba['tvar_sms'] ?></td>
-                <td><?= $platba['cislo'] ?></td>
+                <td class="hidden"><?= $platba['cislo'] ?></td>
                 <td class="hidden"><?= $platba['zeme'] ?></td>
                 <td class="hidden"><?= $platba['operator'] ?></td>
                 <td><?= date('j. n. Y G:i', strtotime($platba['datum'])); ?></td>

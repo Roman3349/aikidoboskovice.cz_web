@@ -23,7 +23,7 @@ Db::pripoj("wm51.wedos.net", "a56515_new", "LSU9Qgq4", "d56515_new");
 
 // Připojení k MySQL databázi Minecraftového serveru
 // MC::pripoj("HOST", "USER", "PASSWORD", "DATABASE");
-MC::pripoj("93.91.240.147", "151812_mysql_db", "fdsdfghgfdsfg", "151812_mysql_db");
+MC::pripoj("93.91.250.215", "120644_mysql_db", "nbvcxsertzhdfd", "120644_mysql_db");
 
 // Připojení k MySQL databázi SMS plateb
 // SMS::pripoj("HOST", "USER", "PASSWORD", "DATABASE");

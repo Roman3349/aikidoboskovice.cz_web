@@ -1,6 +1,7 @@
 <?php
 
 // Kontroler pro výpis SMS plateb
+
 class SmsKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

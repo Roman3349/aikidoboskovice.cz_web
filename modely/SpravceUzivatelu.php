@@ -6,7 +6,7 @@ class SpravceUzivatelu {
 
     // Vrátí otisk hesla
     public function vratOtisk($heslo) {
-        return sha1($heslo);
+        return hash('sha1', $heslo);
     }
 
     // Změna hesla uživatele

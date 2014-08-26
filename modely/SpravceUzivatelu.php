@@ -4,16 +4,16 @@
 
 class SpravceUzivatelu {
 
-    // Vratí náhodné číslo 
-    public function vratNahodneCislo($delka) {
-        $min = 1 . str_repeat(0, $delka - 1);
-        $max = str_repeat(9, $delka);
-        return mt_rand($min, $max);
+    // Vratí náhodný salt 
+    public static function vratSalt($len) {
+        $bytes = openssl_random_pseudo_bytes(40);
+        $sha1 = sha1($bytes);
+        return substr($sha1, 0, $len);
     }
 
     // Vrátí otisk hesla
     public function vratOtisk($heslo) {
-        $sul = $this->vratNahodneCislo(16);
+        $sul = $this->gen_hex_salt(16);
         return '$SHA$' . $sul . '$' . hash('sha256', hash('sha256', $heslo) . $sul);
     }
 

@@ -5,14 +5,15 @@
 class SpravceUzivatelu {
 
     // Vratí náhodný salt 
-    private static function vratSalt($len) {
+    private static function vratSalt($delka) {
         $bytes = openssl_random_pseudo_bytes(40);
         $sha1 = sha1($bytes);
-        return substr($sha1, 0, $len);
+        return substr($sha1, 0, $delka);
     }
 
     // Vrátí otisk hesla
     private function vratOtisk($heslo) {
+        // Vytvoří sůl
         $sul = $this->gen_hex_salt(16);
         return '$SHA$' . $sul . '$' . hash('sha256', hash('sha256', $heslo) . $sul);
     }

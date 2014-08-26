@@ -34,7 +34,7 @@ class SpravceUzivatelu {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         $hash = $this->vratHash($jmeno);
         // Souhlasí stávající heslo
-        if ($this->zkontrolujHeslo($heslo, $hash) == $hash) {
+        if ($this->zkontrolujHeslo($heslo, $hash) != $hash) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla

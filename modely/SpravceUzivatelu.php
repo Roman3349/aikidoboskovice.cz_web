@@ -17,18 +17,8 @@ class SpravceUzivatelu {
         return hash('sha256', hash('sha256', $heslo) . $sul);
     }
 
-    // Zkontroluje heslo
-    public function zkontrolujHeslo($heslo, $hash) {
-        $cast = explode('$', $hash);
-        if (hash('sha256', hash('sha256', $heslo) . $cast[2]) == $cast[3]) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     // Když heslo souhlasí vrátí hash
-    public function zkontrolujHash($heslo, $hash) {
+    public function zkontrolujHeslo($heslo, $hash) {
         $cast = explode('$', $hash);
         if (hash('sha256', hash('sha256', $heslo) . $cast[2]) == $cast[3]) {
             return $hash;
@@ -42,8 +32,9 @@ class SpravceUzivatelu {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
+        $hash = $this->vratHash($jmeno);
         // Souhlasí stávající heslo
-        if ($this->zkontrolujHeslo($heslo, $this->vratHash($jmeno)) == true) {
+        if ($this->zkontrolujHeslo($heslo, $hash) == $hash) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -82,7 +73,7 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $hash = $this->zkontrolujHash($heslo, $this->vratHash($jmeno));
+        $hash = $this->zkontrolujHeslo($heslo, $this->vratHash($jmeno));
         $uzivatel = MC::dotazJeden('SELECT `username` FROM `authme` WHERE `username` = ? AND `password` = ?', array($jmeno, $hash));
         if (!$uzivatel) {
             // Vypíše chybovou správu uživateli

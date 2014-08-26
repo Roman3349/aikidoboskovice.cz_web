@@ -5,20 +5,20 @@
 class SpravceUzivatelu {
 
     // Vratí náhodný salt 
-    public static function vratSalt($len) {
+    private static function vratSalt($len) {
         $bytes = openssl_random_pseudo_bytes(40);
         $sha1 = sha1($bytes);
         return substr($sha1, 0, $len);
     }
 
     // Vrátí otisk hesla
-    public function vratOtisk($heslo) {
+    private function vratOtisk($heslo) {
         $sul = $this->gen_hex_salt(16);
         return '$SHA$' . $sul . '$' . hash('sha256', hash('sha256', $heslo) . $sul);
     }
 
     // Když heslo souhlasí vrátí hash
-    public function zkontrolujHeslo($heslo, $hash) {
+    private function zkontrolujHeslo($heslo, $hash) {
         $cast = explode('$', $hash);
         if (hash('sha256', hash('sha256', $heslo) . $cast[2]) == $cast[3]) {
             return $hash;

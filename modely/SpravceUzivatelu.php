@@ -14,7 +14,7 @@ class SpravceUzivatelu {
     // Vrátí otisk hesla
     public function vratOtisk($heslo) {
         $sul = $this->vratNahodneCislo(16);
-        return hash('sha256', hash('sha256', $heslo) . $sul);
+        return '$SHA$' . $sul . '$' . hash('sha256', hash('sha256', $heslo) . $sul);
     }
 
     // Když heslo souhlasí vrátí hash

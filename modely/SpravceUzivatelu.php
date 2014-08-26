@@ -4,9 +4,37 @@
 
 class SpravceUzivatelu {
 
+    // Vratí náhodné číslo 
+    public function vratNahodneCislo($delka) {
+        $min = 1 . str_repeat(0, $delka - 1);
+        $max = str_repeat(9, $delka);
+        return mt_rand($min, $max);
+    }
+
     // Vrátí otisk hesla
     public function vratOtisk($heslo) {
-        return hash('sha1', $heslo);
+        $sul = $this->vratNahodneCislo(16);
+        return hash('sha256', hash('sha256', $heslo) . $sul);
+    }
+
+    // Zkontroluje heslo
+    public function zkontrolujHeslo($heslo, $hash) {
+        $cast = explode('$', $hash);
+        if (hash('sha256', hash('sha256', $heslo) . $cast[2]) == $cast[3]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Když heslo souhlasí vrátí hash
+    public function zkontrolujHash($heslo, $hash) {
+        $cast = explode('$', $hash);
+        if (hash('sha256', hash('sha256', $heslo) . $cast[2]) == $cast[3]) {
+            return $hash;
+        } else {
+            return false;
+        }
     }
 
     // Změna hesla uživatele
@@ -15,7 +43,7 @@ class SpravceUzivatelu {
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Souhlasí stávající heslo
-        if ($this->vratOtisk($heslo) != $this->vratHash($jmeno)) {
+        if ($this->zkontrolujHeslo($heslo, $this->vratHash($jmeno)) === true) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -54,7 +82,8 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $uzivatel = MC::dotazJeden('SELECT `username` FROM `authme` WHERE `username` = ? AND `password` = ?', array($jmeno, $this->vratOtisk($heslo)));
+        $hash = $this->zkontrolujHash($heslo, $this->vratHash($jmeno));
+        $uzivatel = MC::dotazJeden('SELECT `username` FROM `authme` WHERE `username` = ? AND `password` = ?', array($jmeno, $hash));
         if (!$uzivatel) {
             // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');

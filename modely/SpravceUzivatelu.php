@@ -43,7 +43,7 @@ class SpravceUzivatelu {
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Souhlasí stávající heslo
-        if ($this->zkontrolujHeslo($heslo, $this->vratHash($jmeno)) === true) {
+        if ($this->zkontrolujHeslo($heslo, $this->vratHash($jmeno)) == true) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla

@@ -2,7 +2,7 @@
 
 // Kontroler pro editaci stránek
 
-class StrankyEditorKontroler extends Kontroler {
+class EditorKontroler extends Kontroler {
 
     public function zpracuj($parametry) {
         // Nastavení přístupu pouze pro administrátory

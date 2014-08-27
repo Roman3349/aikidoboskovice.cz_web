@@ -17,9 +17,6 @@ header img {margin: 10pt auto; display: block; text-align: center; width: 80%;}
 nav {
     border-bottom: 1px solid #00357b;
     min-height: 40px;
-    background-image: -webkit-linear-gradient(#3b82c5,#0865b7);
-    background-image: -moz-linear-gradient(#3b82c5,#0865b7);
-    background-image: -o-linear-gradient(#3b82c5,#0865b7);
     background-image: linear-gradient(#3b82c5,#0865b7);
     background-color: #3b82c5;
     width: 100%;
@@ -125,9 +122,6 @@ aside div {
 }
 aside img {max-width: 95%;}
 footer {
-    background-image: -webkit-linear-gradient(#1d4898,#2f68f7);
-    background-image: -moz-linear-gradient(#1d4898,#2f68f7);
-    background-image: -o-linear-gradient(#1d4898,#2f68f7);
     background-image: linear-gradient(#1d4898,#2f68f7);
     background-color: #2f68f7;
     color: #fff;

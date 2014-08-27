@@ -1,6 +1,6 @@
-CMS
+AikidoBoskovice
 ===
 
-Redakční systém pro portál Funparba.eu.
+Redakční systém pro oddíl Aikido BOskovice.
 
 Použité technologie: PHP (OOP), HTML, CSS, JS

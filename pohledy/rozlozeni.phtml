@@ -1,85 +1,59 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html>
     <head>
-        <base href="/">
+        <base href="/" >
+        <title><?= $titulek ?> | Aikido Boskovice</title>
         <meta charset="UTF-8">
         <meta name="author" content="Roman Ondráček">
-        <meta name="robots" content="index, follow">
-        <meta name="description" content="Web portálu Funparba.eu">
-        <meta name="keywords" content="funparba, funparba.eu, minecraft, team speak 3, ts3, servery, Roman Ondráček">
+        <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title><?= $titulek ?> | FunParba.eu</title>
-        <script type="text/javascript">
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments);
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m);
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-53445724-2', 'auto');
-            ga('send', 'pageview');
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico'>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/cs_CZ/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         </script>
-    </head>    
-    <body>        
-        <header><a href="/"><img src="images/logo.png" alt="FunParba.eu" title="FunParba.eu"></a></header>              
+    </head>
+    <body>
+        <header><a href="/"><img src="images/logo.png" alt="Logo"></a></header>
         <nav>
             <ul>
-                <li><a href="/">Novinky</a></li>
-                <li><a href="servery/">Servery</a></li>
-                <li><a href="stranka/kontakty/">Kontakty</a></li>
-            </ul>            
-        </nav>       
-        <section>           
+                <li><a href="/">Aktuality</a></li>
+                <li><a href="#">Galerie</a>
+                    <ul>
+                        <li><a href="https://plus.google.com/photos/115908030698015783392/albums">Fotografie</a></li>
+                        <li><a href="https://youtube.com/Aikidoboskovice">Videa</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="ueshiba">Ueshiba</a></li>
+                <li><a href="trenink">Trénink</a></li>
+                <li><a href="kontakt">Kontakt</a></li>
+                <li><a href="odkazy">Odkazy</a></li>
+                <li><a href="faq">FAQ</a></li>
+                <li><a href="clanky">Články</a><ul><li><a href="guillaumeerard">Guillaume Erard</a></li></ul></li>
+            </ul>
+        </nav>
+        <section>
             <article>
                 <?php foreach ($zpravy as $zprava) : ?>
                     <p class="zprava"><?= $zprava ?></p>
-                <?php endforeach; ?>
-                <?php $this->kontroler->vypisPohled(); ?>            
-            </article>            
-            <?php require './include/servery.php'; ?>
-            <aside>    
-                <!--
-                <header>Hlasování</header>    
-                <div>        
-                    <form action="http://czech-craft.eu/vote.php" method="get" target="_blank">        
-                        <select name="id">          
-                            <option value="4666" selected>Capture the Flag</option>        
-                        </select>
-                        <input type="text" name="user" placeholder="Sem zadej svůj nick" size="20">
-                        <button type="submit">Hlasovat</button>      
-                    </form>    
-                </div>
-                -->
-                <header>Profil</header>    
-                <div class="center"> 
-                    <a href="prihlaseni">Přihlásit se</a><br>
-                    <a href="profil">Profil</a><br>
-                    <a href="administrace">Administrace</a>
-                </div>
-                <header>Statistika</header>    
-                <div class="center"> 
-                    <strong>Online hráči: </strong><?= $Players . '/' . $Slots; ?><br>
-                    <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %<br>
-                    <strong>Uživatelů: </strong><?= MC::vratRadky('authme') ?><br>
-                    <strong>Článků: </strong><?= Db::vratRadky('clanky') ?><br>
-                    <strong>Stránek: </strong><?= Db::vratRadky('stranky') ?><br>
-                    <strong>SMS plateb: </strong><?= Db::vratRadky('mp_vypis') ?>
-                </div>
-                <header>Sledujte nás</header>    
-                <div class="center">        
-                    <a href="https://facebook.com/funparba.eu"><img src="images/icons/facebook.png" alt="Facebook"></a>        
-                    <a href="https://youtube.com/kiipcze"><img src="images/icons/youtube.png" alt="YouTube"></a>   
-                </div>
+                <?php endforeach ?>
+                <?php $this->kontroler->vypisPohled(); ?> 
+            </article>
+            <aside>
+                <header>Facebook</header>
+                <div class="fb-like-box" data-href="https://www.facebook.com/pages/Aikido-Boskovice/105287994447" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
             </aside>
             <br style="clear: both">
         </section>
-        <footer><p>FunParba.Eu © 2014 - Všechna práva vyhrazena.</p></footer>
-    </body>
+        <footer>Hostováno u <a href="http://www.carezone.cz/">Carezone</a></footer>
+</body>
 </html>

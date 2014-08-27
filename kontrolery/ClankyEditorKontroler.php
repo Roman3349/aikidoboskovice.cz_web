@@ -17,11 +17,13 @@ class ClankyEditorKontroler extends Kontroler {
         if ($_POST) {
             // Získání dat z formuláře
             $klice = array('titulek', 'obsah', 'url', 'pridal');
-            $clanek = array_intersect_key($_POST, array_flip($klice));
             // Vytvoření instance modelu, který nám umožní pracovat s editorem
             $spravceEditoru = new SpravceEditoru();
-            // Uložení článku do databáze a odstraní z něj JS
-            $spravceClanku->ulozClanek($_POST['clanky_id'], $spravceEditoru->odstranJS($clanek));
+            // Odstraní JS
+            $_POST['obsah'] = $spravceEditoru->remove_scripts($_POST['obsah']);
+            $clanek = array_intersect_key($_POST, array_flip($klice));
+            // Uložení článku do databáze
+            $spravceClanku->ulozClanek($_POST['clanky_id'], $clanek);
             // Vypsání zprávy uživateli
             $this->pridejZpravu('Článek byl úspěšně uložen.');
             // Přesměruj na vytvořený článek

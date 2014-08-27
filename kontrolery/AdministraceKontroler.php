@@ -19,8 +19,8 @@ class AdministraceKontroler extends Kontroler {
         }
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnných pro šablonu	
-        $this->data['jmeno'] = $uzivatel['username'];
-        $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['username']);
+        $this->data['jmeno'] = $uzivatel['jmeno'];
+        $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['jmeno']);
         // Nastavení šablony
         $this->pohled = 'administrace';
     }

@@ -1,32 +1,224 @@
 @font-face {font-family: 'Ubuntu'; font-style: normal; font-weight: 400; src: local('Ubuntu'), url(fonts/Ubuntu.woff) format('woff');}
-* {margin: 0; padding: 0; font-family: 'Ubuntu', sans-serif;}
-body {background-color: #336FB7; width: 75%; margin: 0 auto; font-size: 11pt;}
-header img {margin: 8pt auto; display: block; text-align: center; width: 80%;}
-nav {background: #bbb; background: linear-gradient(#efefef, #bbb); border-radius: 16pt 16pt 0 0; text-align: center;}
-nav ul {padding: 0px 7pt;}
-nav ul li {display: inline-block;}
-nav ul li a {display: block; padding: 6pt 4pt;text-transform: uppercase; font-weight: bold; color: #999; text-decoration: none; font-size: 13pt;}
-nav ul li a:hover {color: white;}
-nav ul li ul {display: none; position: absolute; list-style-type: none; background: #bbb; background: linear-gradient(#efefef, #bbb); border-top: 0 none;}
-nav ul li:hover ul {display: block;}
-nav ul li ul li {display: list-item;}
-section {background-color: white;}
-article {float: left; width: 70%; padding: 0 15px;}
-article header {font-size: 16pt; color: #336FB7; font-weight: bold; margin-top: 0px; text-transform: uppercase;}
-aside {float: right; width: 30%;}
-aside header {font-size: 16pt; color: #336FB7; font-weight: bold; margin-top: 0px; text-transform: uppercase;}
-footer {text-align: center; color: black; border-radius: 0 0 16pt 16pt; background: #bbb; background: linear-gradient(#efefef, #bbb); margin-top: 8px; padding: 8px;}
-.clear {clear: both; margin-bottom: 10px;}
-a:link, a:visited {color: #336FB7; text-decoration: none;}
-table {margin: .5em 0 1em;}
-table td, table th {border-right: 1px solid #fff; padding: .4em .8em;}
-table th {background-color: #5e5e5e; text-transform: uppercase; font-weight: bold; border-bottom: 1px solid #e8e1c8; color: white;}
-table td {background-color: #eee;}
-.alignleft {float: left; margin-right: 8px;}
-.zprava {border: 1px solid #9dc2f8; background: #dbe8f8; padding: 3px;}
-@media (max-width: 768px) {
-    body {width: 90%;}
-    article {width: 100%;}
-    aside {width: 100%;}
-    .hidden {display: none;}
+body {
+    background-color: #336FB7;
+    width: 1280px;
+    margin: 0 auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 11pt;
+}
+header img {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    width: 75% ;
+}
+nav {
+    background: #bbbbbb;
+    background: linear-gradient(#efefef, #bbbbbb);
+    background: -moz-linear-gradient(#efefef, #bbbbbb);
+    background: -webkit-linear-gradient(#efefef, #bbbbbb);
+    background: -o-linear-gradient(#efefef, #bbbbbb);
+    border-radius: 16px;
+    text-align: center;
+}
+nav ul {
+    padding: 0px 9px;
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li a {
+    display: block;
+    padding: 8px 6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    text-decoration: none;
+    font-size: 13pt;
+}
+nav ul li a:hover {
+    color: white;
+}
+nav ul li ul {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background: #bbbbbb;
+    background: linear-gradient(#efefef, #bbbbbb);
+    background: -moz-linear-gradient(#efefef, #bbbbbb);
+    background: -webkit-linear-gradient(#efefef, #bbbbbb);
+    background: -o-linear-gradient(#efefef, #bbbbbb);
+    border-top: 0 none;
+}
+nav ul li:hover ul {
+    display: block;
+}
+nav ul li ul li {
+    display: list-item;
+}
+section {
+    background-color: white;
+    padding-top: 10pt;
+    padding-bottom: 10pt;
+    border-radius: 16pt;
+}
+article {
+    float: left;
+    width: 920px;
+    padding: 0px 15px;
+}
+article header {
+    font-size: 16pt;
+    color: #336FB7;
+    font-weight: bold;
+    margin-top: 0px;
+    text-transform: uppercase;
+}
+aside {
+    float: right;
+    width: 320px;
+}
+aside header {
+    font-size: 16pt;
+    color: #336FB7;
+    font-weight: bold;
+    margin-top: 0px;
+    text-transform: uppercase;
+}
+footer {
+    text-align: center;
+    color: black;
+    border-radius: 16px;
+    background: #bbbbbb;
+    background: linear-gradient(#efefef, #bbbbbb);
+    background: -moz-linear-gradient(#efefef, #bbbbbb);
+    background: -webkit-linear-gradient(#efefef, #bbbbbb);
+    background: -o-linear-gradient(#efefef, #bbbbbb);
+    margin-top: 8px;
+    padding: 8px;
+}
+.clear {
+    clear: both;
+    margin-bottom: 10px;
+}
+a:link, a:visited {
+    color: #336FB7;
+    text-decoration: none;
+}
+table {
+    margin: .5em 0 1em;
+}
+table td, table th {
+    border-right: 1px solid #fff;
+    padding: .4em .8em;
+}
+table th {
+    background-color: #5e5e5e;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid #e8e1c8;
+    color: white;
+}
+table td {
+    background-color: #eee;
+}
+.alignleft {
+    float: left;
+    margin-right: 8px;
+}
+.zprava {
+    border: 1px solid #9dc2f8;
+    background: #dbe8f8;
+    padding: 3px;
+}
+@media screen and (max-width: 1280px) {
+    body {
+        width: 960px;
+    }
+    article {
+        width: 630px;
+    }
+    aside {
+        float: left;
+        width: 300px;
+    }
+    footer {
+        width: 940px;
+    }
+}
+@media screen and (max-width: 960px) {
+    body {
+        width: 760px;
+    }
+    article {
+        width: 730px;
+    }
+    aside {
+        display: none;
+    }
+    footer {
+        width: 740px;
+    }
+}
+@media screen and (max-width: 760px) {
+    body {
+        width: 560px;
+    }
+    article {
+        width: 540px;
+        padding-bottom: 10px;
+    }
+    aside {
+        width: 520px;
+    }
+    footer {
+        width: 540px;
+    }
+}
+@media screen and (max-width: 560px) {
+    body {
+        width: 440px;
+    }
+    article {
+        width: 420px;
+        padding-bottom: 10px;
+    }
+    aside {
+        width: 400px;
+    }
+    footer {
+        width: 420px;
+    }
+}
+@media screen and (max-width: 440px) {
+    body {
+        width: 280px;
+    }
+    nav {
+        min-height: 32px;
+    }
+    nav ul {
+        padding: 0px 5px;
+    }
+    nav li {
+        display: inline-block;
+    }
+    nav li a {
+        display: block;
+        padding: 8px 4px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    article {
+        width: 260px;
+        padding-bottom: 10px;
+    }
+    aside {
+        display: none;
+    }
+    footer {
+        width: 260px;
+    }
 }

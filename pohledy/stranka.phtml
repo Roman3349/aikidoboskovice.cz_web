@@ -1,5 +1,5 @@
 <header><?= $titulek ?></header>
 <div><?= $_obsah ?><br>
     <strong>Napsal <?= $pridal ?> <?= date('j. n. Y, G:i:s', strtotime($pridano)); ?></strong>
-    <?php if ($admin) : ?><br><a href="strankyEditor/<?= $url ?>">Editovat</a> | <a href="stranka/<?= $url ?>/odstranit">Odstranit</a><?php endif ?>
+    <?php if ($admin) : ?><br><a href="editor/<?= $url ?>">Editovat</a> | <a href="stranka/<?= $url ?>/odstranit">Odstranit</a><?php endif ?>
 </div>

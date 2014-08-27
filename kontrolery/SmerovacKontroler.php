@@ -31,7 +31,7 @@ class SmerovacKontroler extends Kontroler {
         $naparsovanaURL = $this->parsujURL($parametry[0]);
         if (empty($naparsovanaURL[0])) {
             // Přesměruje uživatele na výpis článků
-            $this->presmeruj('clanek');
+            $this->presmeruj('stranka/uvod');
         }
         // Kontroler je 1. parametr URL
         $tridaKontroleru = $this->pomlckyDoVelbloudiNotace(array_shift($naparsovanaURL)) . 'Kontroler';

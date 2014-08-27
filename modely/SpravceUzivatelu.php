@@ -28,8 +28,7 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $hash = $this->zkontrolujHeslo($heslo, $this->vratHash($jmeno));
-        $uzivatel = MC::dotazJeden('SELECT `jmeno` FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', array($jmeno, $hash));
+        $uzivatel = Db::dotazJeden('SELECT `jmeno` FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', array($jmeno, $this->vratOtisk($heslo)));
         if (!$uzivatel) {
             // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
@@ -58,7 +57,7 @@ class SpravceUzivatelu {
         }
         try {
             // Změní heslo v databázi
-            MC::zmen('uzivatele', array('heslo' => $this->vratOtisk($noveHeslo)), 'WHERE jmeno = ?', array($jmeno));
+            Db::zmen('uzivatele', array('heslo' => $this->vratOtisk($noveHeslo)), 'WHERE jmeno = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());
@@ -68,7 +67,7 @@ class SpravceUzivatelu {
     // Přidání administrátora
     public function pridejAdmina($jmeno) {
         try {
-            MC::zmen('uzivatele', array('admin' => '1'), 'WHERE jmeno = ?', array($jmeno));
+            Db::zmen('uzivatele', array('admin' => '1'), 'WHERE jmeno = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());
@@ -78,7 +77,7 @@ class SpravceUzivatelu {
     // Odebrání administrátora
     public function odeberAdmina($jmeno) {
         try {
-            MC::zmen('uzivatele', array('admin' => '0'), 'WHERE jmeno = ?', array($jmeno));
+            Db::zmen('uzivatele', array('admin' => '0'), 'WHERE jmeno = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());
@@ -95,13 +94,13 @@ class SpravceUzivatelu {
 
     // Vrátí hash hesla z databáze
     public function vratHash($jmeno) {
-        $dotaz = MC::dotazJeden('SELECT `password` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
+        $dotaz = Db::dotazJeden('SELECT `password` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
         return $dotaz['password'];
     }
 
     // Zjístí, zda je uživatel administrátorem
     public function vratAdmina($jmeno) {
-        $dotaz = MC::dotazJeden('SELECT `admin` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
+        $dotaz = Db::dotazJeden('SELECT `admin` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
         if ($dotaz['admin'] == 1) {
             return true;
         } else {

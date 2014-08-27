@@ -81,7 +81,7 @@ abstract class Kontroler {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        if ($spravceUzivatelu->vratAdmina($uzivatel['username']) != true) {
+        if ($spravceUzivatelu->vratAdmina($uzivatel['jmeno']) != true) {
             // Vypíše uživateli chybovou zprávu
             $this->pridejZpravu('Nemáte oprávnění do této sekce webu.');
             // Přesměrování na přihlašovací stránku

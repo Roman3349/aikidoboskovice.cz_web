@@ -39,7 +39,7 @@ class StrankyEditorKontroler extends Kontroler {
         // Naplnění proměnné pro šablonu
         $this->data['stranka'] = $stranka;
         // Nastavení šablony
-        $this->pohled = 'seditor';
+        $this->pohled = 'editor';
     }
 
 }

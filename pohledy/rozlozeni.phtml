@@ -58,13 +58,13 @@
                 </div>
                 -->
                 <header>Profil</header>    
-                <div> 
+                <div class="center"> 
                     <a href="prihlaseni">Přihlásit se</a><br>
                     <a href="profil">Profil</a><br>
                     <a href="administrace">Administrace</a>
                 </div>
                 <header>Statistika</header>    
-                <div> 
+                <div class="center"> 
                     <strong>Online hráči: </strong><?= $Players . '/' . $Slots; ?><br>
                     <strong>Zaplněno slotů: </strong><?= (integer) ($Players / $Slots * 100); ?> %<br>
                     <strong>Uživatelů: </strong><?= MC::vratRadky('authme') ?><br>
@@ -73,7 +73,7 @@
                     <strong>SMS plateb: </strong><?= Db::vratRadky('mp_vypis') ?>
                 </div>
                 <header>Sledujte nás</header>    
-                <div>        
+                <div class="center">        
                     <a href="https://facebook.com/funparba.eu"><img src="images/icons/facebook.png" alt="Facebook"></a>        
                     <a href="https://youtube.com/kiipcze"><img src="images/icons/youtube.png" alt="YouTube"></a>   
                 </div>

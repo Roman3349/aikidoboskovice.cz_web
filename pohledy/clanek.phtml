@@ -1,4 +1,4 @@
-<h1><?= $titulek ?></h1>
+<header><?= $titulek ?></header>
 <div><?= $_obsah ?><br>
     <strong><?= $pridal ?> <?= date('j. n. Y, G:i:s', strtotime($pridano)); ?></strong>
     <?php if ($admin) : ?><br><a href="clankyEditor/<?= $url ?>">Editovat</a> | <a href="clanek/<?= $url ?>/odstranit">Odstranit</a><?php endif ?>

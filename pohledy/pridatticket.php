@@ -1,4 +1,4 @@
-<h1>Přidání ticketu</h1>              
+<header>Přidání ticketu</header>              
 <div>
     <form method="post">
         <strong>Název:</strong><br>

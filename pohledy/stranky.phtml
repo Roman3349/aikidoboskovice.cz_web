@@ -1,5 +1,5 @@
 <?php foreach ($stranky as $stranka) : ?>
-    <h1><a href="stranka/<?= $stranka['url'] ?>"><?= $stranka['titulek'] ?></a></h1>
+    <header><a href="stranka/<?= $stranka['url'] ?>"><?= $stranka['titulek'] ?></a></header>
     <div><strong>Napsal <?= $stranka['pridal'] ?> <?= date('j. n. Y, G:i:s', strtotime($stranka['pridano'])); ?></strong>
         <?php if ($admin) : ?><br><a href="strankyEditor/<?= $stranka['url'] ?>">Editovat</a> | <a href="stranka/<?= $stranka['url'] ?>/odstranit">Odstranit</a><?php endif ?></div>
 <?php endforeach ?>

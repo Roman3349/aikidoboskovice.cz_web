@@ -1,51 +1,19 @@
-@font-face {
-    font-family: 'Ubuntu';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Ubuntu'), url(fonts/Ubuntu.woff) format('woff');
-}
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Ubuntu', sans-serif;
-}
-li {
-    line-height: 16px;
-    border-bottom: 0 dashed black;
-}
+@font-face {font-family: 'Ubuntu'; font-style: normal; font-weight: 400; src: local('Ubuntu'), url(fonts/Ubuntu.woff) format('woff');}
+* {margin: 0; padding: 0; font-family: 'Ubuntu', sans-serif;}
+li {line-height: 16px; border-bottom: 0 dashed black;}
 body {
-    background: url(images/background.png) no-repeat fixed;
-    background-position: top center;
+    background: url(images/background.png) no-repeat fixed top center;
     background-size: cover;
     font-size: 10pt;
     width: 75%;
     margin: 0 auto;
 }
-a {
-    color: #358adc;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s ease;
-}
-a:hover {
-    color: #000;
-}
-p, strong {
-    border-bottom: 0 dashed black;
-}
-td {
-    padding-top: 10px;
-    color: #333;
-}
-table tr td {
-    padding: 5px;
-}
-header img {
-    margin: 10pt auto;
-    display: block;
-    text-align: center;
-    width: 75%;
-}
+a {color: #358adc; text-decoration: none; font-weight: bold; transition: color 0.2s ease;}
+a:hover {color: #000;}
+p, strong {border-bottom: 0 dashed black;}
+td {padding-top: 10px; color: #333;}
+table tr td {padding: 5px;}
+header img {margin: 10pt auto; display: block; text-align: center; width: 80%;}
 nav {
     border-bottom: 1px solid #00357b;
     min-height: 40px;
@@ -61,63 +29,19 @@ nav {
     font-weight: bold;
     font-size: 10.5pt;
 }
-nav li {
-    position: relative;
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-}
-nav ul, nav li {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-}
-nav ul {
-    position: relative;
-    z-index: 597;
-}
-nav ul li {
-    float: left;
-    min-height: 1px;
-    vertical-align: middle;
-}
-nav ul li:hover {
-    position: relative;
-    z-index: 599;
-    cursor: default;
-}
-nav a {
-    display: block;
-    line-height: 1em;
-    text-decoration: none;
-}
-nav > ul {
-    display: inline-block
-}
-nav:after, nav ul:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-nav a {
-    color: #ddd;
-    padding: 0 10px;
-}
-nav ul {
-    text-transform: uppercase;
-}
-nav > ul > li > a {
-    line-height: 38px;
-}
-nav ul li:hover > a, nav ul li.active > a {
-    color: #fff;
-    transition: color 0.2s ease;
-}
-section {
-    width: 100%;
-    margin: 0 auto;
-    background: #eee;
-}
+nav li {position: relative; list-style: none; margin: 0 auto;}
+nav ul, nav li {list-style: none; margin: 0 auto;}
+nav ul {position: relative; z-index: 597;}
+nav ul li {float: left; min-height: 1px; vertical-align: middle;}
+nav ul li:hover {position: relative; z-index: 599; cursor: default;}
+nav a {display: block; line-height: 1em; text-decoration: none;}
+nav > ul {display: inline-block}
+nav:after, nav ul:after {content: ''; display: block; clear: both;}
+nav a {color: #ddd; padding: 0 10px;}
+nav ul {text-transform: uppercase;}
+nav > ul > li > a {line-height: 38px;}
+nav ul li:hover > a, nav ul li.active > a {color: #fff; transition: color 0.2s ease;}
+section {width: 100%; margin: 0 auto; background: #eee;}
 section select {
     transition: box-shadow, border-left, border-top, border-right 0.2s ease;
     border-radius: 3px;
@@ -125,21 +49,8 @@ section select {
     border: 1px solid #dadada;
     background-position: top;
 }
-section input {
-    transition: box-shadow 0.2s ease;
-    padding: 6px;
-    border: 1px solid #dadada;
-    background-position: top;
-    border-radius: 3px;
-}
-section select:focus, section input:focus {
-    outline: none;
-    box-shadow: 0 0 10px #9ecaed;
-    border-color: #9ecaed;
-}
-section .center {
-    text-align: center;
-}
+section input {transition: box-shadow 0.2s ease; padding: 6px; border: 1px solid #dadada; border-radius: 3px;}
+section select:focus, section input:focus {outline: none; box-shadow: 0 0 10px #9ecaed; border-color: #9ecaed;}
 section .zprava {
     background-color: #9ecaed;
     border: 0 ridge #8FC410;
@@ -154,14 +65,8 @@ section .zprava {
     font-weight: bold;
     font-size: 11pt;
 }
-article {
-    border: 0 ridge #99ffcc;
-    text-align: left;
-    margin: 0;
-    float: left;
-    width: 75%
-}
-article h1 {
+article {border: 0 ridge #99ffcc; text-align: left; float: left; width: 75%;}
+article header {
     border: 0 ridge #8FC410;
     width: auto;
     height: 20px;
@@ -189,13 +94,7 @@ article div {
     white-space: pre-line;
     line-height: 10pt;
 }
-aside {
-    border: 0 ridge #99FFCC;
-    text-align: left;
-    float: right;
-    width: 25%;
-    text-align: center;
-}
+aside {border: 0 ridge #99FFCC; float: right; width: 25%;}
 aside header {
     border: 0 ridge #8FC410;
     width: auto;
@@ -210,6 +109,7 @@ aside header {
     color: #358adc;
     font-size: 12pt;
     font-weight: bold;
+    text-align: center;
 }
 aside div {
     margin: 0 10px 10px 10px;
@@ -223,9 +123,7 @@ aside div {
     border-radius: 0 0 5px 5px;
     line-height: 11pt;
 }
-aside img {
-    max-width: 95%;
-}
+aside img {max-width: 95%;}
 footer {
     background-image: -webkit-linear-gradient(#1d4898,#2f68f7);
     background-image: -moz-linear-gradient(#1d4898,#2f68f7);
@@ -241,20 +139,11 @@ footer {
     text-align: center;
     padding: 8px 0 0 0;
 }
-.center tr td {
-    text-align: center;
-}
+.center tr td {text-align: center;}
+.center {text-align: center;}
 @media (max-width: 768px) {
-    body {
-        width: 90%;
-    }
-    article {
-        width: 100%;
-    }
-    aside {
-        width: 100%;
-    }
-    .hidden {
-        display: none;
-    }
+    body {width: 90%;}
+    article {width: 100%;}
+    aside {width: 100%;}
+    .hidden {display: none;}
 }

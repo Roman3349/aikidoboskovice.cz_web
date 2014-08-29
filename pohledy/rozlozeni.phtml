@@ -7,53 +7,60 @@
         <meta name="author" content="Roman Ondráček">
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css" type="text/css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico'>
-        <script>
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/cs_CZ/all.js#xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <style>.alignleft {float: left; margin-right: 8px;}</style>
     </head>
-    <body>
-        <header><a href="/"><img src="images/logo.png" alt="Logo"></a></header>
-        <nav>
-            <ul>
-                <li><a href="/">Aktuality</a></li>
-                <li><a href="#">Galerie</a>
-                    <ul>
-                        <li><a href="https://plus.google.com/photos/115908030698015783392/albums">Fotografie</a></li>
-                        <li><a href="https://youtube.com/Aikidoboskovice">Videa</a></li>
+    <body role="document">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/"><img src="images/logo.png" alt="Aikido Boskovice" style="height: 40px; width: 300px; padding-top: 5px;"></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Aktuality</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galerie <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="https://plus.google.com/photos/115908030698015783392/albums">Fotografie</a></li>
+                                <li><a href="https://youtube.com/Aikidoboskovice">Videa</a></li>
 
+                            </ul>
+                        </li>
+                        <li><a href="stranka/ueshiba">Ueshiba</a></li>
+                        <li><a href="stranka/trenink">Trénink</a></li>
+                        <li><a href="stranka/kontakt">Kontakt</a></li>
+                        <li><a href="stranka/odkazy">Odkazy</a></li>
+                        <li><a href="stranka/faq">FAQ</a></li>
+                        <li class="dropdown">
+                            <a href="stranka/clanky" class="dropdown-toggle" data-toggle="dropdown">Články <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="strank/guillaumeerard">Guillaume Erard</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="administrace">Administrace</a></li>
                     </ul>
-                </li>
-                <li><a href="stranka/ueshiba">Ueshiba</a></li>
-                <li><a href="stranka/trenink">Trénink</a></li>
-                <li><a href="stranka/kontakt">Kontakt</a></li>
-                <li><a href="stranka/odkazy">Odkazy</a></li>
-                <li><a href="stranka/faq">FAQ</a></li>
-                <li><a href="stranka/clanky">Články</a><ul><li><a href="guillaumeerard">Guillaume Erard</a></li></ul></li>
-            </ul>
-        </nav>
-        <section>
-            <article>
-                <?php foreach ($zpravy as $zprava) : ?>
-                    <p class="zprava"><?= $zprava ?></p>
-                <?php endforeach ?>
-                <?php $this->kontroler->vypisPohled(); ?> 
-            </article>
-            <aside>
-                <header>Facebook</header>
-                <div class="fb-like-box" data-href="https://www.facebook.com/pages/Aikido-Boskovice/105287994447" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
-            </aside>
-            <br style="clear: both">
-        </section>
-        <footer>Hostováno u <a href="http://www.carezone.cz/">Carezone</a></footer>
-</body>
+                </div>
+            </div>
+        </div>
+        <div class="container theme-showcase" role="main">
+            <br style="margin-bottom: 60px;">
+            <?php foreach ($zpravy as $zprava) : ?>
+                <div class="alert alert-info" role="alert"><?= $zprava ?></div>
+            <?php endforeach ?>
+            <div class="panel panel-info"><?php $this->kontroler->vypisPohled(); ?></div>
+            <footer class="footer">
+                <p class="text-muted">&copy; 2013 - 2014 Roman Ondráček</p>
+            </footer>
+        </div>
+    </body>
 </html>

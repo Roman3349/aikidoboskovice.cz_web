@@ -1,5 +1,7 @@
 <?php foreach ($stranky as $stranka) : ?>
-    <header><a href="stranka/<?= $stranka['url'] ?>"><?= $stranka['titulek'] ?></a></header>
-    <div><strong>Napsal <?= $stranka['pridal'] ?> <?= date('j. n. Y, G:i:s', strtotime($stranka['pridano'])); ?></strong>
-        <?php if ($admin) : ?><br><a href="editor/<?= $stranka['url'] ?>">Editovat</a> | <a href="stranka/<?= $stranka['url'] ?>/odstranit">Odstranit</a><?php endif ?></div>
+    <header class="panel-heading"><h3 class="panel-title"><a href="stranka/<?= $stranka['url'] ?>"><?= $stranka['titulek'] ?></a></h3></header>
+    <article class="panel-body">
+        <strong>Napsal <?= $stranka['pridal'] ?> <?= date('j. n. Y, G:i:s', strtotime($stranka['pridano'])); ?></strong>
+        <?php if ($admin) : ?><br><a href="editor/<?= $stranka['url'] ?>">Editovat</a> | <a href="stranka/<?= $stranka['url'] ?>/odstranit">Odstranit</a><?php endif ?>
+    </article>
 <?php endforeach ?>

@@ -1,5 +1,7 @@
-<header>Vítejte v administraci, jste přihlášeni jako <?= $jmeno ?></header>
-<div>
+<header class="panel-heading">
+    <h3 class="panel-title">Vítejte v administraci, jste přihlášeni jako <?= $jmeno ?></h3>
+</header>
+<article class="panel-body">
     <table>
         <?php if ($admin) : ?>
             <tr><td colspan="2"><h2>Stránky</h2></td></tr>
@@ -19,4 +21,4 @@
             <td><a href="administrace/odhlasit">Odhlásit se</a></td>
         </tr>
     </table>
-</div>
+</article>

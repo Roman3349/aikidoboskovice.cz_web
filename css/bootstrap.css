@@ -5,8 +5,8 @@
  */
 
 /*!
- * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=7775d8d7560a3d7dbef2)
- * Config saved to config.json and https://gist.github.com/7775d8d7560a3d7dbef2
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=063d0dfbaacbe5ca7e56)
+ * Config saved to config.json and https://gist.github.com/063d0dfbaacbe5ca7e56
  */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
@@ -2910,7 +2910,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 10px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -3093,7 +3093,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 90px;
+  margin-bottom: 20px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -3141,7 +3141,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
-  max-height: 240px;
+  max-height: 340px;
 }
 @media (max-width: 480px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,

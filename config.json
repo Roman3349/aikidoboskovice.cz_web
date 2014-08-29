@@ -132,11 +132,11 @@
     "@container-large-desktop": "((1140px + @grid-gutter-width))",
     "@container-lg": "@container-large-desktop",
     "@navbar-height": "50px",
-    "@navbar-margin-bottom": "90px",
+    "@navbar-margin-bottom": "@line-height-computed",
     "@navbar-border-radius": "@border-radius-base",
     "@navbar-padding-horizontal": "floor((@grid-gutter-width / 2))",
     "@navbar-padding-vertical": "((@navbar-height - @line-height-computed) / 2)",
-    "@navbar-collapse-max-height": "240px",
+    "@navbar-collapse-max-height": "340px",
     "@navbar-default-color": "#ecf0f1",
     "@navbar-default-bg": "#3498db",
     "@navbar-default-border": "darken(@navbar-default-bg, 6.5%)",
@@ -169,7 +169,7 @@
     "@navbar-inverse-toggle-hover-bg": "#333",
     "@navbar-inverse-toggle-icon-bar-bg": "#fff",
     "@navbar-inverse-toggle-border-color": "#333",
-    "@nav-link-padding": "10px 15px",
+    "@nav-link-padding": "10px",
     "@nav-link-hover-bg": "@gray-lighter",
     "@nav-disabled-link-color": "@gray-light",
     "@nav-disabled-link-hover-color": "@gray-light",
@@ -393,5 +393,5 @@
     "dropdown.js",
     "collapse.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=7775d8d7560a3d7dbef2"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=063d0dfbaacbe5ca7e56"
 }

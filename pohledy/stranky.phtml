@@ -3,7 +3,7 @@
         <h1 class="panel-title"><a href="stranka/<?= $stranka['url'] ?>"><?= $stranka['titulek'] ?></a></h1>
     </header>
     <article class="panel-body">
-        <strong>Napsal <?= $stranka['pridal'] ?> <?= date('j. n. Y, G:i:s', strtotime($stranka['pridano'])); ?></strong>
+        <strong>Napsal <?= $stranka['pridal'], " dne ", SpravceStranek::prevedCas($stranka['pridano']); ?></strong>
         <?php if ($admin) : ?><br><a href="editor/<?= $stranka['url'] ?>">Editovat</a> | <a href="stranka/<?= $stranka['url'] ?>/odstranit">Odstranit</a><?php endif ?>
     </article>
 <?php endforeach ?>

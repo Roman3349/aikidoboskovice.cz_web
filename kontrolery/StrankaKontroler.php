@@ -34,7 +34,7 @@ class StrankaKontroler extends Kontroler {
             // Naplnění proměnných pro šablonu	
             $this->data['titulek'] = $stranka['titulek'];
             $this->data['obsah'] = $stranka['obsah'];
-            $this->data['pridano'] = $stranka['pridano'];
+            $this->data['pridano'] = $spravceStranek->prevedCas($stranka['pridano']);
             $this->data['pridal'] = $stranka['pridal'];
             $this->data['url'] = $stranka['url'];
             // Nastavení šablony

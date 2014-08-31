@@ -3,6 +3,11 @@
 // Třída poskytuje metody pro správu stránek v redakčním systému
 
 class SpravceStranek {
+    
+    // Převede MySQL TIMESTAMP na normální datum a čas
+    public static function prevedCas($cas) {
+        return date('j. n. Y, G:i', strtotime($cas));
+    }
 
     // Vrátí stránku z databáze podle její URL
     public function vratStranku($url) {

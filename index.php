@@ -1,5 +1,6 @@
 <?php
 
+// Hlavička pro session
 session_start();
 
 // Nastavení interního kódování

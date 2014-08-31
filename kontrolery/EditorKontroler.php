@@ -24,11 +24,13 @@ class EditorKontroler extends Kontroler {
             $stranka = array_intersect_key($_POST, array_flip($klice));
             // Uložení stránky do databáze
             $spravceStranek->ulozStranku($_POST['stranky_id'], $stranka);
+            // Vypíše uživateli zprávu
             $this->pridejZpravu('Stránka byla úspěšně uložena.');
             // Přesměruj na vytvořenou stránku
             $this->presmeruj('stranka/' . $stranka['url']);
             // Je zadaná URL článku k editaci
         } else if (!empty($parametry[0])) {
+            // Vrátí stránku podle její URL adresy
             $nactenaStranka = $spravceStranek->vratStranku($parametry[0]);
             if ($nactenaStranka) {
                 $stranka = $nactenaStranka;

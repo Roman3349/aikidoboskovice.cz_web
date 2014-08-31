@@ -18,7 +18,7 @@ class PridejAdminaKontroler extends Kontroler {
                 $spravceUzivatelu = new SpravceUzivatelu();
                 // Přidání administrátora
                 $spravceUzivatelu->pridejAdmina($_POST['jmeno']);
-                // Vypsání zprávy
+                // Vypíše uživateli zprávu
                 $this->pridejZpravu("Administrátor " . $_POST['jmeno'] . " byl úspěšně přidán.");
             } catch (ChybaUzivatele $chyba) {
                 // Vypíše uživateli chybovou zprávu

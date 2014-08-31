@@ -48,6 +48,7 @@ class SpravceUzivatelu {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Souhlasí stávající heslo
         if ($this->vratOtisk($heslo) != $this->vratHash($jmeno)) {
+            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -67,6 +68,7 @@ class SpravceUzivatelu {
     // Přidání administrátora
     public function pridejAdmina($jmeno) {
         try {
+            // Změní hodnotu admin z 0 na 1 u uživatele
             Db::zmen('uzivatele', array('admin' => '1'), 'WHERE jmeno = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli
@@ -77,6 +79,7 @@ class SpravceUzivatelu {
     // Odebrání administrátora
     public function odeberAdmina($jmeno) {
         try {
+            // Změní hodnotu admin z 0 na 1 u uživatele
             Db::zmen('uzivatele', array('admin' => '0'), 'WHERE jmeno = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli

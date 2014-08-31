@@ -18,7 +18,7 @@ class OdeberAdminaKontroler extends Kontroler {
                 $spravceUzivatelu = new SpravceUzivatelu();
                 // Odebrání administrátora
                 $spravceUzivatelu->odeberAdmina($_POST['jmeno']);
-                // Vypsání zprávy
+                // Vypíše uživateli zprávu
                 $this->pridejZpravu("Administrátor " . $_POST['jmeno'] . " byl úspěšně odebrán.");
             } catch (ChybaUzivatele $chyba) {
                 // Vypíše uživateli chybovou zprávu

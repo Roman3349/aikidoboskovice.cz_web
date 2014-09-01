@@ -12,15 +12,20 @@ class StrankaKontroler extends Kontroler {
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
         $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['jmeno']);
-        // Je zadána URL stránky ke smazání
-        if ($parametry[1] == 'odstranit') {
-            // Nastavení přístupu pouze pro administrátory
-            $this->jeAdmin();
-            // Odstranění stránky
-            $spravceStranek->odstranStranku($parametry[0]);
-            $this->pridejZpravu('Stránka byla úspěšně odstraněna');
-            // Přesměrování na výpis stránek
-            $this->presmeruj('stranka');
+        if (!empty($parametry[1])) {
+            // Je zadána URL stránky ke smazání
+            if ($parametry[1] == 'odstranit') {
+                // Nastavení přístupu pouze pro administrátory
+                $this->jeAdmin();
+                // Odstranění stránky
+                $spravceStranek->odstranStranku($parametry[0]);
+                // Vypíše uýivateli zprávu
+                $this->pridejZpravu('Stránka byla úspěšně odstraněna');
+                // Přesměrování na výpis stránek
+                $this->presmeruj('stranka');
+            } else {
+                $this->presmeruj('chyba');
+            }
             // Je zadána URL stránky k zobrazení
         } else if (!empty($parametry[0])) {
             // Získání článku pomocí URL

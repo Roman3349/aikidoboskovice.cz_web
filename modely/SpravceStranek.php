@@ -6,7 +6,7 @@ class SpravceStranek {
     
     // Převede MySQL TIMESTAMP na normální datum a čas
     public static function prevedCas($cas) {
-        return date('j. n. Y, G:i', strtotime($cas));
+        return date('j. n. Y v G:i', strtotime($cas));
     }
 
     // Vrátí stránku z databáze podle její URL

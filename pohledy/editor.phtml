@@ -1,31 +1,31 @@
-<header class="panel-heading">
-    <h1 class="panel-title">Editor stránek</h1>
+<header class='panel-heading'>
+    <h1 class='panel-title'>Editor stránek</h1>
 </header>
-<article class="panel-body">
-    <form method="post">
-        <input type="hidden" name="stranky_id" value="<?= $stranka['stranky_id'] ?>">
+<article class='panel-body'>
+    <form method='post'>
+        <input type='hidden' name='stranky_id' value='<?= $stranka['stranky_id'] ?>'>
         <strong>Titulek</strong><br>
-        <input type="text" name="titulek" value="<?= $stranka['titulek'] ?>"><br>
+        <input type='text' name='titulek' value='<?= $stranka['titulek'] ?>'><br>
         <strong>URL</strong><br>
-        <input type="text" name="url" value="<?= $stranka['url'] ?>"><br>
+        <input type='text' name='url' value='<?= $stranka['url'] ?>'><br>
         <strong>Autor</strong><br>
-        <input type="text" name="pridal" value="<?= $stranka['pridal'] ?>"><br>
-        <textarea name="obsah"><?= $stranka['obsah'] ?></textarea>
-        <input type="submit" value="Uložit stránku">
+        <input type='text' name='pridal' value='<?= $stranka['pridal'] ?>'><br>
+        <textarea name='obsah'><?= $stranka['obsah'] ?></textarea>
+        <input type='submit' value='Uložit stránku'>
     </form>
-    <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
-    <script type="text/javascript">
+    <script type='text/javascript' src='js/tinymce/tinymce.min.js'></script>
+    <script type='text/javascript'>
         tinymce.init({
-            selector: "textarea[name=obsah]",
-            theme: "modern",
+            selector: 'textarea[name=obsah]',
+            theme: 'modern',
             plugins: [
-                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-                "searchreplace wordcount visualblocks visualchars code fullscreen",
-                "insertdatetime media nonbreaking save table contextmenu directionality",
-                "emoticons template paste textcolor colorpicker textpattern"
+                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern'
             ],
-            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            toolbar2: "print preview media | forecolor backcolor emoticons",
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons',
             image_advtab: true,
             language: 'cs'
         });

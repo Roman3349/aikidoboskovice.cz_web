@@ -4,23 +4,23 @@
 session_start();
 
 // Nastavení interního kódování
-mb_internal_encoding("UTF-8");
+mb_internal_encoding('UTF-8');
 
 // Callback pro automatické načítání tříd controllerů a modelů
 function autoloadFunkce($trida) {
     if (preg_match('/Kontroler$/', $trida)) {
-        require("kontrolery/" . $trida . ".php");
+        require('kontrolery/' . $trida . '.php');
     } else {
-        require("modely/" . $trida . ".php");
+        require('modely/' . $trida . '.php');
     }
 }
 
 // Registrace callbacku
-spl_autoload_register("autoloadFunkce");
+spl_autoload_register('autoloadFunkce');
 
 // Připojení k MySQL databázi webového serveru
-// Db::pripoj("HOST", "USER", "PASSWORD", "DATABASE");
-Db::pripoj("localhost", "aikidobce321", "LJeQsYYmSj", "aikidobce321");
+// Db::pripoj('HOST', 'USER', 'PASSWORD', 'DATABASE');
+Db::pripoj('localhost', 'aikidobce321', 'LJeQsYYmSj', 'aikidobce321');
 
 // Vytvoření routeru a zpracování URL uživatele
 $smerovac = new SmerovacKontroler();

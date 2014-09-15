@@ -65,22 +65,10 @@ class SpravceUzivatelu {
         }
     }
 
-    // Přidání administrátora
-    public function pridejAdmina($jmeno) {
+    // Přidání nebo odebrání administrátora
+    public function upravaAdmina($jmeno, $admin) {
         try {
-            // Změní hodnotu admin z 0 na 1 u uživatele
-            Db::zmen('uzivatele', array('admin' => '1'), 'WHERE jmeno = ?', array($jmeno));
-        } catch (ChybaUzivatele $chyba) {
-            // Vypíše chybovou zprávu uživateli
-            $this->pridejZpravu($chyba->getMessage());
-        }
-    }
-
-    // Odebrání administrátora
-    public function odeberAdmina($jmeno) {
-        try {
-            // Změní hodnotu admin z 0 na 1 u uživatele
-            Db::zmen('uzivatele', array('admin' => '0'), 'WHERE jmeno = ?', array($jmeno));
+            MC::zmen('authme', array('admin' => $admin), 'WHERE username = ?', array($jmeno));
         } catch (ChybaUzivatele $chyba) {
             // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());

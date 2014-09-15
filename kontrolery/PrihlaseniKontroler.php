@@ -7,7 +7,7 @@ class PrihlaseniKontroler extends Kontroler {
     public function zpracuj($parametry) {
         // Vytvoření instance modelu, který  nám pomůže pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
-        // Je uživatel přihlášen
+        // Vrátí informace o přihlášeném uživateli
         if ($spravceUzivatelu->vratUzivatele()) {
             // Přesměrování do administrace
             $this->presmeruj('administrace');

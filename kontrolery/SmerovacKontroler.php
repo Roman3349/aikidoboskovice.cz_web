@@ -18,11 +18,11 @@ class SmerovacKontroler extends Kontroler {
         // Naparsuje jednotlivé části URL adresy do asociativního pole
         $naparsovanaURL = parse_url($url);
         // Odstranění počátečního lomítka
-        $naparsovanaURL["path"] = ltrim($naparsovanaURL["path"], "/");
+        $naparsovanaURL['path'] = ltrim($naparsovanaURL['path'], '/');
         // Odstranění bílých znaků kolem adresy
-        $naparsovanaURL["path"] = trim($naparsovanaURL["path"]);
+        $naparsovanaURL['path'] = trim($naparsovanaURL['path']);
         // Rozbití řetězce podle lomítek
-        $rozdelenaCesta = explode("/", $naparsovanaURL["path"]);
+        $rozdelenaCesta = explode('/', $naparsovanaURL['path']);
         return $rozdelenaCesta;
     }
 

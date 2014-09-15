@@ -21,6 +21,7 @@ class AdministraceKontroler extends Kontroler {
                 $this->presmeruj('chyba');
             }
         }
+        // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnných pro šablonu	
         $this->data['jmeno'] = $uzivatel['jmeno'];

@@ -7,7 +7,7 @@ abstract class Kontroler {
     // Pole, jehož indexy jsou poté viditelné v šabloně jako běžné proměnné
     protected $data = array();
     // Název šablony bez přípony
-    protected $pohled = "";
+    protected $pohled = '';
     // Hlavička HTML stránky
     protected $hlavicka = array('titulek' => '');
 
@@ -31,8 +31,8 @@ abstract class Kontroler {
     public function vypisPohled() {
         if ($this->pohled) {
             extract($this->osetri($this->data));
-            extract($this->data, EXTR_PREFIX_ALL, "");
-            require("pohledy/" . $this->pohled . ".phtml");
+            extract($this->data, EXTR_PREFIX_ALL, '');
+            require('pohledy/' . $this->pohled . '.phtml');
         }
     }
 
@@ -58,8 +58,8 @@ abstract class Kontroler {
 
     // Přesměruje uživatele na danou URL adresu
     public function presmeruj($url) {
-        header("Location: /$url");
-        header("Connection: close");
+        header('Location: /' . $url);
+        header('Connection: close');
         exit;
     }
 
@@ -67,6 +67,7 @@ abstract class Kontroler {
     public function overUzivatele($admin = false) {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
+        // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if (!$uzivatel) {
             // Vypíše uživateli chybovou zprávu
@@ -80,6 +81,7 @@ abstract class Kontroler {
     public function jeAdmin() {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
+        // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if ($spravceUzivatelu->vratAdmina($uzivatel['jmeno']) != true) {
             // Vypíše uživateli chybovou zprávu

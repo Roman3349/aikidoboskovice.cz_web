@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <base href="/" >
+        <base href='/' >
         <title><?= $titulek ?> | Aikido Boskovice</title>
-        <meta charset="UTF-8">
-        <meta name="author" content="Roman Ondráček">
-        <meta name="robots" content="index, follow">
-        <meta name="description" content="Aikido Boskovice - boskovický oddíl Aikido - japonské bojové umění.">
-        <meta name="keywords" content="aikido, boskovice, bojové umění, sport, Karel Trefný">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <meta charset='UTF-8'>
+        <meta name='author' content='Roman Ondráček'>
+        <meta name='robots' content='index, follow'>
+        <meta name='description' content='Aikido Boskovice - boskovický oddíl Aikido - japonské bojové umění.'>
+        <meta name='keywords' content='aikido, boskovice, bojové umění, sport, Karel Trefný'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link href='css/bootstrap.min.css' rel='stylesheet' type='text/css'/>
         <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico'>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <script src='js/bootstrap.min.js' type='text/javascript'></script>
         <style>.alignleft {float: left; margin-right: 8px;}</style>
     </head>
-    <body role="document">
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+    <body role='document'>
+        <div class='navbar navbar-default' role='navigation'>
+            <div class='container'>
+                <div class='navbar-header'>
+                    <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+                        <span class='sr-only'>Toggle navigation</span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
+                        <span class='icon-bar'></span>
                     </button>
-                    <a href="/"><img src="images/logo.png" alt="Aikido Boskovice" style="height: 36px; padding-top: 7px;"></a>
+                    <a href='/'><img src='images/logo.png' alt='Aikido Boskovice' style='height: 36px; padding-top: 7px;'></a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/">Aktuality</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galerie <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="https://plus.google.com/photos/115908030698015783392/albums">Fotografie</a></li>
-                                <li><a href="https://youtube.com/Aikidoboskovice">Videa</a></li>
+                <div class='navbar-collapse collapse'>
+                    <ul class='nav navbar-nav navbar-right'>
+                        <li><a href='/'>Aktuality</a></li>
+                        <li class='dropdown'>
+                            <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Galerie <span class='caret'></span></a>
+                            <ul class='dropdown-menu' role='menu'>
+                                <li><a href='https://plus.google.com/photos/115908030698015783392/albums'>Fotografie</a></li>
+                                <li><a href='https://youtube.com/Aikidoboskovice'>Videa</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="stranka/ueshiba">Ueshiba</a></li>
-                        <li><a href="stranka/trenink">Trénink</a></li>
-                        <li><a href="stranka/kontakt">Kontakt</a></li>
-                        <li><a href="stranka/odkazy">Odkazy</a></li>
-                        <li><a href="stranka/faq">FAQ</a></li>
-                        <li class="dropdown">
-                            <a href="stranka/clanky" class="dropdown-toggle" data-toggle="dropdown">Články <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="stranka/guillaumeerard">Guillaume Erard</a></li>
+                        <li><a href='stranka/ueshiba'>Ueshiba</a></li>
+                        <li><a href='stranka/trenink'>Trénink</a></li>
+                        <li><a href='stranka/kontakt'>Kontakt</a></li>
+                        <li><a href='stranka/odkazy'>Odkazy</a></li>
+                        <li><a href='stranka/faq'>FAQ</a></li>
+                        <li class='dropdown'>
+                            <a href='stranka/clanky' class='dropdown-toggle' data-toggle='dropdown'>Články <span class='caret'></span></a>
+                            <ul class='dropdown-menu' role='menu'>
+                                <li><a href='stranka/guillaumeerard'>Guillaume Erard</a></li>
                             </ul>
                         </li>
-                        <li><a href="administrace">Administrace</a></li>
+                        <li><a href='administrace'>Administrace</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="container theme-showcase" role="main">
+        <div class='container theme-showcase' role='main'>
             <?php foreach ($zpravy as $zprava) : ?>
-                <div class="alert alert-info" role="alert"><?= $zprava ?></div>
+                <div class='alert alert-info' role='alert'><?= $zprava ?></div>
             <?php endforeach ?>
-            <div class="panel panel-info"><?php $this->kontroler->vypisPohled(); ?></div>
-            <footer class="footer">
-                <p class="text-muted">&copy; 2013 - 2014 Roman Ondráček</p>
+            <div class='panel panel-info'><?php $this->kontroler->vypisPohled(); ?></div>
+            <footer class='footer'>
+                <p class='text-muted'>&copy; 2013 - 2014 Roman Ondráček</p>
             </footer>
         </div>
     </body>

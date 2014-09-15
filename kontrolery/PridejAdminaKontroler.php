@@ -17,9 +17,9 @@ class PridejAdminaKontroler extends Kontroler {
                 // Vytvoření instance modelu, který nám umožní pracovat s uživateli
                 $spravceUzivatelu = new SpravceUzivatelu();
                 // Přidání administrátora
-                $spravceUzivatelu->pridejAdmina($_POST['jmeno']);
+                $spravceUzivatelu->upravaAdmina($_POST['jmeno'], 1);
                 // Vypíše uživateli zprávu
-                $this->pridejZpravu("Administrátor " . $_POST['jmeno'] . " byl úspěšně přidán.");
+                $this->pridejZpravu('Administrátor ' . $_POST['jmeno'] . ' byl úspěšně přidán.');
             } catch (ChybaUzivatele $chyba) {
                 // Vypíše uživateli chybovou zprávu
                 $this->pridejZpravu($chyba->getMessage());

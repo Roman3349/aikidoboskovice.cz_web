@@ -9,6 +9,7 @@ class StrankaKontroler extends Kontroler {
         $spravceStranek = new SpravceStranek();
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
+        // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         // Naplnění proměnné pro šablonu
         $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['jmeno']);
@@ -19,7 +20,7 @@ class StrankaKontroler extends Kontroler {
                 $this->jeAdmin();
                 // Odstranění stránky
                 $spravceStranek->odstranStranku($parametry[0]);
-                // Vypíše uýivateli zprávu
+                // Vypíše uživateli zprávu
                 $this->pridejZpravu('Stránka byla úspěšně odstraněna');
                 // Přesměrování na výpis stránek
                 $this->presmeruj('stranka');
@@ -46,6 +47,7 @@ class StrankaKontroler extends Kontroler {
             $this->pohled = 'stranka';
             // Není zadáno URL článku, vypíšeme všechny
         } else {
+            // Vrátí všechny stránky
             $stranky = $spravceStranek->vratStranky();
             // Naplnění proměnné pro šablonu
             $this->data['stranky'] = $stranky;

@@ -20,7 +20,7 @@ class EditorKontroler extends Kontroler {
             // Vytvoření instance modelu, který nám umožní pracovat s editorem
             $spravceEditoru = new SpravceEditoru();
             // Odstraní JS
-            $_POST['obsah'] = $spravceEditoru->remove_scripts($_POST['obsah']);
+            $_POST['obsah'] = $spravceEditoru->odstranJS($_POST['obsah']);
             $stranka = array_intersect_key($_POST, array_flip($klice));
             // Uložení stránky do databáze
             $spravceStranek->ulozStranku($_POST['stranky_id'], $stranka);

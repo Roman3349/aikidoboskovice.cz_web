@@ -12,13 +12,42 @@ class AdministraceKontroler extends Kontroler {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         if (!empty($parametry[0])) {
-            if ($parametry[0] == 'odhlasit') {
-                // Odhlaš uživatele
-                $spravceUzivatelu->odhlas();
-                // Přesměruj na přihlašovací stránku
-                $this->presmeruj('prihlaseni');
-            } else {
-                $this->presmeruj('chyba');
+            switch ($parametry) {
+                case 'odhlasit':
+                    // Odhlaš uživatele
+                    $spravceUzivatelu->odhlas();
+                    // Přesměruj na přihlašovací stránku
+                    $this->presmeruj('prihlaseni');
+                    // Vypíše uživateli zprávu
+                    $this->pridejZpravu('Byli jste úspěšně odhlášeni.');
+                    break;
+                case 'heslo':
+                    // Nastavení šablony
+                    $this->pohled = 'heslo';
+                    // Nastavení hlavičky
+                    $this->hlavicka['titulek'] = 'Změna hesla';
+                    // Je odeslán formulář
+                    if ($_POST) {
+                        try {
+                            // Vrátí informace o přihlášeném uživateli
+                            $uzivatel = $spravceUzivatelu->vratUzivatele();
+                            // Změna hesla
+                            $spravceUzivatelu->zmenHeslo($uzivatel['jmeno'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+                            // Odhlásí uživatele
+                            $spravceUzivatelu->odhlas();
+                            // Přesměruj na přihlašovací stránku
+                            $this->presmeruj('prihlaseni');
+                            // Vypíše uživateli zprávu
+                            $this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');
+                        } catch (ChybaUzivatele $chyba) {
+                            // Vypíše uživateli chybovou zprávu
+                            $this->pridejZpravu($chyba->getMessage());
+                        }
+                    }
+                    break;
+                default :
+                    // Přesměruje na chybu
+                    $this->presmeruj('chyba');
             }
         }
         // Vrátí informace o přihlášeném uživateli

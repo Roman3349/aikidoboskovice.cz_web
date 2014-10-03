@@ -58,7 +58,7 @@
             <?php foreach ($zpravy as $zprava) : ?>
                 <div class='alert alert-info' role='alert'><?= $zprava ?></div>
             <?php endforeach ?>
-            <div class='panel panel-info'><?php $this->kontroler->vypisPohled(); ?></div>
+            <?php $this->kontroler->vypisPohled(); ?>
             <footer class='footer'>
                 <p class='text-muted'>&copy; 2013 - 2014 Roman Ondráček</p>
             </footer>

@@ -1,9 +1,11 @@
 <?php foreach ($stranky as $stranka) : ?>
-    <header class='panel-heading'>
-        <h1 class='panel-title'><a href='stranka/<?= $stranka['url'] ?>'><?= $stranka['titulek'] ?></a></h1>
-    </header>
-    <article class='panel-body'>
-        <strong>Napsal <?= $stranka['pridal'], ' dne ', SpravceStranek::prevedCas($stranka['pridano']); ?></strong>
-        <?php if ($admin) : ?><br><a href='editor/<?= $stranka['url'] ?>'>Editovat</a> | <a href='stranka/<?= $stranka['url'] ?>/odstranit'>Odstranit</a><?php endif ?>
-    </article>
+    <div class='panel panel-info'>
+        <header class='panel-heading'>
+            <h1 class='panel-title'><a href='stranka/<?= $stranka['url'] ?>'><?= $stranka['titulek'] ?></a></h1>
+        </header>
+        <article class='panel-body'>
+            <strong>Napsal <?= $stranka['pridal'], ' dne ', SpravceStranek::prevedCas($stranka['pridano']); ?></strong>
+            <?php if ($admin) : ?><br><a href='editor/<?= $stranka['url'] ?>'>Editovat</a> | <a href='stranka/<?= $stranka['url'] ?>/odstranit'>Odstranit</a><?php endif ?>
+        </article>
+    </div>
 <?php endforeach ?>

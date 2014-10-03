@@ -8,7 +8,7 @@ class SpravceEditoru {
     private static $_script_serialization_replacement = '$1<![CDATA[$3]]>$4';
 
     public function odstranJS($vstup) {
-        return preg_replace(static::$_script_serialization_pattern, '', $vystup);
+        return preg_replace(static::$_script_serialization_pattern, '', $vstup);
     }
 
     private function serialize_scripts($input) {

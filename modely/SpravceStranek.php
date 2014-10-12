@@ -3,7 +3,7 @@
 // Třída poskytuje metody pro správu stránek v redakčním systému
 
 class SpravceStranek {
-    
+
     // Převede MySQL TIMESTAMP na normální datum a čas
     public static function prevedCas($cas) {
         return date('j. n. Y v G:i', strtotime($cas));
@@ -16,14 +16,7 @@ class SpravceStranek {
 
     // Uloží stránku do systému. Pokud je ID false, vloží novou, jinak provede editaci.
     public function ulozStranku($id, $stranka) {
-        // Je vyplněno ID stránky
-        if (!$id) {
-            // Vloží data nové stránky do databáze
-            Db::vloz('stranky', $stranka);
-        } else {
-            // Upraví data stránky v databázi
-            Db::zmen('stranky', $stranka, 'WHERE stranky_id = ?', array($id));
-        }
+        !$id ? Db::vloz('stranky', $stranka) : Db::zmen('stranky', $stranka, 'WHERE stranky_id = ?', array($id));
     }
 
     // Vrátí seznam stránek v databázi

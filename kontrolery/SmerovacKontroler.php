@@ -29,18 +29,10 @@ class SmerovacKontroler extends Kontroler {
     // Naparsování URL adresy a vytvoření příslušného kontroleru
     public function zpracuj($parametry) {
         $naparsovanaURL = $this->parsujURL($parametry[0]);
-        if (empty($naparsovanaURL[0])) {
-            // Přesměruje uživatele na výpis článků
-            $this->presmeruj('stranka/uvod');
-        }
+        empty($naparsovanaURL[0]) ? $this->presmeruj('stranka/uvod') : false;
         // Kontroler je 1. parametr URL
         $tridaKontroleru = $this->pomlckyDoVelbloudiNotace(array_shift($naparsovanaURL)) . 'Kontroler';
-        if (file_exists('kontrolery/' . $tridaKontroleru . '.php')) {
-            $this->kontroler = new $tridaKontroleru;
-        } else {
-            // Přesměrování na chybu
-            $this->presmeruj('chyba');
-        }
+        file_exists('kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $tridaKontroleru : $this->presmeruj('chyba');
         // Volání kontroleru
         $this->kontroler->zpracuj($naparsovanaURL);
         // Naplnění proměnných pro šablonu	

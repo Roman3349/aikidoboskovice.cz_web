@@ -77,10 +77,7 @@ class SpravceUzivatelu {
 
     // Zjistí, zda je přihlášený uživatel administrátor
     public function vratUzivatele() {
-        if (isset($_SESSION['uzivatel'])) {
-            return $_SESSION['uzivatel'];
-        }
-        return null;
+        return isset($_SESSION['uzivatel']) ? $_SESSION['uzivatel'] : null;
     }
 
     // Vrátí hash hesla z databáze
@@ -92,11 +89,7 @@ class SpravceUzivatelu {
     // Zjístí, zda je uživatel administrátorem
     public function vratAdmina($jmeno) {
         $dotaz = Db::dotazJeden('SELECT `admin` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
-        if ($dotaz['admin'] == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return $dotaz['admin'] == 1 ? true : false;
     }
 
 }

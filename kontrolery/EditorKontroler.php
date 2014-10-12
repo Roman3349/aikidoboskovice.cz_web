@@ -32,11 +32,7 @@ class EditorKontroler extends Kontroler {
         } else if (!empty($parametry[0])) {
             // Vrátí stránku podle její URL adresy
             $nactenaStranka = $spravceStranek->vratStranku($parametry[0]);
-            if ($nactenaStranka) {
-                $stranka = $nactenaStranka;
-            } else {
-                $this->pridejZpravu('Stránka nebyla nalezena');
-            }
+            $nactenaStranka ? $stranka = $nactenaStranka : $this->pridejZpravu('Stránka nebyla nalezena');
         }
         // Naplnění proměnné pro šablonu
         $this->data['stranka'] = $stranka;

@@ -64,7 +64,7 @@ abstract class Kontroler {
     }
 
     // Ověří, zda je přihlášený uživatel, případně přesměruje na login
-    public function overUzivatele($admin = false) {
+    public function overUzivatele() {
         // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
         // Vrátí informace o přihlášeném uživateli

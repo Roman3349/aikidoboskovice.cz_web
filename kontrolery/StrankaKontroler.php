@@ -32,9 +32,7 @@ class StrankaKontroler extends Kontroler {
             // Získání článku pomocí URL
             $stranka = $spravceStranek->vratStranku($parametry[0]);
             // Pokud nebyla stránka s danou URL nalezena zoborazí se chyba 404
-            if (!$stranka) {
-                $this->presmeruj('chyba');
-            }
+            !$stranka ? $this->presmeruj('chyba') : false;
             // Hlavička stránka
             $this->hlavicka = array('titulek' => $stranka['titulek'],);
             // Naplnění proměnných pro šablonu	

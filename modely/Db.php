@@ -9,14 +9,14 @@ class Db {
     // Výchozí nastavení ovladače
     private static $nastaveni = array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
         PDO::ATTR_EMULATE_PREPARES => false
     );
 
     // Připojí se k databázi pomocí daných údajů
     public static function pripoj($host, $uzivatel, $heslo, $databaze) {
         if (!isset(self::$spojeni)) {
-            self::$spojeni = new PDO("mysql:host=$host;dbname=$databaze", $uzivatel, $heslo, self::$nastaveni);
+            self::$spojeni = new PDO('mysql:host=' . $host . ';dbname=' . $databaze, $uzivatel, $heslo, self::$nastaveni);
         }
     }
 

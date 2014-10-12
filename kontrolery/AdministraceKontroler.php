@@ -14,7 +14,7 @@ class AdministraceKontroler extends Kontroler {
         // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if (!empty($parametry[0])) {
-            switch ($parametry) {
+            switch ($parametry[0]) {
                 case 'odhlasit':
                     // Odhlaš uživatele
                     $spravceUzivatelu->odhlas();
@@ -35,8 +35,6 @@ class AdministraceKontroler extends Kontroler {
                             $spravceUzivatelu->zmenHeslo($uzivatel['jmeno'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
                             // Odhlásí uživatele
                             $spravceUzivatelu->odhlas();
-                            // Přesměruj na přihlašovací stránku
-                            $this->presmeruj('prihlaseni');
                             // Vypíše uživateli zprávu
                             $this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');
                         } catch (ChybaUzivatele $chyba) {
@@ -46,15 +44,16 @@ class AdministraceKontroler extends Kontroler {
                     }
                     break;
                 default :
-                    // Přesměruje na chybu
+                    // Přesměrování na chybu 404
                     $this->presmeruj('chyba');
             }
+        } else {
+            // Naplnění proměnných pro šablonu	
+            $this->data['jmeno'] = $uzivatel['jmeno'];
+            $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['jmeno']);
+            // Nastavení šablony
+            $this->pohled = 'administrace';
         }
-        // Naplnění proměnných pro šablonu	
-        $this->data['jmeno'] = $uzivatel['jmeno'];
-        $this->data['admin'] = $spravceUzivatelu->vratAdmina($uzivatel['jmeno']);
-        // Nastavení šablony
-        $this->pohled = 'administrace';
     }
 
 }

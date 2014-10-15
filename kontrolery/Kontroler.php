@@ -38,11 +38,7 @@ abstract class Kontroler {
 
     // Přidá zprávu pro uživatele
     public function pridejZpravu($zprava) {
-        if (isset($_SESSION['zpravy'])) {
-            $_SESSION['zpravy'][] = $zprava;
-        } else {
-            $_SESSION['zpravy'] = array($zprava);
-        }
+        isset($_SESSION['zpravy']) ? $_SESSION['zpravy'][] = $zprava : $_SESSION['zpravy'] = array($zprava);
     }
 
     // Vrátí zprávy pro uživatele

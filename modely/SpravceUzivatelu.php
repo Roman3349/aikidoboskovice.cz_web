@@ -6,7 +6,8 @@ class SpravceUzivatelu {
 
     // Vrátí otisk hesla
     public function vratOtisk($heslo) {
-        return hash('sha256', $heslo . '1G@ag0AoBS');
+        $sul = '1G@ag0AoBS';
+        return hash('sha256', $heslo . $sul);
     }
 
     // Registruje nového uživatele do systému

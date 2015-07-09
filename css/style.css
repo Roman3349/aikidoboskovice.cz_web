@@ -1,0 +1,17 @@
+body {
+    background-color: #ECF0F1;
+}
+.navbar-default {
+    background-color: #3498DB;
+    background-image: none;
+    border-color: #2487CA;
+    min-height: 50px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus{
+    background-color: #3498DB;
+    background-image: none;
+}

@@ -1,5 +1,7 @@
 <?php
 
+require 'config.php';
+
 // Hlavička pro session
 session_start();
 
@@ -15,8 +17,7 @@ function autoloadFunkce($trida) {
 spl_autoload_register('autoloadFunkce');
 
 // Připojení k MySQL databázi webového serveru
-// Db::pripoj('HOST', 'USER', 'PASSWORD', 'DATABASE');
-Db::pripoj('localhost', 'aikidobce321', 'LJeQsYYmSj', 'aikidobce321');
+Db::pripoj($db_host, $db_user, $db_pass, $db_db);
 
 // Vytvoření routeru a zpracování URL uživatele
 $smerovac = new SmerovacKontroler();

@@ -1,15 +1,16 @@
 <?php
 
-// Wrapper pro snadnější práci s databází s použitím PDO a 
-// automatickým zabezpečením parametrů (proměnných) v dotazech.
+// Wrapper pro snadnější práci s databází s použitím PDO a automatickým zabezpečením parametrů (proměnných) v dotazech.
 
 class Db {
 
     // Databázové spojení
     private static $spojeni;
     // Výchozí nastavení ovladače
-    private static $nastaveni = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
-        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8', PDO::ATTR_EMULATE_PREPARES => false
+    private static $nastaveni = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT,
+        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+        PDO::ATTR_EMULATE_PREPARES => false
     );
 
     // Připojí se k databázi pomocí daných údajů

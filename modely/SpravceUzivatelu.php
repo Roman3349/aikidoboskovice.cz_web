@@ -5,9 +5,8 @@
 class SpravceUzivatelu {
 
     // Vrátí otisk hesla
-    public function vratOtisk($heslo) {
-        $sul = '1G@ag0AoBS';
-        return hash('sha256', $heslo . $sul);
+    public function vratOtisk($jmeno, $heslo) {
+        return hash('sha512', $heslo . ucwords($jmeno));
     }
 
     // Registruje nového uživatele do systému
@@ -18,7 +17,7 @@ class SpravceUzivatelu {
         if ($heslo != $hesloZnovu) {
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
-        $uzivatel = ['jmeno' => $jmeno, 'heslo' => $this->vratOtisk($heslo)];
+        $uzivatel = ['jmeno' => $jmeno, 'heslo' => $this->vratOtisk($jmano, $heslo)];
         try {
             Db::vloz('uzivatele', $uzivatel);
         } catch (PDOException $chyba) {
@@ -28,7 +27,7 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', [$jmeno, $this->vratOtisk($heslo)]);
+        $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', [$jmeno, $this->vratOtisk($jmeno, $heslo)]);
         if (!$uzivatel) {
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
         }
@@ -45,7 +44,7 @@ class SpravceUzivatelu {
         // Získání informací o uživateli z databáze
         $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
         // Souhlasí stávající heslo
-        if ($this->vratOtisk($heslo) != $uzivatel['heslo']) {
+        if ($this->vratOtisk($jmeno, $heslo) != $uzivatel['heslo']) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
@@ -54,7 +53,7 @@ class SpravceUzivatelu {
         }
         try {
             // Změní heslo v databázi
-            Db::zmen('uzivatele', ['heslo' => $this->vratOtisk($noveHeslo)], 'WHERE jmeno = ?', [$jmeno]);
+            Db::zmen('uzivatele', ['heslo' => $this->vratOtisk($jmeno, $noveHeslo)], 'WHERE jmeno = ?', [$jmeno]);
         } catch (ChybaUzivatele $chyba) {
             $this->pridejZpravu($chyba->getMessage());
         }

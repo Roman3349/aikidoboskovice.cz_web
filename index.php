@@ -1,5 +1,10 @@
 <?php
 
+namespace CMS;
+
+use CMS\Modely\Db,
+    CMS\Kontrolery\SmerovacKontroler;
+
 require 'config.php';
 
 // Hlavička pro session

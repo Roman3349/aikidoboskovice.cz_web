@@ -1,10 +1,12 @@
 <div class='panel panel-info'>
-    <header><?= $typ ?> administrátora na webu</header>              
-    <div>
+    <header class='panel-heading'>
+        <h1 class='panel-title'><?= $typ ?> administrátora na webu</h1>
+    </header>
+    <article class='panel-body'>
         <form method='post'>
             <strong>Jméno:</strong>
             <input type='text' name='jmeno'>
             <input type='submit' value='<?= $tlacitko ?>'>
         </form>
-    </div>
+    </article>
 </div>

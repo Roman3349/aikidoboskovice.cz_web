@@ -1,6 +1,10 @@
 <?php
 
 // Kontroler pro registraci uživatelů
+namespace CMS\Kontrolery;
+
+use CMS\Kontrolery\Kontroler,
+    CMS\Modely\SpravceUzivatelu;
 
 class RegistraceKontroler extends Kontroler {
 

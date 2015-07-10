@@ -2,6 +2,11 @@
 
 // Kontroler pro přidání nebo odebrání administrátora
 
+namespace CMS\Kontrolery;
+
+use CMS\Kontrolery\Kontroler,
+    CMS\Modely\SpravceUzivatelu;
+
 class AdminKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

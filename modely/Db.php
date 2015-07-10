@@ -2,6 +2,10 @@
 
 // Wrapper pro snadnější práci s databází s použitím PDO a automatickým zabezpečením parametrů (proměnných) v dotazech.
 
+namespace CMS\Modely;
+
+use PDO;
+
 class Db {
 
     // Databázové spojení

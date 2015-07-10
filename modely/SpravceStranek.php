@@ -2,6 +2,10 @@
 
 // Třída poskytuje metody pro správu stránek v redakčním systému
 
+namespace CMS\Modely;
+
+use CMS\Modely\Db;
+
 class SpravceStranek {
 
     // Převede MySQL TIMESTAMP na normální datum a čas

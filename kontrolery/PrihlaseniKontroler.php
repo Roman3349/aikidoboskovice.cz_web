@@ -2,6 +2,11 @@
 
 // Komtroler pro přihlášení
 
+namespace CMS\Kontrolery;
+
+use CMS\Kontrolery\Kontroler,
+    CMS\Modely\SpravceUzivatelu;
+
 class PrihlaseniKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

@@ -2,6 +2,10 @@
 
 // Správce uživatelů redakčního systému
 
+namespace CMS\Modely;
+
+use CMS\Modely\Db;
+
 class SpravceUzivatelu {
 
     // Vrátí otisk hesla

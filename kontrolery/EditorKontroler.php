@@ -2,6 +2,12 @@
 
 // Kontroler pro editaci stránek
 
+namespace CMS\Kontrolery;
+
+use CMS\Kontrolery\Kontroler,
+    CMS\Modely\SpravceStranek,
+    CMS\Modely\SpravceEditoru;
+
 class EditorKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

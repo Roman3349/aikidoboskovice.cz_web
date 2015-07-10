@@ -2,6 +2,10 @@
 
 // Výchozí kontroler pro redakční systém
 
+namespace CMS\Kontrolery;
+
+use CMS\Modely\SpravceUzivatelu;
+
 abstract class Kontroler {
 
     // Pole, jehož indexy jsou poté viditelné v šabloně jako běžné proměnné

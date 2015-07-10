@@ -1,6 +1,14 @@
 Options -Indexes
 
-Header set X-Frame-Options DENY
+<IfModule mod_headers.c>
+    Header set X-Frame-Options DENY
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options: nosniff
+</IfModule>
+
+<IfModule php5_module>
+    php_flag session.cookie_httponly on
+</IfModule>
 
 RewriteEngine On
 # RewriteBase /

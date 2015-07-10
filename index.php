@@ -4,6 +4,7 @@ require 'config.php';
 
 // Hlavička pro session
 session_start();
+ini_set('session.cookie_httponly', 1);
 
 // Nastavení interního kódování
 mb_internal_encoding('UTF-8');

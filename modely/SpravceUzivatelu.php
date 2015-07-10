@@ -18,7 +18,7 @@ class SpravceUzivatelu {
         if ($heslo != $hesloZnovu) {
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
-        $uzivatel = array('jmeno' => $jmeno, 'heslo' => $this->vratOtisk($heslo));
+        $uzivatel = ['jmeno' => $jmeno, 'heslo' => $this->vratOtisk($heslo)];
         try {
             Db::vloz('uzivatele', $uzivatel);
         } catch (PDOException $chyba) {
@@ -28,9 +28,8 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $uzivatel = Db::dotazJeden('SELECT `jmeno` FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', array($jmeno, $this->vratOtisk($heslo)));
+        $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', [$jmeno, $this->vratOtisk($heslo)]);
         if (!$uzivatel) {
-            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
         }
         $_SESSION['uzivatel'] = $uzivatel;
@@ -43,24 +42,20 @@ class SpravceUzivatelu {
 
     // Změna hesla uživatele
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
-        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
-        $spravceUzivatelu = new SpravceUzivatelu();
-        $uzivatel = $spravceUzivatelu->vratUzivatele();
+        // Získání informací o uživateli z databáze
+        $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
         // Souhlasí stávající heslo
-        if ($this->vratOtisk($heslo) != $this->vratHash($jmeno)) {
-            // Vypíše chybovou správu uživateli
+        if ($this->vratOtisk($heslo) != $uzivatel['heslo']) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
         }
         // Souhlasí nové hesla
         if ($noveHeslo != $noveHesloZnovu) {
-            // Vypíše chybovou správu uživateli
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
         try {
             // Změní heslo v databázi
-            Db::zmen('uzivatele', array('heslo' => $this->vratOtisk($noveHeslo)), 'WHERE jmeno = ?', array($jmeno));
+            Db::zmen('uzivatele', ['heslo' => $this->vratOtisk($noveHeslo)], 'WHERE jmeno = ?', [$jmeno]);
         } catch (ChybaUzivatele $chyba) {
-            // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());
         }
     }
@@ -68,28 +63,15 @@ class SpravceUzivatelu {
     // Přidání nebo odebrání administrátora
     public function upravaAdmina($jmeno, $admin) {
         try {
-            MC::zmen('authme', array('admin' => $admin), 'WHERE username = ?', array($jmeno));
+            Db::zmen('uzivatele', ['admin' => $admin], 'WHERE jmeno = ?', [$jmeno]);
         } catch (ChybaUzivatele $chyba) {
-            // Vypíše chybovou zprávu uživateli
             $this->pridejZpravu($chyba->getMessage());
         }
     }
 
-    // Zjistí, zda je přihlášený uživatel administrátor
+    // Vrátí informace o uživateli z sessionu
     public function vratUzivatele() {
         return isset($_SESSION['uzivatel']) ? $_SESSION['uzivatel'] : null;
-    }
-
-    // Vrátí hash hesla z databáze
-    public function vratHash($jmeno) {
-        $dotaz = Db::dotazJeden('SELECT `password` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
-        return $dotaz['password'];
-    }
-
-    // Zjístí, zda je uživatel administrátorem
-    public function vratAdmina($jmeno) {
-        $dotaz = Db::dotazJeden('SELECT `admin` FROM `uzivatele` WHERE `jmeno` = ?', array($jmeno));
-        return $dotaz['admin'] == 1 ? true : false;
     }
 
 }

@@ -56,9 +56,4 @@ class Db {
         return self::dotaz("UPDATE `$tabulka` SET `" . implode('` = ?, `', array_keys($hodnoty)) . "` = ? " . $podminka, array_merge(array_values($hodnoty), $parametry));
     }
 
-    // Vrací ID posledně vloženého záznamu
-    public static function getLastId() {
-        return self::$spojeni->lastInsertId();
-    }
-
 }

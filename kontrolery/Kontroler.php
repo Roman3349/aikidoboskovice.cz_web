@@ -7,7 +7,7 @@ abstract class Kontroler {
     // Pole, jehož indexy jsou poté viditelné v šabloně jako běžné proměnné
     protected $data = array();
     // Název šablony bez přípony
-    protected $pohled = '';
+    protected $sablona = '';
     // Hlavička HTML stránky
     protected $hlavicka = array('titulek' => '');
 
@@ -29,10 +29,10 @@ abstract class Kontroler {
 
     // Vyrenderuje pohled
     public function vypisPohled() {
-        if ($this->pohled) {
+        if ($this->sablona) {
             extract($this->osetri($this->data));
             extract($this->data, EXTR_PREFIX_ALL, '');
-            require('pohledy/' . $this->pohled . '.phtml');
+            require('pohledy/' . $this->sablona . '.phtml');
         }
     }
 
@@ -61,28 +61,20 @@ abstract class Kontroler {
 
     // Ověří, zda je přihlášený uživatel, případně přesměruje na login
     public function overUzivatele() {
-        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
-        // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
         if (!$uzivatel) {
-            // Vypíše uživateli chybovou zprávu
             $this->pridejZpravu('Nejste přihlášen.');
-            // Přesměrování na přihlašovací stránku
             $this->presmeruj('prihlaseni');
         }
     }
 
     // Ověří zda je uživatel administrátor
     public function jeAdmin() {
-        // Vytvoření instance modelu, který nám umožní pracovat s uživateli
         $spravceUzivatelu = new SpravceUzivatelu();
-        // Vrátí informace o přihlášeném uživateli
         $uzivatel = $spravceUzivatelu->vratUzivatele();
-        if ($spravceUzivatelu->vratAdmina($uzivatel['jmeno']) != true) {
-            // Vypíše uživateli chybovou zprávu
+        if (!$uzivatel['admin']) {
             $this->pridejZpravu('Nemáte oprávnění do této sekce webu.');
-            // Přesměrování na přihlašovací stránku
             $this->presmeruj('administrace');
         }
     }

@@ -5,7 +5,7 @@
 
 class SmerovacKontroler extends Kontroler {
 
-    // Instance controlleru
+    // Instance kontroleru
     protected $kontroler;
 
     // Metoda převede pomlčkovou variantu kontroleru na název třídy
@@ -39,7 +39,7 @@ class SmerovacKontroler extends Kontroler {
         $this->data['titulek'] = $this->kontroler->hlavicka['titulek'];
         $this->data['zpravy'] = $this->vratZpravy();
         // Nastavení hlavní šablonu
-        $this->pohled = 'rozlozeni';
+        $this->sablona = 'rozlozeni';
     }
 
 }

@@ -19,3 +19,6 @@ body {
     float: left; 
     margin-right: 8px;
 }
+.floatright {
+    float: right;
+}

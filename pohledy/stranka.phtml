@@ -3,6 +3,6 @@
     <article class='panel-body'><?= $_obsah ?></article>
     <footer class='panel-footer'>
         <strong>Napsal <?= $pridal, ' dne ', $pridano ?></strong>
-        <?php if ($admin) : ?><br><a href='editor/<?= $url ?>'>Editovat</a> | <a href='stranka/<?= $url ?>/odstranit'>Odstranit</a><?php endif ?>
+        <?php if ($admin) : ?><span class='floatright'><a href='editor/<?= $url ?>'>Editovat</a> | <a href='stranka/<?= $url ?>/odstranit'>Odstranit</a></span><?php endif ?>
     </footer>
 </div>

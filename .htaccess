@@ -1,5 +1,7 @@
 Options -Indexes
 
+Header set X-Frame-Options DENY
+
 RewriteEngine On
 # RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f

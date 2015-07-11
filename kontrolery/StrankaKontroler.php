@@ -2,13 +2,6 @@
 
 // Kontroler pro výpis stránek
 
-namespace CMS\kontrolery;
-
-use CMS\kontrolery\Kontroler,
-    CMS\modely\SpravceUzivatelu,
-    CMS\modely\SpravceStranek;
-
-
 class StrankaKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

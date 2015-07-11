@@ -2,11 +2,6 @@
 
 // Kontroler pro zpracovíní administrace
 
-namespace CMS\kontrolery;
-
-use CMS\kontrolery\Kontroler,
-    CMS\modely\SpravceUzivatelu;
-
 class AdministraceKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

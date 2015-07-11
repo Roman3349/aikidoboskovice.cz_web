@@ -2,10 +2,6 @@
 
 // Kontroler pro zpracování chyby 404
 
-namespace CMS\kontrolery;
-
-use CMS\kontrolery\Kontroler;
-
 class ChybaKontroler extends Kontroler {
 
     public function zpracuj($parametry) {

@@ -2,8 +2,6 @@
 
 // Třída poskytuje metody pro správu editorů v redakčním systému
 
-namespace CMS\modely;
-
 class SpravceEditoru {
 
     public function odstranJS($vstup) {

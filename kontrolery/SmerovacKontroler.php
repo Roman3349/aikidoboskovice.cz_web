@@ -2,9 +2,6 @@
 
 // Router je speciální typ kontroleru, který podle URL adresy zavolá
 // správný kontroler a jím vytvořený pohled vloží do šablony stránky
-namespace CMS\kontrolery;
-
-use CMS\kontrolery\Kontroler;
 
 class SmerovacKontroler extends Kontroler {
 

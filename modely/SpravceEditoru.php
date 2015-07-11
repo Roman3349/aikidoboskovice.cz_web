@@ -2,7 +2,7 @@
 
 // Třída poskytuje metody pro správu editorů v redakčním systému
 
-namespace CMS\Modely;
+namespace CMS\modely;
 
 class SpravceEditoru {
 

@@ -2,7 +2,7 @@
 
 // Výjimka, jejíž zprávy vypisujeme uživateli
 
-namespace CMS\Modely;
+namespace CMS\modely;
 
 use Exception;
 

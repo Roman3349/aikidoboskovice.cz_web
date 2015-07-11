@@ -2,9 +2,9 @@
 
 // Správce uživatelů redakčního systému
 
-namespace CMS\Modely;
+namespace CMS\modely;
 
-use CMS\Modely\Db;
+use CMS\modely\Db;
 
 class SpravceUzivatelu {
 

@@ -2,9 +2,9 @@
 
 // Kontroler pro zpracování chyby 404
 
-namespace CMS\Kontrolery;
+namespace CMS\kontrolery;
 
-use CMS\Kontrolery\Kontroler;
+use CMS\kontrolery\Kontroler;
 
 class ChybaKontroler extends Kontroler {
 

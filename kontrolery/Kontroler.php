@@ -2,9 +2,9 @@
 
 // Výchozí kontroler pro redakční systém
 
-namespace CMS\Kontrolery;
+namespace CMS\kontrolery;
 
-use CMS\Modely\SpravceUzivatelu;
+use CMS\modely\SpravceUzivatelu;
 
 abstract class Kontroler {
 

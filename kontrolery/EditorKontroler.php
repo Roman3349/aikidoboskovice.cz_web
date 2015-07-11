@@ -2,11 +2,11 @@
 
 // Kontroler pro editaci stránek
 
-namespace CMS\Kontrolery;
+namespace CMS\kontrolery;
 
-use CMS\Kontrolery\Kontroler,
-    CMS\Modely\SpravceStranek,
-    CMS\Modely\SpravceEditoru;
+use CMS\kontrolery\Kontroler,
+    CMS\modely\SpravceStranek,
+    CMS\modely\SpravceEditoru;
 
 class EditorKontroler extends Kontroler {
 

@@ -2,10 +2,10 @@
 
 // Kontroler pro zpracovíní administrace
 
-namespace CMS\Kontrolery;
+namespace CMS\kontrolery;
 
-use CMS\Kontrolery\Kontroler,
-    CMS\Modely\SpravceUzivatelu;
+use CMS\kontrolery\Kontroler,
+    CMS\modely\SpravceUzivatelu;
 
 class AdministraceKontroler extends Kontroler {
 

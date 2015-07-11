@@ -2,11 +2,11 @@
 
 // Kontroler pro výpis stránek
 
-namespace CMS\Kontrolery;
+namespace CMS\kontrolery;
 
-use CMS\Kontrolery\Kontroler,
-    CMS\Modely\SpravceUzivatelu,
-    CMS\Modely\SpravceStranek;
+use CMS\kontrolery\Kontroler,
+    CMS\modely\SpravceUzivatelu,
+    CMS\modely\SpravceStranek;
 
 
 class StrankaKontroler extends Kontroler {

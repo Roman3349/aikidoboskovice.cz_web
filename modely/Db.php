@@ -2,7 +2,7 @@
 
 // Wrapper pro snadnější práci s databází s použitím PDO a automatickým zabezpečením parametrů (proměnných) v dotazech.
 
-namespace CMS\Modely;
+namespace CMS\modely;
 
 use PDO;
 

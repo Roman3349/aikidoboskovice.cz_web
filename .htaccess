@@ -6,10 +6,6 @@ Options -Indexes
     Header set X-Content-Type-Options: nosniff
 </IfModule>
 
-<IfModule php5_module>
-    php_flag session.cookie_httponly on
-</IfModule>
-
 RewriteEngine On
 # RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -18,51 +14,28 @@ RewriteRule !\.(css|js|icon|zip|rar|png|jpg|gif|pdf)$ index.php [L]
 
 AddType application/x-httpd-php .php .phtml
 
-<FilesMatch '\.(htm|html|php|phtml)$'>
-    <IfModule mod_headers.c>
+<IfModule mod_headers.c>
+    <FilesMatch '\.(htm|html|php|phtml)$'>
         BrowserMatch MSIE ie
         Header set X-UA-Compatible 'IE=Edge,chrome=1' env=ie
-    </IfModule>
-</FilesMatch>
+    </FilesMatch>
+</IfModule>
 
-<ifModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE \
-    text/html \
-    text/xml \
-    text/css \
-    text/plain \
-    image/svg+xml \
-    application/xhtml+xml \
-    application/xml \
-    application/rdf+xml \
-    application/rss+xml \
-    application/atom+xml \
-    text/javascript \
-    text/ecmascript \
-    application/javascript \
-    application/x-javascript \
-    application/ecmascript \
-    application/json \
-    application/x-font-ttf \
-    application/x-font-otf \
-    font/truetype \
-    font/opentype \
-    application/x-pointplus
-</ifModule>
+<IfModule mod_deflate.c>
+  <FilesMatch "\.(php|phtml|html|json|js|css|ttf|svg|woff|eot)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
 
-<ifModule mod_expires.c>
+<IfModule mod_expires.c>
     ExpiresActive On
-    ExpiresDefault 'access plus 2592000 seconds'
-    ExpiresByType image/x-icon 'access plus 2592000 seconds'
-    ExpiresByType image/jpeg 'access plus 2592000 seconds'
-    ExpiresByType image/jpg 'access plus 2592000 seconds'
-    ExpiresByType image/png 'access plus 2592000 seconds'
-    ExpiresByType image/gif 'access plus 2592000 seconds'
-    ExpiresByType application/x-shockwave-flash 'access plus 2592000 seconds'
-    ExpiresByType text/css 'access plus 604800 seconds'
-    ExpiresByType text/javascript 'access plus 604800 seconds'
-    ExpiresByType application/javascript 'access plus 604800 seconds'
-    ExpiresByType application/x-javascript 'access plus 604800 seconds'
-    ExpiresByType text/html 'access plus 604800 seconds'
-    ExpiresByType application/xhtml+xml 'access plus 604800 seconds'
-</ifModule>
+    ExpiresDefault A600
+    ExpiresByType text/javascript A2678400
+    ExpiresByType application/javascript A2678400
+    ExpiresByType text/css A2678400
+    ExpiresByType image/gif A604800
+    ExpiresByType image/png A604800
+    ExpiresByType image/jpeg A604800
+    ExpiresByType image/x-icon A604800
+    ExpiresByType text/html A1
+</IfModule>

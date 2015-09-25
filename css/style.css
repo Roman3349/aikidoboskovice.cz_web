@@ -7,6 +7,10 @@ body {
     border-color: #2487CA;
     min-height: 50px;
 }
+.navbar-header img {
+    height: 36px; 
+    padding-top: 7px;
+}
 .navbar-default .navbar-nav > li > a {
     color: #FFF;
 }

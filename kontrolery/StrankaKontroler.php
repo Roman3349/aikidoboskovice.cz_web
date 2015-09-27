@@ -26,7 +26,7 @@ class StrankaKontroler extends Kontroler {
             $stranka = $spravceStranek->vratStranku($parametry[0]);
             // Pokud nebyla stránka s danou URL nalezena zoborazí se chyba 404
             !$stranka ? $this->presmeruj('chyba') : false;
-            $this->hlavicka = array('titulek' => $stranka['titulek'],);
+            $this->hlavicka = ['titulek' => $stranka['titulek'],];
             $this->data['titulek'] = $stranka['titulek'];
             $this->data['obsah'] = $stranka['obsah'];
             $this->data['pridano'] = $spravceStranek->prevedCas($stranka['pridano']);

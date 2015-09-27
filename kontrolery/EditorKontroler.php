@@ -10,10 +10,10 @@ class EditorKontroler extends Kontroler {
         $this->hlavicka['titulek'] = 'Editor stránek';
         $spravceStranek = new SpravceStranek();
         // Příprava prázdné stránky
-        $stranka = array('stranky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => '');
+        $stranka = ['stranky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => ''];
         if ($_POST) {
             // Získání dat z formuláře
-            $klice = array('titulek', 'obsah', 'url', 'pridal');
+            $klice = ['titulek', 'obsah', 'url', 'pridal'];
             $spravceEditoru = new SpravceEditoru();
             $_POST['obsah'] = $spravceEditoru->odstranJS($_POST['obsah']);
             $stranka = array_intersect_key($_POST, array_flip($klice));

@@ -5,11 +5,11 @@
 abstract class Kontroler {
 
     // Pole, jehož indexy jsou poté viditelné v šabloně jako běžné proměnné
-    protected $data = array();
+    protected $data = [];
     // Název šablony bez přípony
     protected $sablona = '';
     // Hlavička HTML stránky
-    protected $hlavicka = array('titulek' => '');
+    protected $hlavicka = ['titulek' => ''];
 
     // Ošetří proměnnou pro výpis do HTML stránky
     private function osetri($x = null) {
@@ -38,7 +38,7 @@ abstract class Kontroler {
 
     // Přidá zprávu pro uživatele
     public function pridejZpravu($zprava) {
-        isset($_SESSION['zpravy']) ? $_SESSION['zpravy'][] = $zprava : $_SESSION['zpravy'] = array($zprava);
+        isset($_SESSION['zpravy']) ? $_SESSION['zpravy'][] = $zprava : $_SESSION['zpravy'] = [$zprava];
     }
 
     // Vrátí zprávy pro uživatele
@@ -48,7 +48,7 @@ abstract class Kontroler {
             unset($_SESSION['zpravy']);
             return $zpravy;
         } else {
-            return array();
+            return [];
         }
     }
 

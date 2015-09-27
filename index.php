@@ -22,6 +22,6 @@ Db::pripoj($db_host, $db_user, $db_pass, $db_db);
 
 // Vytvoření routeru a zpracování URL uživatele
 $smerovac = new SmerovacKontroler();
-$smerovac->zpracuj(array($_SERVER['REQUEST_URI']));
+$smerovac->zpracuj([$_SERVER['REQUEST_URI']]);
 // Vyrenderování šablony
 $smerovac->vypisPohled();

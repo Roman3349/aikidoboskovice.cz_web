@@ -24,7 +24,7 @@
                         <span class='sr-only'>Menu</span><span class='icon-bar'></span>
                         <span class='icon-bar'></span><span class='icon-bar'></span>
                     </button>
-                    <a href='/'><img src='images/logo.png' alt='Aikido Boskovice'></a>
+                    <a href='/' class='navbar-brand'><img src='images/logo.png' alt='Aikido Boskovice'></a>
                 </div>
                 <div class='navbar-collapse collapse'>
                     <ul class='nav navbar-nav navbar-right'>
@@ -43,9 +43,7 @@
                         <li><a href='stranka/faq'>FAQ</a></li>
                         <li class='dropdown'>
                             <a href='stranka/clanky' class='dropdown-toggle' data-toggle='dropdown'>Články <span class='caret'></span></a>
-                            <ul class='dropdown-menu' role='menu'>
-                                <li><a href='stranka/guillaumeerard'>Guillaume Erard</a></li> 
-                            </ul>
+                            <ul class='dropdown-menu' role='menu'><li><a href='stranka/guillaumeerard'>Guillaume Erard</a></li> </ul>
                         </li>
                     </ul>
                 </div>
@@ -54,11 +52,12 @@
         <div class='container theme-showcase' role='main'>
             <?php foreach ($zpravy as $zprava) : ?>
                 <div class='alert alert-info' role='alert'><?= $zprava ?></div>
-            <?php endforeach ?>
-            <?php $this->kontroler->vypisPohled(); ?>
-            <footer>
-                <span>&copy; 2013 - <?= date('Y') ?> <a href="mailto:roman@itmanie.cz">Roman Ondráček</a></span>
-                <span class='floatright'><a href='administrace'>Administrace</a></span>
+                <?php
+            endforeach;
+            $this->kontroler->vypisPohled();
+            ?>
+            <footer class='footer'>
+                <p class='text-muted'>&copy; 2013 - 2015 Roman Ondráček<span class='floatright'><a href='administrace'>Administrace</a></span></p>
             </footer>
         </div>
     </body>

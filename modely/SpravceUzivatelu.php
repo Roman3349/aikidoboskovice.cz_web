@@ -31,6 +31,8 @@ class SpravceUzivatelu {
         if (!$uzivatel) {
             throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
         }
+        $_SESSION = [];
+        session_regenerate_id();
         $_SESSION['uzivatel'] = $uzivatel;
     }
 

@@ -11,7 +11,7 @@ class StrankaKontroler extends Kontroler {
         $this->data['admin'] = $uzivatel['admin'];
         if (!empty($parametry[1])) {
             // Je zadána URL stránky ke smazání
-            if ($parametry[1] == 'odstranit') {
+            if ($parametry[1] == 'odstranit' && $_SESSION['admin'] == 1) {
                 // Nastavení přístupu pouze pro administrátory
                 $this->jeAdmin();
                 $spravceStranek->odstranStranku($parametry[0]);

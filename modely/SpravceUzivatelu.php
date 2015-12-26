@@ -11,13 +11,10 @@ class SpravceUzivatelu {
 
     // Registruje nového uživatele do systému
     public function registruj($jmeno, $heslo, $hesloZnovu, $rok) {
-        if ($rok != date('Y')) {
-            throw new ChybaUzivatele('Chybně vyplněný antispam.');
-        }
         if ($heslo != $hesloZnovu) {
             throw new ChybaUzivatele('Hesla nesouhlasí.');
         }
-        $uzivatel = ['jmeno' => $jmeno, 'heslo' => $this->vratOtisk($jmano, $heslo)];
+        $uzivatel = ['jmeno' => $jmeno, 'heslo' => $this->vratOtisk($jmeno, $heslo)];
         try {
             Db::vloz('uzivatele', $uzivatel);
         } catch (PDOException $chyba) {
@@ -27,24 +24,32 @@ class SpravceUzivatelu {
 
     // Přihlásí uživatele do systému
     public function prihlas($jmeno, $heslo) {
-        $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', [$jmeno, $this->vratOtisk($jmeno, $heslo)]);
-        if (!$uzivatel) {
-            throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
+        if (!$this->jePrihlasen()) {
+            $uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', [$jmeno, $this->vratOtisk($jmeno, $heslo)]);
+            if (!$uzivatel) {
+                throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
+            }
+            $_SESSION = [];
+            session_regenerate_id();
+            $_SESSION['id'] = $uzivatel['id'];
+            $_SESSION['jmeno'] = $uzivatel['jmeno'];
+            $_SESSION['heslo'] = $uzivatel['heslo'];
+            $_SESSION['admin'] = $uzivatel['admin'];
+            $_SESSION['addr'] = $_SERVER['REMOTE_ADDR'];
+            $_SESSION['agent'] = $_SERVER['HTTP_USER_AGENT'];
         }
-        $_SESSION = [];
-        session_regenerate_id();
-        $_SESSION['uzivatel'] = $uzivatel;
     }
 
     // Odhlásí uživatele
     public function odhlas() {
-        unset($_SESSION['uzivatel']);
+        $_SESSION = [];
+        session_regenerate_id();
     }
 
     // Změna hesla uživatele
     public function zmenHeslo($jmeno, $heslo, $noveHeslo, $noveHesloZnovu) {
         // Získání informací o uživateli z databáze
-        $uzivatel = Db::dotazJeden('SELECT * FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
+        $uzivatel = Db::dotazJeden('SELECT `heslo` FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
         // Souhlasí stávající heslo
         if ($this->vratOtisk($jmeno, $heslo) != $uzivatel['heslo']) {
             throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
@@ -72,7 +77,27 @@ class SpravceUzivatelu {
 
     // Vrátí informace o uživateli z sessionu
     public function vratUzivatele() {
-        return isset($_SESSION['uzivatel']) ? $_SESSION['uzivatel'] : null;
+        if ($this->jePrihlasen()) {
+            return isset($_SESSION) ? $_SESSION : null;
+        } else {
+            $_SESSION = [];
+            session_regenerate_id();
+        }
+    }
+
+    // Ověří zda je uživatel přihlášen
+    public function jePrihlasen() {
+        $uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ?', [$_SESSION['jmeno']]);
+        if ($_SESSION['id'] === $uzivatel['id'] &&
+                $_SESSION['jmeno'] === $uzivatel['jmeno'] &&
+                $_SESSION['heslo'] === $uzivatel['heslo'] &&
+                $_SESSION['admin'] === $uzivatel['admin'] &&
+                $_SESSION['addr'] === $_SERVER['REMOTE_ADDR'] &&
+                $_SESSION['agent'] === $_SERVER['HTTP_USER_AGENT']) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

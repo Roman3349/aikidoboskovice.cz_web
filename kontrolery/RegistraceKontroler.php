@@ -8,16 +8,23 @@ class RegistraceKontroler extends Kontroler {
         $this->hlavicka['titulek'] = 'Registrace';
         if ($_POST) {
             try {
-                $spravceUzivatelu = new SpravceUzivatelu();
-                $spravceUzivatelu->registruj($_POST['jmeno'], $_POST['heslo'], $_POST['heslo_znovu'], $_POST['rok']);
-                $spravceUzivatelu->prihlas($_POST['jmeno'], $_POST['heslo']);
-                $this->pridejZpravu('Byl jste úspěšně zaregistrován.');
-                $this->presmeruj('administrace');
+                $recaptcha = new \ReCaptcha\ReCaptcha(Config::captcha_secretkey);
+                $odpoved = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+                if ($odpoved->isSuccess()) {
+                    $spravceUzivatelu = new SpravceUzivatelu();
+                    $spravceUzivatelu->registruj($_POST['jmeno'], $_POST['heslo'], $_POST['heslo_znovu']);
+                    $spravceUzivatelu->prihlas($_POST['jmeno'], $_POST['heslo']);
+                    $this->pridejZpravu('Byl jste úspěšně zaregistrován.');
+                    $this->presmeruj('administrace');
+                } else {
+                    $this->pridejZpravu('Zadal jste špatnou odpověď do antispamu.');
+                }
             } catch (ChybaUzivatele $chyba) {
                 $this->pridejZpravu($chyba->getMessage());
             }
         }
         $this->sablona = 'registrace';
+        $this->data['sitekey'] = Config::captcha_sitekey;
     }
 
 }

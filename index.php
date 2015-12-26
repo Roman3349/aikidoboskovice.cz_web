@@ -1,17 +1,20 @@
 <?php
 
 require 'config.php';
+require 'vendor/recaptcha/autoload.php';
 
-// Hlavička pro session
-session_start();
 // Zapnutí HTTP Only cookies
 ini_set('session.cookie_httponly', 1);
 // Vypnutí přenosu cookies pomocí URL
 ini_set('session.use_trans_sid', 0);
-// Nastavení jména cookies
-ini_set('session.name', 'CMS');
 // Nastavení maximální délky života cookies
 ini_set('session.cookie_lifetime', 21600);
+// Nastavení hashovací funkce pro generování session ID
+ini_set('session.hash_function', 'sha512');
+// Nastavení délky entropie
+ini_set('session.entropy_length', 256);
+// Hlavička pro session
+session_start();
 
 // Nastavení interního kódování
 mb_internal_encoding('UTF-8');
@@ -25,7 +28,7 @@ function autoloadFunkce($trida) {
 spl_autoload_register('autoloadFunkce');
 
 // Připojení k MySQL databázi webového serveru
-Db::pripoj($db_host, $db_user, $db_pass, $db_db);
+Db::pripoj(Config::db_host, Config::db_user, Config::db_pass, Config::db_db);
 
 // Vytvoření routeru a zpracování URL uživatele
 $smerovac = new SmerovacKontroler();

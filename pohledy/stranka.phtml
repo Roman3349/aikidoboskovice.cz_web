@@ -2,7 +2,7 @@
     <header class='panel-heading'><h1 class='panel-title'><?= $titulek ?></h1></header>
     <article class='panel-body'><?= $_obsah ?></article>
     <footer class='panel-footer'>
-        <strong>Napsal <?= $pridal, ' dne ', $pridano ?></strong>
-        <?php if ($admin) : ?><span class='floatright'><a href='editor/<?= $url ?>'>Editovat</a> | <a href='stranka/<?= $url ?>/odstranit'>Odstranit</a></span><?php endif ?>
+        <strong><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;<?= $pridal, ' <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;', $pridano ?></strong>
+        <?php if ($admin) : ?><span class='floatright'><a href='editor/<?= $url ?>'><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp;Editovat</a> | <a href='stranka/<?= $url ?>/odstranit'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp;Odstranit</a></span><?php endif ?>
     </footer>
 </div>

@@ -2,13 +2,19 @@
     <header class='panel-heading'><h1 class='panel-title'>Změna hesla</h1></header>              
     <article class='panel-body'>
         <form method='post' autocomplete='off'>
-            <strong>Současné heslo:</strong><br>
-            <input type='password' name='heslo'><br>
-            <strong>Nové heslo</strong><br>
-            <input type='password' name='nove_heslo'><br>
-            <strong>Nové heslo znovu</strong><br>
-            <input type='password' name='nove_heslo_znovu'><br>
-            <input type='submit' value='Změnit heslo'>
+            <label for='heslo'>Současné heslo:</label>
+            <input type='password' class='form-control' name='heslo'><br>
+            <label for='nove_heslo'>Nové heslo</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-lock' id='nove_heslo'></span>
+                <input type='password' class='form-control' aria-describedby='nove_heslo' name='nove_heslo'>
+            </div>
+            <label for='nove_heslo_znovu'>Nové heslo znovu</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-lock' id='nove_heslo_znovu'></span>
+                <input type='password' class='form-control' aria-describedby='nove_heslo_znovu' name='nove_heslo_znovu'>
+            </div>
+            <input type='submit' class='btn btn-default navbar-btn' value='Změnit heslo'>
         </form>
     </article>
 </div>

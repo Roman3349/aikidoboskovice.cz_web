@@ -3,14 +3,24 @@
     <article class='panel-body'>
         <form method='post'>
             <input type='hidden' name='stranky_id' value='<?= $stranka['stranky_id'] ?>'>
-            <strong>Titulek</strong><br>
-            <input type='text' name='titulek' value='<?= $stranka['titulek'] ?>'><br>
-            <strong>URL</strong><br>
-            <input type='text' name='url' value='<?= $stranka['url'] ?>'><br>
-            <strong>Autor</strong><br>
-            <input type='text' name='pridal' value='<?= $stranka['pridal'] ?>'><br>
-            <textarea name='obsah'><?= $stranka['obsah'] ?></textarea>
-            <input type='submit' value='Uložit stránku'>
+            <label for='titulek'>Titulek</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-comment' id='url'></span>
+                <input type='text' class='form-control' aria-describedby='titulek' name='titulek' value='<?= $stranka['titulek'] ?>'>
+            </div>
+            <label for='url'>URL</label>
+            <div class='input-group'>
+                <span class='input-group-addon' id='url'>http://www.aikidoboskovice/</span>
+                <input type='text' class='form-control' aria-describedby='url' name='url' value='<?= $stranka['url'] ?>'>
+            </div>
+            <label for='pridal'>Autor</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-user' id='pridal'></span>
+                <input type='text' class='form-control' aria-describedby='pridal' name='pridal' value='<?= $stranka['pridal'] ?>'>
+            </div>
+            <label for='obsah'>Obsah</label>
+            <textarea name='obsah' class='obsah'><?= $stranka['obsah'] ?></textarea>
+            <input type='submit' class='btn btn-default navbar-btn' value='Uložit stránku'>
         </form>
         <script type='text/javascript' src='https://tinymce.cachefly.net/4.2/tinymce.min.js'></script>
         <script type='text/javascript'>

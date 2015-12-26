@@ -31,6 +31,18 @@ body {
     float: left; 
     margin-right: 8px;
 }
+.floatleft {
+    float: left;
+}
 .floatright {
     float: right;
+}
+.talignleft {
+    text-align: left;
+}
+.talignright {
+    text-align: right;
+}
+.taligncenter {
+    text-align: center;
 }

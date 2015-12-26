@@ -8,11 +8,6 @@ class SmerovacKontroler extends Kontroler {
     // Instance kontroleru
     protected $kontroler;
 
-    // Metoda převede pomlčkovou variantu kontroleru na název třídy
-    private function pomlckyDoVelbloudiNotace($text) {
-        return str_replace(' ', '', ucwords(str_replace('-', ' ', $text)));
-    }
-
     // Naparsuje URL adresu podle lomítek a vrátí pole parametrů
     private function parsujURL($url) {
         // Naparsuje jednotlivé části URL adresy do asociativního pole
@@ -31,7 +26,7 @@ class SmerovacKontroler extends Kontroler {
         $naparsovanaURL = $this->parsujURL($parametry[0]);
         empty($naparsovanaURL[0]) ? $this->presmeruj('stranka/uvod') : false;
         // Kontroler je 1. parametr URL
-        $tridaKontroleru = $this->pomlckyDoVelbloudiNotace(array_shift($naparsovanaURL)) . 'Kontroler';
+        $tridaKontroleru = str_replace(' ', '', ucwords(str_replace('-', ' ', array_shift($naparsovanaURL)))) . 'Kontroler';
         file_exists('kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $tridaKontroleru : $this->presmeruj('chyba');
         // Volání kontroleru
         $this->kontroler->zpracuj($naparsovanaURL);

@@ -2,11 +2,17 @@
     <header class='panel-heading'><h1 class='panel-title'>Přihlášení do administrace</h1></header>              
     <article class='panel-body'>
         <form method='post' autocomplete='off'>
-            <strong>Jméno</strong><br>
-            <input type='text' name='jmeno'><br>
-            <strong>Heslo</strong><br>
-            <input type='password' name='heslo'><br>
-            <input type='submit' value='Přihlásit'>
+            <label for='jmeno'>Jméno</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-user' id='jmeno'></span>
+                <input type='text' class='form-control' aria-describedby='jmeno' name='jmeno'>
+            </div>
+            <label for='heslo'>Heslo</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-lock' id='heslo'></span>
+                <input type='password' class='form-control' aria-describedby='heslo' name='heslo'>
+            </div>
+            <input type='submit' class='btn btn-default navbar-btn' value='Přihlásit se'>
         </form>
     </article>
     <footer class='panel-footer'><a href='registrace'>Registrujte se, pokud ještě u nás nemáte účet.</a></footer>

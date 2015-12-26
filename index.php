@@ -4,7 +4,14 @@ require 'config.php';
 
 // Hlavička pro session
 session_start();
+// Zapnutí HTTP Only cookies
 ini_set('session.cookie_httponly', 1);
+// Vypnutí přenosu cookies pomocí URL
+ini_set('session.use_trans_sid', 0);
+// Nastavení jména cookies
+ini_set('session.name', 'CMS');
+// Nastavení maximální délky života cookies
+ini_set('session.cookie_lifetime', 21600);
 
 // Nastavení interního kódování
 mb_internal_encoding('UTF-8');

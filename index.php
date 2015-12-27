@@ -2,6 +2,11 @@
 
 require 'config.php';
 require 'vendor/recaptcha/autoload.php';
+require 'vendor/tracy/tracy.php';
+
+use Tracy\Debugger;
+
+Debugger::enable(Debugger::DETECT,  __DIR__ . '/log', 'roman@itmanie.cz');
 
 // Zapnutí HTTP Only cookies
 ini_set('session.cookie_httponly', 1);

@@ -35,7 +35,6 @@ class SpravceUzivatelu {
             $_SESSION['jmeno'] = $uzivatel['jmeno'];
             $_SESSION['heslo'] = $uzivatel['heslo'];
             $_SESSION['admin'] = $uzivatel['admin'];
-            $_SESSION['addr'] = $_SERVER['REMOTE_ADDR'];
             $_SESSION['agent'] = $_SERVER['HTTP_USER_AGENT'];
         }
     }
@@ -87,14 +86,13 @@ class SpravceUzivatelu {
 
     // Ověří zda je uživatel přihlášen
     public function jePrihlasen() {
-        if (empty($_SESSION['id']) || empty($_SESSION['jmeno']) || empty($_SESSION['heslo']) ||
-                empty($_SESSION['admin']) || empty($_SESSION['addr']) || empty($_SESSION['agent'])) {
+        if (empty($_SESSION['id']) || empty($_SESSION['jmeno']) || empty($_SESSION['heslo']) || empty($_SESSION['agent'])) {
             return false;
         }
         $uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ?', [$_SESSION['jmeno']]);
         if ($_SESSION['id'] === $uzivatel['id'] && $_SESSION['jmeno'] === $uzivatel['jmeno'] &&
                 $_SESSION['heslo'] === $uzivatel['heslo'] && $_SESSION['admin'] === $uzivatel['admin'] &&
-                $_SESSION['addr'] === $_SERVER['REMOTE_ADDR'] && $_SESSION['agent'] === $_SERVER['HTTP_USER_AGENT']) {
+                $_SESSION['agent'] === $_SERVER['HTTP_USER_AGENT']) {
             return true;
         } else {
             return false;

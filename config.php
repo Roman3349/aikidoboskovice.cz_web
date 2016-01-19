@@ -7,7 +7,7 @@ class Config {
     const db_user = 'root';
     const db_pass = '';
     const db_db = 'cms';
-    
+
     // Captcha
     const captcha_sitekey = '';
     const captcha_secretkey = '';

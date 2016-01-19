@@ -30,7 +30,7 @@ class SmerovacKontroler extends Kontroler {
         file_exists('kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $tridaKontroleru : $this->presmeruj('chyba');
         // Volání kontroleru
         $this->kontroler->zpracuj($naparsovanaURL);
-        // Naplnění proměnných pro šablonu	
+        // Naplnění proměnných pro šablonu
         $this->data['titulek'] = $this->kontroler->hlavicka['titulek'];
         $this->data['zpravy'] = $this->vratZpravy();
         // Nastavení hlavní šablonu

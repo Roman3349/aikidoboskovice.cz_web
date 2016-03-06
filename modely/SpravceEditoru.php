@@ -1,11 +1,17 @@
 <?php
 
-// Třída poskytuje metody pro správu editorů v redakčním systému
-
+/**
+ * Třída poskytuje metody pro správu editorů v redakčním systému
+ */
 class SpravceEditoru {
 
-    public function odstranJS($vstup) {
-        return preg_replace('/(<script(.*?)>)(.*?)(<\/script>)/is', '', $vstup);
-    }
+	/**
+	 * Odstraní <script> tagy
+	 * @param string $vstup
+	 * @return string
+	 */
+	public function odstranJS($vstup) {
+		return preg_replace('/(<script(.*?)>)(.*?)(<\/script>)/is', '', $vstup);
+	}
 
 }

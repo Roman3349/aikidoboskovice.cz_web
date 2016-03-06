@@ -24,7 +24,10 @@ session_start();
 // Nastavení interního kódování
 mb_internal_encoding('UTF-8');
 
-// Callback pro automatické načítání tříd controllerů a modelů
+/**
+ * Callback pro automatické načítání tříd controllerů a modelů
+ * @param string $trida
+ */
 function autoloadFunkce($trida) {
     require preg_match('/Kontroler$/', $trida) ? 'kontrolery/' . $trida . '.php' : 'modely/' . $trida . '.php';
 }

@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 
 use Tracy\Debugger;
 
-Debugger::enable(Debugger::DETECT,  __DIR__ . '/log', 'roman@itmanie.cz');
+Debugger::enable(Debugger::DETECT, __DIR__ . '/log', 'roman@itmanie.cz');
 
 // Zapnutí HTTP Only cookies
 ini_set('session.cookie_httponly', 1);
@@ -28,7 +28,7 @@ mb_internal_encoding('UTF-8');
  * @param string $trida
  */
 function autoloadFunkce($trida) {
-    require preg_match('/Kontroler$/', $trida) ? 'kontrolery/' . $trida . '.php' : 'modely/' . $trida . '.php';
+	require preg_match('/Kontroler$/', $trida) ? 'kontrolery/' . $trida . '.php' : 'modely/' . $trida . '.php';
 }
 
 // Registrace callbacku

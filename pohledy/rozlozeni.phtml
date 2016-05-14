@@ -50,17 +50,17 @@
             </div>
         </div>
         <div class='container theme-showcase' role='main'>
-            <?php foreach ($zpravy as $zprava) : ?>
-                <div class='alert alert-info alert-dismissible' role='alert'>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <?= $zprava ?>
-                </div>
-                <?php
-            endforeach;
-            $this->kontroler->vypisPohled();
-            ?>
+			<?php foreach ($zpravy as $zprava) : ?>
+				<div class='alert alert-info alert-dismissible' role='alert'>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<?= $zprava ?>
+				</div>
+				<?php
+			endforeach;
+			$this->kontroler->vypisPohled();
+			?>
             <footer class='footer taligncenter'>
                 <div class='col-sm-4'>&copy; 2013 - <?= date('Y') ?> Roman Ondráček</div>
                 <div class='col-sm-4'>Jsme členem <a href="http://www.cfai.cz/">České Federace Aikido</a></div>

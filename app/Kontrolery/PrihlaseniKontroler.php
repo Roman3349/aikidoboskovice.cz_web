@@ -3,6 +3,7 @@
 namespace App\Kontrolery;
 
 use App\Kontrolery\Kontroler;
+use App\Modely\ChybaUzivatele;
 use App\Modely\SpravceUzivatelu;
 
 /**

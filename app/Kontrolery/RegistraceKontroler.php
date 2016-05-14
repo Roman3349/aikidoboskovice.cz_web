@@ -2,7 +2,9 @@
 
 namespace App\Kontrolery;
 
+use App\Config\Config;
 use App\Kontrolery\Kontroler;
+use App\Modely\ChybaUzivatele;
 use App\Modely\SpravceUzivatelu;
 use ReCaptcha\ReCaptcha;
 

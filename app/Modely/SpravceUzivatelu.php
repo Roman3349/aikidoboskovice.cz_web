@@ -30,8 +30,10 @@ class SpravceUzivatelu {
 	public function registruj($jmeno, $heslo, $hesloZnovu) {
 		if ($heslo != $hesloZnovu) {
 			throw new ChybaUzivatele('Hesla nesouhlasí.');
+		} elseif (strlen($heslo) > 60) {
+			throw new ChybaUzivatele('Heslo je delší než 60 znaků.');
 		}
-		$uzivatel = ['jmeno' => $jmeno, 'heslo' => $this->vratOtisk($jmeno, $heslo)];
+		$uzivatel = ['jmeno' => $jmeno, 'heslo' => password_hash($heslo, PASSWORD_BCRYPT)];
 		try {
 			Db::vloz('uzivatele', $uzivatel);
 		} catch (PDOException $chyba) {
@@ -47,9 +49,15 @@ class SpravceUzivatelu {
 	 */
 	public function prihlas($jmeno, $heslo) {
 		if (!$this->jePrihlasen()) {
-			$uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ? AND `heslo` = ?', [$jmeno, $this->vratOtisk($jmeno, $heslo)]);
+			$uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
 			if (!$uzivatel) {
-				throw new ChybaUzivatele('Neplatné jméno nebo heslo.');
+				throw new ChybaUzivatele('Neplatné jméno.');
+			} elseif ($this->vratOtisk($jmeno, $heslo) == $uzivatel['heslo']) {
+				// Změní otisk hesla v databázi
+				Db::zmen('uzivatele', ['heslo' => password_hash($heslo, PASSWORD_BCRYPT)], 'WHERE jmeno = ?', [$jmeno]);
+				throw new ChybaUzivatele('Přihlaste se znovu.');
+			} elseif (!password_verify($heslo, $uzivatel['heslo'])) {
+				throw new ChybaUzivatele('Neplatné heslo.');
 			}
 			$_SESSION = [];
 			session_regenerate_id();
@@ -81,15 +89,16 @@ class SpravceUzivatelu {
 		// Získání informací o uživateli z databáze
 		$uzivatel = Db::dotazJeden('SELECT `heslo` FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
 		// Souhlasí stávající heslo
-		if ($this->vratOtisk($jmeno, $heslo) != $uzivatel['heslo']) {
+		if (!password_verify($heslo, $uzivatel['heslo'])) {
 			throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
-		}
-		if ($noveHeslo != $noveHesloZnovu) {
+		} elseif ($noveHeslo != $noveHesloZnovu) {
 			throw new ChybaUzivatele('Hesla nesouhlasí.');
+		} elseif (strlen($noveHeslo) > 60) {
+			throw new ChybaUzivatele('Heslo je delší než 60 znaků.');
 		}
 		try {
 			// Změní heslo v databázi
-			Db::zmen('uzivatele', ['heslo' => $this->vratOtisk($jmeno, $noveHeslo)], 'WHERE jmeno = ?', [$jmeno]);
+			Db::zmen('uzivatele', ['heslo' => password_hash($noveHeslo, PASSWORD_BCRYPT)], 'WHERE jmeno = ?', [$jmeno]);
 		} catch (ChybaUzivatele $chyba) {
 			$this->pridejZpravu($chyba->getMessage());
 		}

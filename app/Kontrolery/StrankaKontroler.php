@@ -48,6 +48,7 @@ class StrankaKontroler extends Kontroler {
 			// Vrátí všechny stránky
 			$stranky = $spravceStranek->vratStranky();
 			$this->data['stranky'] = $stranky;
+			$this->data['spravce'] = $spravceStranek;
 			$this->sablona = 'stranky';
 			$this->hlavicka['titulek'] = 'Stránky';
 		}

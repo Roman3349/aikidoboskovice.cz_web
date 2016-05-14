@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Modely;
+
+use App\Modely\Db;
+
 /**
  * Třída poskytuje metody pro správu stránek v redakčním systému
  */

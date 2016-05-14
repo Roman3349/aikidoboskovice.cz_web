@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Kontrolery;
+
+use App\Kontrolery\Kontroler;
+
 /**
  * Router je speciální typ kontroleru, který podle URL adresy zavolá
   správný kontroler a jím vytvořený pohled vloží do šablony stránky
@@ -37,7 +41,8 @@ class SmerovacKontroler extends Kontroler {
 		empty($naparsovanaURL[0]) ? $this->presmeruj('stranka/uvod') : false;
 		// Kontroler je 1. parametr URL
 		$tridaKontroleru = str_replace(' ', '', ucwords(str_replace('-', ' ', array_shift($naparsovanaURL)))) . 'Kontroler';
-		file_exists('app/kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $tridaKontroleru : $this->presmeruj('chyba');
+		$kontroler = 'App\\Kontrolery\\' . $tridaKontroleru;
+		file_exists('app/Kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $kontroler : $this->presmeruj('chyba');
 		// Volání kontroleru
 		$this->kontroler->zpracuj($naparsovanaURL);
 		// Naplnění proměnných pro šablonu

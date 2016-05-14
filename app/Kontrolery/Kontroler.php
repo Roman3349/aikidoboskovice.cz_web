@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Kontrolery;
+
+use App\Modely\SpravceUzivatelu;
+
 /**
  * Výchozí kontroler pro redakční systém
  */
@@ -47,7 +51,7 @@ abstract class Kontroler {
 		if ($this->sablona) {
 			extract($this->osetri($this->data));
 			extract($this->data, EXTR_PREFIX_ALL, '');
-			require('app/pohledy/' . $this->sablona . '.phtml');
+			require('app/Pohledy/' . $this->sablona . '.phtml');
 		}
 	}
 

@@ -18,5 +18,14 @@
 	},
 	"require-dev": {
 		"nette/tester": "~1.7.1"
+	},
+	"support": {
+		"email": "ondracek.roman@centrum.cz",
+		"issues": "https://github.com/Roman3349/aikidoboskovice.cz_web/issues"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/"
+		}
 	}
 }

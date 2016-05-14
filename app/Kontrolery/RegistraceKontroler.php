@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Kontrolery;
+
+use App\Kontrolery\Kontroler;
+use App\Modely\SpravceUzivatelu;
+use ReCaptcha\ReCaptcha;
+
 /**
  * Kontroler pro registraci uživatelů
  */
@@ -12,7 +18,7 @@ class RegistraceKontroler extends Kontroler {
 		$this->hlavicka['titulek'] = 'Registrace';
 		if ($_POST) {
 			try {
-				$recaptcha = new \ReCaptcha\ReCaptcha(Config::captcha_secretkey);
+				$recaptcha = new ReCaptcha(Config::captcha_secretkey);
 				$odpoved = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 				if ($odpoved->isSuccess()) {
 					$spravceUzivatelu = new SpravceUzivatelu();

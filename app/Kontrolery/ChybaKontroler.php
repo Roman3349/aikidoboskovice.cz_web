@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Kontrolery;
+
+use App\Kontrolery\Kontroler;
+
 /**
  * Kontroler pro zpracování chyby 404
  */

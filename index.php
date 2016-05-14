@@ -1,8 +1,10 @@
 <?php
 
-require 'config.php';
-require 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
+use App\Config\Config;
+use App\Kontrolery\SmerovacKontroler;
+use App\Modely\Db;
 use Tracy\Debugger;
 
 Debugger::enable(Debugger::DETECT, __DIR__ . '/log', 'roman@itmanie.cz');
@@ -22,17 +24,6 @@ session_start();
 
 // Nastavení interního kódování
 mb_internal_encoding('UTF-8');
-
-/**
- * Callback pro automatické načítání tříd controllerů a modelů
- * @param string $trida
- */
-function autoloadFunkce($trida) {
-	require preg_match('/Kontroler$/', $trida) ? 'app/kontrolery/' . $trida . '.php' : 'app/modely/' . $trida . '.php';
-}
-
-// Registrace callbacku
-spl_autoload_register('autoloadFunkce');
 
 // Připojení k MySQL databázi webového serveru
 Db::pripoj(Config::db_host, Config::db_user, Config::db_pass, Config::db_db);

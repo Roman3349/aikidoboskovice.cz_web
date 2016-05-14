@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Kontrolery;
+
+use App\Kontrolery\Kontroler;
+use App\Modely\SpravceUzivatelu;
+
 /**
  * Komtroler pro přihlášení
  */

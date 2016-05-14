@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Kontrolery;
+
+use App\Kontrolery\Kontroler;
+use App\Modely\SpravceStranek;
+use App\Modely\SpravceEditoru;
+
 /**
  * Kontroler pro editaci stránek
  */

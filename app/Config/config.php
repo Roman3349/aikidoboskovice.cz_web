@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Config;
+
 class Config {
 
 	// Database

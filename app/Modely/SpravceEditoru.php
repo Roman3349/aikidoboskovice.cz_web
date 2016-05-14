@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Modely;
+
 /**
  * Třída poskytuje metody pro správu editorů v redakčním systému
  */

@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Modely;
+
+use App\Modely\ChybaUzivatele;
+use App\Modely\Db;
+
 /**
  * Správce uživatelů redakčního systému
  */

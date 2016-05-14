@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Modely;
+
+use PDO;
+
 /**
  * Wrapper pro snadnější práci s databází s použitím PDO a automatickým zabezpečením parametrů (proměnných) v dotazech.
  */

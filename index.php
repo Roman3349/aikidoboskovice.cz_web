@@ -1,8 +1,7 @@
 <?php
 
 require 'config.php';
-require 'vendor/recaptcha/autoload.php';
-require 'vendor/tracy/tracy.php';
+require 'vendor/autoload.php';
 
 use Tracy\Debugger;
 

@@ -1,2 +1,5 @@
 # NetBeans
 /nbproject
+# Composer
+/vendor
+composer.lock

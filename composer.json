@@ -1,0 +1,22 @@
+{
+	"name": "roman3349/aikidoboskovice.cz_web",
+	"description": "CMS for Aikido Boskovice.",
+	"homepage": "https://github.com/Roman3349/aikidoboskovice.cz_web",
+	"type": "project",
+	"license": ["GPL-3.0"],
+	"authors": [
+		{
+			"name": "Roman Ondráček",
+			"homepage": "https://github.com/Roman3349",
+			"email": "ondracek.roman@centrum.cz"
+		}
+	],
+	"require": {
+		"php": ">= 5.5.0",
+		"tracy/tracy": "^2.3",
+		"google/recaptcha": "^1.1"
+	},
+	"require-dev": {
+		"nette/tester": "~1.7.1"
+	}
+}

@@ -2,8 +2,11 @@
     <header class='panel-heading'><h1 class='panel-title'>Změna hesla</h1></header>
     <article class='panel-body'>
         <form method='post' autocomplete='off'>
-            <label for='heslo'>Současné heslo:</label>
-            <input type='password' class='form-control' name='heslo'><br>
+            <label for='heslo'>Současné heslo</label>
+            <div class='input-group'>
+                <span class='input-group-addon glyphicon glyphicon-lock' id='heslo'></span>
+                <input type='password' class='form-control' aria-describedby='heslo' name='heslo'>
+            </div>
             <label for='nove_heslo'>Nové heslo</label>
             <div class='input-group'>
                 <span class='input-group-addon glyphicon glyphicon-lock' id='nove_heslo'></span>

@@ -37,7 +37,7 @@ class SmerovacKontroler extends Kontroler {
 		empty($naparsovanaURL[0]) ? $this->presmeruj('stranka/uvod') : false;
 		// Kontroler je 1. parametr URL
 		$tridaKontroleru = str_replace(' ', '', ucwords(str_replace('-', ' ', array_shift($naparsovanaURL)))) . 'Kontroler';
-		file_exists('kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $tridaKontroleru : $this->presmeruj('chyba');
+		file_exists('app/kontrolery/' . $tridaKontroleru . '.php') ? $this->kontroler = new $tridaKontroleru : $this->presmeruj('chyba');
 		// Volání kontroleru
 		$this->kontroler->zpracuj($naparsovanaURL);
 		// Naplnění proměnných pro šablonu

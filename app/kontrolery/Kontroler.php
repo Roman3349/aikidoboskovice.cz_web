@@ -47,7 +47,7 @@ abstract class Kontroler {
 		if ($this->sablona) {
 			extract($this->osetri($this->data));
 			extract($this->data, EXTR_PREFIX_ALL, '');
-			require('pohledy/' . $this->sablona . '.phtml');
+			require('app/pohledy/' . $this->sablona . '.phtml');
 		}
 	}
 

@@ -28,7 +28,7 @@ mb_internal_encoding('UTF-8');
  * @param string $trida
  */
 function autoloadFunkce($trida) {
-	require preg_match('/Kontroler$/', $trida) ? 'kontrolery/' . $trida . '.php' : 'modely/' . $trida . '.php';
+	require preg_match('/Kontroler$/', $trida) ? 'app/kontrolery/' . $trida . '.php' : 'app/modely/' . $trida . '.php';
 }
 
 // Registrace callbacku

@@ -1,28 +1,73 @@
 {**
- * @param string   $basePath web base path
- * @param array    $flashes  flash messages
- *}
+ * @param string $basePath web base path
+ * @param array $flashes flash messages
+*}
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-
-	<title>{ifset title}{include title|striptags} | {/ifset}Nette Sandbox</title>
-
-	<link rel="stylesheet" href="{$basePath}/css/style.css">
-	<meta name="viewport" content="width=device-width">
-	{block head}{/block}
-</head>
-
-<body>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-
-	{include content}
-
-	{block scripts}
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
-	<script src="{$basePath}/js/main.js"></script>
-	{/block}
-</body>
+	<head>
+		<base href='/' >
+		<title>{ifset title}{include title|striptags} | {/ifset}Aikido Boskovice</title>
+		<meta charset='UTF-8'>
+		<meta name='author' content='Roman Ondráček'>
+		<meta name='robots' content='index, follow'>
+		<meta name='description' content='Aikido Boskovice - boskovický oddíl Aikido - japonské bojové umění.'>
+		<meta name='keywords' content='aikido, boskovice, bojové umění, sport, Karel Trefný'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+		<link href='{$basePath}/css/style.css' rel='stylesheet' type='text/css'>
+		<link rel='shortcut icon' type='image/x-icon' href='{$basePath}/favicon.ico'>
+	</head>
+	<body role='document'>
+		<div class='navbar navbar-default' role='navigation'>
+			<div class='container'>
+				<div class='navbar-header'>
+					<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
+						<span class='sr-only'>Menu</span><span class='icon-bar'></span>
+						<span class='icon-bar'></span><span class='icon-bar'></span>
+					</button>
+					<a href='/' class='navbar-brand'><img src='images/logo.png' alt='Aikido Boskovice'></a>
+				</div>
+				<div class='navbar-collapse collapse'>
+					<ul class='nav navbar-nav navbar-right'>
+						<li><a href='/'>Aktuality</a></li>
+						<li class='dropdown'>
+							<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Galerie <span class='caret'></span></a>
+							<ul class='dropdown-menu' role='menu'>
+								<li><a href='https://www.zonerama.com/AikidoBoskovice'>Fotografie</a></li>
+								<li><a href='https://youtube.com/Aikidoboskovice'>Videa</a></li>
+							</ul>
+						</li>
+						<li><a href='stranka/ueshiba'>Ueshiba</a></li>
+						<li><a href='stranka/trenink'>Trénink</a></li>
+						<li><a href='stranka/kontakt'>Kontakt</a></li>
+						<li><a href='stranka/odkazy'>Odkazy</a></li>
+						<li><a href='stranka/faq'>FAQ</a></li>
+						<li class='dropdown'>
+							<a href='stranka/clanky' class='dropdown-toggle' data-toggle='dropdown'>Články <span class='caret'></span></a>
+							<ul class='dropdown-menu' role='menu'><li><a href='stranka/guillaumeerard'>Guillaume Erard</a></li> </ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class='container theme-showcase' role='main'>
+			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role='alert'>
+				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+					<span aria-hidden='true'>&times;</span>
+				</button>
+				{$flash->message}</div>
+				{include content}
+			<footer class='footer taligncenter'>
+				<div class='col-sm-4'>&copy; 2013 - {date('Y')} Roman Ondráček</div>
+				<div class='col-sm-4'>Jsme členem <a href="http://www.cfai.cz/">České Federace Aikido</a></div>
+				<div class='col-sm-4'><a href='administrace'><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;Administrace</a></div>
+			</footer>
+		</div>
+		{block scripts}
+		<script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+		{/block}
+	</body>
 </html>

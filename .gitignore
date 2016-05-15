@@ -1,0 +1,14 @@
+# Nette aplication
+log/*
+temp/*
+!.gitignore
+!.htaccess
+!web.config
+app/config/config.local.neon
+
+# Composer
+composer.lock
+vendor/*
+
+# NetBeans
+nbproject/*

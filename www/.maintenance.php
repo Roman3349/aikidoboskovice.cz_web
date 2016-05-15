@@ -1,8 +1,6 @@
 <?php
-
 header('HTTP/1.1 503 Service Unavailable');
 header('Retry-After: 300'); // 5 minutes in seconds
-
 ?>
 <!DOCTYPE html>
 <meta charset="utf-8">
@@ -22,5 +20,4 @@ header('Retry-After: 300'); // 5 minutes in seconds
 <p>The site is temporarily down for maintenance. Please try again in a few minutes.</p>
 
 <?php
-
 exit;

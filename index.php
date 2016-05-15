@@ -7,7 +7,7 @@ use App\Kontrolery\SmerovacKontroler;
 use App\Modely\Db;
 use Tracy\Debugger;
 
-Debugger::enable(Debugger::DETECT, __DIR__ . '/log', 'roman@itmanie.cz');
+Debugger::enable(Config::tracy_cookie . '@' . Config::tracy_addr, __DIR__ . '/log', 'roman@itmanie.cz');
 
 // Zapnutí HTTP Only cookies
 ini_set('session.cookie_httponly', 1);

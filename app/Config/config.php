@@ -12,5 +12,7 @@ class Config {
 	// Captcha
 	const captcha_sitekey = '';
 	const captcha_secretkey = '';
-
+	// Tracy
+	const tracy_addr = '::1';
+	const tracy_cookie = 'secret'; // Content of cookie tracy-debug
 }

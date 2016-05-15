@@ -1,6 +1,6 @@
 {block content}
-<h1 n:block=title>Sign in</h1>
-
-{control signInForm}
-
-{* or use {include '../components/form.latte', form => signInForm} *}
+<div class='panel panel-info'>
+	<header class='panel-heading'><h1 class='panel-title' n:block=title>Přihlaste se</h1></header>
+	<article class='panel-body'>{control signInForm}</article>
+	<footer><a n:href='up'>Pokud ještě nemáte účet, tak se zaregistrijte zde.</a></footer>
+</div>

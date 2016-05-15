@@ -17,7 +17,6 @@ $manager = $container->getByType('App\Model\UserManager');
 try {
 	$manager->add($name, $password);
 	echo "User $name was added.\n";
-
 } catch (App\Model\DuplicateNameException $e) {
 	echo "Error: duplicate name.\n";
 	exit(1);

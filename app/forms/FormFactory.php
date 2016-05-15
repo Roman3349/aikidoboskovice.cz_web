@@ -2,18 +2,15 @@
 
 namespace App\Forms;
 
-use Nette;
+use Nette\Object;
 use Nette\Application\UI\Form;
 
-
-class FormFactory extends Nette\Object
-{
+class FormFactory extends Object {
 
 	/**
 	 * @return Form
 	 */
-	public function create()
-	{
+	public function create() {
 		return new Form;
 	}
 

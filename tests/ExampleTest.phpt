@@ -8,30 +8,23 @@ use Tester\Assert;
 
 $container = require __DIR__ . '/bootstrap.php';
 
+class ExampleTest extends Tester\TestCase {
 
-class ExampleTest extends Tester\TestCase
-{
 	private $container;
 
-
-	function __construct(Nette\DI\Container $container)
-	{
+	function __construct(Nette\DI\Container $container) {
 		$this->container = $container;
 	}
 
-
-	function setUp()
-	{
+	function setUp() {
+		
 	}
 
-
-	function testSomething()
-	{
+	function testSomething() {
 		Assert::true(TRUE);
 	}
 
 }
-
 
 $test = new ExampleTest($container);
 $test->run();

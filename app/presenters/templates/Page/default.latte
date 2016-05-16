@@ -1,0 +1,24 @@
+{block content}
+<div class='panel panel-info'>
+	<header class='panel-heading'><h1 class='panel-title' n:block=title>Seznam stránek</h1></header>
+	<article class='panel-body'>
+		<table class='table'>
+            <thead>
+              <tr>
+                <th>Název</th>
+                <th>Autor</th>
+                <th>Datum</th>
+                <th>Nástroje</th>
+              </tr>
+            </thead>
+            <tbody>
+				<tr n:foreach='$pages as $page'>
+                <td>{$page->title}</td>
+                <td>Mark</td>
+                <td>{$post->created_at|date:'j. n. Y G:i'}</td>
+                <td>Upravit, Odstranit</td>
+              </tr>
+            </tbody>
+          </table>
+	</article>
+</div>

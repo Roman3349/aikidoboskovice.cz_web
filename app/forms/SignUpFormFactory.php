@@ -7,7 +7,7 @@ use Nette\Application\UI\Form;
 use Nette\Security\User;
 use Nette\Security\AuthenticationException;
 
-class SignInFormFactory extends Object {
+class SignUpFormFactory extends Object {
 
 	const
 			PASSWORD_MIN_LENGTH = 7,
@@ -29,11 +29,12 @@ class SignInFormFactory extends Object {
 	 */
 	public function create() {
 		$form = $this->factory->create();
+		$form->addProtection('Vypršel časový limit, odešlete formulář znovu');
 		$form->addText('username', 'Jméno:')
 				->setRequired('Prosím zadejte své uživatelské jméno.');
 		$form->addText('email', 'Email')
 				->setRequired('Prosím zadejte svůj email.')
-				->addRule($form::EMAIL);
+				->addRule($form::EMAIL, 'Prosím zadejte platný email.');
 		$form->addPassword('password', 'Heslo:')
 				->setRequired('Prosím zadejte své heslo.')
 				->addRule($form::MIN_LENGTH, 'Heslo musí mít více než ' . self::PASSWORD_MIN_LENGTH . ' znaků.', self::PASSWORD_MIN_LENGTH)

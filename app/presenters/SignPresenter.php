@@ -3,23 +3,34 @@
 namespace App\Presenters;
 
 use Nette;
-use App\Forms\SignInFormFactory;
+use App\Forms;
 
 class SignPresenter extends BasePresenter {
 
-	/** @var SignInFormFactory @inject */
-	public $factory;
+	/** @var Forms\SignInFormFactory @inject */
+	public $signInfactory;
+
+	/** @var Forms\SignUpFormFactory @inject */
+	public $signUpfactory;
 
 	/**
 	 * Sign-in form factory.
 	 * @return Nette\Application\UI\Form
 	 */
 	protected function createComponentSignInForm() {
-		$form = $this->factory->create();
-		$form->onSuccess[] = function ($form) {
-			$form->getPresenter()->redirect('Homepage:');
-		};
-		return $form;
+		return $this->signInfactory->create(function () {
+					$this->redirect('Homepage:');
+				});
+	}
+
+	/**
+	 * Sign-up form factory.
+	 * @return Nette\Application\UI\Form
+	 */
+	protected function createComponentSignUpForm() {
+		return $this->signUpfactory->create(function () {
+					$this->redirect('Homepage:');
+				});
 	}
 
 	public function actionOut() {

@@ -13,8 +13,8 @@
 		<meta name='description' content='Aikido Boskovice - boskovický oddíl Aikido - japonské bojové umění.'>
 		<meta name='keywords' content='aikido, boskovice, bojové umění, sport, Karel Trefný'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css'>
 		<link href='{$basePath}/css/style.css' rel='stylesheet' type='text/css'>
 		<link rel='shortcut icon' type='image/x-icon' href='{$basePath}/favicon.ico'>
 	</head>
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class='container theme-showcase' role='main'>
-			<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible" role='alert'>
+			<div n:foreach='$flashes as $flash' class='alert alert-{$flash->type} alert-dismissible' role='alert'>
 				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 					<span aria-hidden='true'>&times;</span>
 				</button>
@@ -60,14 +60,14 @@
 				{include content}
 			<footer class='footer taligncenter'>
 				<div class='col-sm-4'>&copy; 2013 - {date('Y')} Roman Ondráček</div>
-				<div class='col-sm-4'>Jsme členem <a href="http://www.cfai.cz/">České Federace Aikido</a></div>
-				<div class='col-sm-4'><a href='administrace'><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp;Administrace</a></div>
+				<div class='col-sm-4'>Jsme členem <a href='http://www.cfai.cz/'>České Federace Aikido</a></div>
+				<div class='col-sm-4'><a href='administrace'><span class='glyphicon glyphicon-wrench' aria-hidden='true'></span>&nbsp;Administrace</a></div>
 			</footer>
 		</div>
 		{block scripts}
 		<script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+		<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+		<script src='https://nette.github.io/resources/js/netteForms.min.js'></script>
 		{/block}
 	</body>
 </html>

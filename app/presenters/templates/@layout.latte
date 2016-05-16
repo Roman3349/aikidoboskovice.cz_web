@@ -61,7 +61,10 @@
 			<footer class='footer taligncenter'>
 				<div class='col-sm-4'>&copy; 2013 - {date('Y')} Roman Ondráček</div>
 				<div class='col-sm-4'>Jsme členem <a href='http://www.cfai.cz/'>České Federace Aikido</a></div>
-				<div class='col-sm-4'><a href='administrace'><span class='glyphicon glyphicon-wrench' aria-hidden='true'></span>&nbsp;Administrace</a></div>
+				<div class='col-sm-4'>
+					<a n:if='!$user->loggedIn' n:href='Sign:in'><span class='glyphicon glyphicon-user' aria-hidden='true'></span>&nbsp;Přihlásit se</a>
+					<a n:if='$user->loggedIn' n:href='Admin:default'><span class='glyphicon glyphicon-wrench' aria-hidden='true'></span>&nbsp;Administrace</a>
+				</div>
 			</footer>
 		</div>
 		{block scripts}

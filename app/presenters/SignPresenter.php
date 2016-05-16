@@ -19,6 +19,7 @@ class SignPresenter extends BasePresenter {
 	 */
 	protected function createComponentSignInForm() {
 		return $this->signInfactory->create(function () {
+					$this->flashMessage('Byl jste úspěšně přihlášen.', 'success');
 					$this->redirect('Homepage:');
 				});
 	}
@@ -29,6 +30,7 @@ class SignPresenter extends BasePresenter {
 	 */
 	protected function createComponentSignUpForm() {
 		return $this->signUpfactory->create(function () {
+			$this->flashMessage('Byl jste úspěšně zaregistrován.', 'success');
 					$this->redirect('Homepage:');
 				});
 	}

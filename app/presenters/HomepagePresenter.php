@@ -14,7 +14,12 @@ class HomepagePresenter extends BasePresenter {
 	}
 	
 	public function renderDefault() {
-		
+		$page = $this->database->table('homepage')->get(1);
+		if (!$page) {
+			$this->error('Homepage nebyla nalezena');
+		}
+		$this->template->page = $page;
+		$this->template->user = $this->getUser();
 	}
 
 }

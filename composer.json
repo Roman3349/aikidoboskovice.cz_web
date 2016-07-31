@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"php": ">= 5.5.0",
-		"tracy/tracy": "^2.3",
+		"tracy/tracy": "^2.4",
 		"google/recaptcha": "^1.1"
 	},
 	"require-dev": {

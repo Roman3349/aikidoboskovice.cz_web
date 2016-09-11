@@ -11,16 +11,6 @@ use App\Modely\Db;
 class SpravceUzivatelu {
 
 	/**
-	 * Vrátí otisk hesla
-	 * @param string $jmeno
-	 * @param string $heslo
-	 * @return strinh SHA-512 hash
-	 */
-	public function vratOtisk($jmeno, $heslo) {
-		return hash('sha512', $heslo . ucwords($jmeno));
-	}
-
-	/**
 	 * Registruje nového uživatele do systému
 	 * @param string $jmeno
 	 * @param string $heslo
@@ -52,10 +42,6 @@ class SpravceUzivatelu {
 			$uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ?', [$jmeno]);
 			if (!$uzivatel) {
 				throw new ChybaUzivatele('Neplatné jméno.');
-			} elseif ($this->vratOtisk($jmeno, $heslo) == $uzivatel['heslo']) {
-				// Změní otisk hesla v databázi
-				Db::zmen('uzivatele', ['heslo' => password_hash($heslo, PASSWORD_BCRYPT)], 'WHERE jmeno = ?', [$jmeno]);
-				throw new ChybaUzivatele('Přihlaste se znovu.');
 			} elseif (!password_verify($heslo, $uzivatel['heslo'])) {
 				throw new ChybaUzivatele('Neplatné heslo.');
 			}
@@ -65,7 +51,7 @@ class SpravceUzivatelu {
 			$_SESSION['jmeno'] = $uzivatel['jmeno'];
 			$_SESSION['heslo'] = $uzivatel['heslo'];
 			$_SESSION['admin'] = $uzivatel['admin'];
-			$_SESSION['agent'] = $_SERVER['HTTP_USER_AGENT'];
+			$_SESSION['agent'] = filter_input(INPUT_SERVER ,'HTTP_USER_AGENT');
 		}
 	}
 

@@ -21,27 +21,29 @@ class EditorKontroler extends Kontroler {
 		$spravceStranek = new SpravceStranek();
 		// Příprava prázdné stránky
 		$stranka = ['stranky_id' => '', 'titulek' => '', 'obsah' => '', 'url' => '', 'pridal' => ''];
-		if ($_POST && $_SESSION['admin'] == 1) {
-			$_POST['titulek'] = trim($_POST['titulek']);
-			$_POST['obsah'] = trim($_POST['obsah']);
-			$_POST['url'] = trim($_POST['url']);
-			$_POST['pridal'] = trim($_POST['pridal']);
-			if (empty($_POST['titulek'])) {
+		if (filter_input_array(INPUT_POST) && $_SESSION['admin'] == 1) {
+			$post = filter_input_array(INPUT_POST);
+			$post['titulek'] = trim($post['titulek']);
+			$post['obsah'] = trim($post['obsah']);
+			$post['url'] = trim($post['url']);
+			$post['pridal'] = trim($post['pridal']);
+			$stranka = $post;
+			if (empty($post['titulek'])) {
 				$this->pridejZpravu('Titulek musí být vyplněn.');
-			} elseif (empty($_POST['obsah'])) {
+			} elseif (empty($post['obsah'])) {
 				$this->pridejZpravu('Obsah musí být vyplněn.');
-			} elseif (empty(['url'])) {
+			} elseif (empty($post['url'])) {
 				$this->pridejZpravu('URL musí být vyplněná.');
-			} elseif (empty($_POST['pridal'])) {
+			} elseif (empty($post['pridal'])) {
 				$this->pridejZpravu('Autor musí být vyplněn.');
 			} else {
 				// Získání dat z formuláře
 				$klice = ['titulek', 'obsah', 'url', 'pridal'];
 				$spravceEditoru = new SpravceEditoru();
-				$_POST['obsah'] = $spravceEditoru->odstranJS($_POST['obsah']);
-				$stranka = array_intersect_key($_POST, array_flip($klice));
+				$post['obsah'] = $spravceEditoru->odstranJS($post['obsah']);
+				$stranka = array_intersect_key($post, array_flip($klice));
 				// Uložení stránky do databáze
-				$spravceStranek->ulozStranku($_POST['stranky_id'], $stranka);
+				$spravceStranek->ulozStranku($post['stranky_id'], $stranka);
 				$this->pridejZpravu('Stránka byla úspěšně uložena.');
 				$this->presmeruj('stranka/' . $stranka['url']);
 			}

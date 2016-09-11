@@ -24,23 +24,23 @@ class AdminKontroler extends Kontroler {
 					$this->hlavicka['titulek'] = 'Přidání administrátora webu';
 					$this->data['typ'] = 'Přidání';
 					$this->data['tlacitko'] = 'Přidat';
-					if ($_POST && $_SESSION['admin'] == 1) {
+					if (filter_input_array(INPUT_POST) && $_SESSION['admin'] == 1) {
 						// Přidání administrátora
-						$spravceUzivatelu->upravaAdmina($_POST['jmeno'], 1);
-						$this->pridejZpravu('Administrátor ' . $_POST['jmeno'] . ' byl úspěšně přidán.');
+						$spravceUzivatelu->upravaAdmina(filter_input(INPUT_POST, 'jmeno'), 1);
+						$this->pridejZpravu('Administrátor ' . filter_input(INPUT_POST, 'jmeno') . ' byl úspěšně přidán.');
 					}
 					break;
 				case 'odebrat':
 					$this->hlavicka['titulek'] = 'Odebrání administrátora webu';
 					$this->data['typ'] = 'Odebrání';
 					$this->data['tlacitko'] = 'Odebrat';
-					if ($_POST && $_SESSION['admin'] == 1) {
+					if (filter_input_array(INPUT_POST) && $_SESSION['admin'] == 1) {
 						// Odebrání administrátora
-						$spravceUzivatelu->upravaAdmina($_POST['jmeno'], 0);
-						$this->pridejZpravu('Administrátor ' . $_POST['jmeno'] . ' byl úspěšně odebrán.');
+						$spravceUzivatelu->upravaAdmina(filter_input(INPUT_POST, 'jmeno'), 0);
+						$this->pridejZpravu('Administrátor ' . filter_input(INPUT_POST, 'jmeno') . ' byl úspěšně odebrán.');
 					}
 					break;
-				default :
+				default:
 					$this->presmeruj('chyba');
 			}
 		} else {

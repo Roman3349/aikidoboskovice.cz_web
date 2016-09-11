@@ -18,7 +18,7 @@ class RegistraceKontroler extends Kontroler {
 	 */
 	public function zpracuj($parametry) {
 		$this->hlavicka['titulek'] = 'Registrace';
-		if ($_POST) {
+		if (filter_input_array(INPUT_POST)) {
 			try {
 				$recaptcha = new ReCaptcha(Config::captcha_secretkey);
 				$odpoved = $recaptcha->verify(filter_input(INPUT_POST, 'g-recaptcha-response'), filter_input(INPUT_SERVER, 'REMOTE_ADDR'));

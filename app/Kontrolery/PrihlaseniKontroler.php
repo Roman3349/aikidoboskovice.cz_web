@@ -18,7 +18,7 @@ class PrihlaseniKontroler extends Kontroler {
 		$spravceUzivatelu = new SpravceUzivatelu();
 		$spravceUzivatelu->vratUzivatele() ? $this->presmeruj('administrace') : false;
 		$this->hlavicka['titulek'] = 'Přihlášení';
-		if ($_POST) {
+		if (filter_input_array(INPUT_POST)) {
 			try {
 				$spravceUzivatelu->prihlas(filter_input(INPUT_POST, 'jmeno'), filter_input(INPUT_POST, 'heslo'));
 				$this->pridejZpravu('Byl jste úspěšně přihlášen.');

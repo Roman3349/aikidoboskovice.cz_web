@@ -77,10 +77,10 @@ class SpravceUzivatelu {
 		// Souhlasí stávající heslo
 		if (!password_verify($heslo, $uzivatel['heslo'])) {
 			throw new ChybaUzivatele('Chybně vyplněné současné heslo.');
-		} elseif ($noveHeslo != $noveHesloZnovu) {
-			throw new ChybaUzivatele('Hesla nesouhlasí.');
 		} elseif (strlen($noveHeslo) > 60) {
 			throw new ChybaUzivatele('Heslo je delší než 60 znaků.');
+		} elseif ($noveHeslo != $noveHesloZnovu) {
+			throw new ChybaUzivatele('Hesla nesouhlasí.');
 		}
 		try {
 			// Změní heslo v databázi

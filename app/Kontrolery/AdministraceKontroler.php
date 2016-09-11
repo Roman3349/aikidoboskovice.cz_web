@@ -32,7 +32,7 @@ class AdministraceKontroler extends Kontroler {
 					$this->hlavicka['titulek'] = 'Změna hesla';
 					if ($_POST) {
 						try {
-							$spravceUzivatelu->zmenHeslo($uzivatel['jmeno'], $_POST['heslo'], $_POST['nove_heslo'], $_POST['nove_heslo_znovu']);
+							$spravceUzivatelu->zmenHeslo(filter_input(INPUT_POST, 'jmeno'), filter_input(INPUT_POST, 'heslo'), filter_input(INPUT_POST, 'nove_heslo'), filter_input(INPUT_POST, 'nove_heslo_znovu'));
 							$spravceUzivatelu->odhlas();
 							$this->presmeruj('prihlaseni');
 							$this->pridejZpravu('Vaše heslo bylo úspěšně změněno.');

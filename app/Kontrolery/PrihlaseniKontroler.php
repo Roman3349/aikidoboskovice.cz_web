@@ -20,7 +20,7 @@ class PrihlaseniKontroler extends Kontroler {
 		$this->hlavicka['titulek'] = 'Přihlášení';
 		if ($_POST) {
 			try {
-				$spravceUzivatelu->prihlas($_POST['jmeno'], $_POST['heslo']);
+				$spravceUzivatelu->prihlas(filter_input(INPUT_POST, 'jmeno'), filter_input(INPUT_POST, 'heslo'));
 				$this->pridejZpravu('Byl jste úspěšně přihlášen.');
 				$this->presmeruj('administrace');
 			} catch (ChybaUzivatele $chyba) {

@@ -127,7 +127,7 @@ class SpravceUzivatelu {
 		$uzivatel = Db::dotazJeden('SELECT `id`, `jmeno`, `heslo`, `admin` FROM `uzivatele` WHERE `jmeno` = ?', [$_SESSION['jmeno']]);
 		if ($_SESSION['id'] === $uzivatel['id'] && $_SESSION['jmeno'] === $uzivatel['jmeno'] &&
 				$_SESSION['heslo'] === $uzivatel['heslo'] && $_SESSION['admin'] === $uzivatel['admin'] &&
-				$_SESSION['agent'] === $_SERVER['HTTP_USER_AGENT']) {
+				$_SESSION['agent'] === filter_input(INPUT_SERVER ,'HTTP_USER_AGENT')) {
 			return true;
 		} else {
 			return false;

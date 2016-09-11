@@ -21,11 +21,11 @@ class RegistraceKontroler extends Kontroler {
 		if ($_POST) {
 			try {
 				$recaptcha = new ReCaptcha(Config::captcha_secretkey);
-				$odpoved = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+				$odpoved = $recaptcha->verify(filter_input(INPUT_POST, 'g-recaptcha-response'), filter_input(INPUT_SERVER, 'REMOTE_ADDR'));
 				if ($odpoved->isSuccess()) {
 					$spravceUzivatelu = new SpravceUzivatelu();
-					$spravceUzivatelu->registruj($_POST['jmeno'], $_POST['heslo'], $_POST['heslo_znovu']);
-					$spravceUzivatelu->prihlas($_POST['jmeno'], $_POST['heslo']);
+					$spravceUzivatelu->registruj(filter_input(INPUT_POST, 'jmeno'), filter_input(INPUT_POST, 'heslo'), filter_input(INPUT_POST, 'heslo_znovu'));
+					$spravceUzivatelu->prihlas(filter_input(INPUT_POST, 'jmeno'), filter_input(INPUT_POST, 'heslo'));
 					$this->pridejZpravu('Byl jste úspěšně zaregistrován.');
 					$this->presmeruj('administrace');
 				} else {
